@@ -109,7 +109,7 @@ function attachLuminosityListener() {
     fetch('https://nnv5wacde8.execute-api.eu-north-1.amazonaws.com/ML-calc', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ choice: '1', m, x, Z: z })
+      body: JSON.stringify({ choice: '1', M, X, Z: z })
     })
     .then(res => res.json())
     .then(data => {
@@ -117,7 +117,7 @@ function attachLuminosityListener() {
       let warnings = '';
       let result = '';
 
-      if (x + z > 1) {
+      if (X + z > 1) {
         output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
         return;
       }
@@ -128,16 +128,16 @@ function attachLuminosityListener() {
           : '<p style="color: orange;">Warning: The luminosities are extrapolated</p>';
       }
 
-      if (m < 1 || m > 18) {
+      if (M < 1 || M > 18) {
         warnings += '<p style="color: orange;">Warning: Input mass is outside the tested model range</p>';
       }
 
-      if (x > 0.7 && x <= 1) {
+      if (X > 0.7 && X <= 1) {
         warnings += '<p style="color: orange;">Warning: Input hydrogen mass fraction exceeds tested model limit</p>';
       }
 
 
-      if (x === 0 && data.Pure_He_Luminosity) {
+      if (X === 0 && data.Pure_He_Luminosity) {
         result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}</p>`;
       } else if (data.Pure_He_Luminosity) {
         result = `
