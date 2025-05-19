@@ -108,7 +108,7 @@ function attachLuminosityListener() {
     const output = document.getElementById('luminosity-output');
 
     if (M <= 0 || X < 0 || Z < 0) {
-      output.innerHTML = '<p style="color: red;">Yea, nice try :)</p>';
+      output.innerHTML = '<p style="color: red;">Yea, nice try :) Zero or negative input(s) </p>';
       return;
     }
 
