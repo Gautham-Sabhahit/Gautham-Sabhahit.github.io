@@ -101,15 +101,15 @@ title: Mass-Luminosity Calculator
 
 function attachLuminosityListener() {
   document.getElementById('calculate-luminosity').addEventListener('click', () => {
-    const m = parseFloat(document.getElementById('m').value);
-    const x = parseFloat(document.getElementById('x').value);
-    const z = parseFloat(document.getElementById('z').value);
-    if (!m || !z) return alert('Please enter Mass (M) and Metallicity (Z).');
+    const M = parseFloat(document.getElementById('m').value);
+    const X = parseFloat(document.getElementById('x').value);
+    const Z = parseFloat(document.getElementById('z').value);
+    if (!M || !Z) return alert('Please enter Mass (M) and Metallicity (Z).');
 
     fetch('https://nnv5wacde8.execute-api.eu-north-1.amazonaws.com/ML-calc', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ choice: '1', M, X, Z: z })
+      body: JSON.stringify({ choice: '1', M, X, Z })
     })
     .then(res => res.json())
     .then(data => {
@@ -117,13 +117,13 @@ function attachLuminosityListener() {
       let warnings = '';
       let result = '';
 
-      if (X + z > 1) {
+      if (X + Z > 1) {
         output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
         return;
       }
 
-      if (z !== 0.008 && z !== 0.004) {
-        warnings += (z > 0.004 && z < 0.008)
+      if (Z !== 0.008 && Z !== 0.004) {
+        warnings += (Z > 0.004 && Z < 0.008)
           ? '<p style="color: orange;">Warning: The luminosities are interpolated</p>'
           : '<p style="color: orange;">Warning: The luminosities are extrapolated</p>';
       }
@@ -136,13 +136,15 @@ function attachLuminosityListener() {
         warnings += '<p style="color: orange;">Warning: Input hydrogen mass fraction exceeds tested model limit</p>';
       }
 
-
       if (X === 0 && data.Pure_He_Luminosity) {
         result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}</p>`;
+        if (data.s !== undefined) {
+          result += `<p style="font-size: 1.1em;">Slope = ${data.s}</p>`;
+        }
       } else if (data.Pure_He_Luminosity) {
         result = `
           <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}</p>
-          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max} &nbsp; (slope = ${data.slope})</p>
+          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max} &nbsp; (slope = ${data.s})</p>
           <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}</p>`;
       } else {
         output.innerHTML = '<p style="color: red;">Error: Missing results</p>';
@@ -160,15 +162,15 @@ function attachLuminosityListener() {
 
 function attachMassListener() {
   document.getElementById('calculate-mass').addEventListener('click', () => {
-    const l = parseFloat(document.getElementById('l').value);
-    const x = parseFloat(document.getElementById('x_mass').value);
-    const z = parseFloat(document.getElementById('z_mass').value);
-    if (!l || !z) return alert('Please enter Luminosity (L) and Metallicity (Z).');
+    const L = parseFloat(document.getElementById('l').value);
+    const X = parseFloat(document.getElementById('x_mass').value);
+    const Z = parseFloat(document.getElementById('z_mass').value);
+    if (!L || !Z) return alert('Please enter Luminosity (L) and Metallicity (Z).');
 
     fetch('https://nnv5wacde8.execute-api.eu-north-1.amazonaws.com/ML-calc', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ choice: '2', L: l, x, Z: z })
+      body: JSON.stringify({ choice: '2', L, X, Z })
     })
     .then(res => res.json())
     .then(data => {
@@ -176,22 +178,22 @@ function attachMassListener() {
       let warnings = '';
       let result = '';
 
-      if (x + z > 1) {
+      if (X + Z > 1) {
         output.innerHTML = '<p style="color: red;">Yea nice try :) X + Z > 1</p>';
         return;
       }
 
-      if (z !== 0.008 && z !== 0.004) {
-        warnings += (z > 0.004 && z < 0.008)
+      if (Z !== 0.008 && Z !== 0.004) {
+        warnings += (Z > 0.004 && Z < 0.008)
           ? '<p style="color: orange;">Warning: The masses are interpolated</p>'
           : '<p style="color: orange;">Warning: The masses are extrapolated</p>';
       }
 
-      if (x > 0.7 && x <= 1) {
+      if (X > 0.7 && X <= 1) {
         warnings += '<p style="color: orange;">Warning: Hydrogen mass fraction exceeds tested model limit</p>';
       }
 
-      if (x > 1) {
+      if (X > 1) {
         output.innerHTML = '<p style="color: red;">Error: Yea, nice try :)</p>';
         return;
       }
@@ -209,13 +211,19 @@ function attachMassListener() {
           warnings += '<p style="color: orange;">Warning: One (or more) of the output masses is outside the tested model range</p>';
         }
 
-        if (x === 0) {
+        if (X === 0) {
           result = `<p style="font-size: 1.1em;">log(M<sub>He</sub>/M<sub>⊙</sub>) = ${data.Pure_He_Mass}</p>`;
+          if (data.s_min !== undefined) {
+            result += `<p style="font-size: 1.1em;">Slope = ${data.s_min}</p>`;
+          }
         } else {
           result = `
             <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}</p>
             <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}</p>
             <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}</p>`;
+          if (data.s_min !== undefined) {
+            result += `<p style="font-size: 1em;">Slope = ${data.s_min}</p>`;
+          }
         }
 
         output.innerHTML = result + warnings;
@@ -228,6 +236,7 @@ function attachMassListener() {
     });
   });
 }
+
 
 
 
