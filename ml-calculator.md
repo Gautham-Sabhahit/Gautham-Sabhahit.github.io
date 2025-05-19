@@ -153,7 +153,7 @@ function attachLuminosityListener() {
           <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max}, &nbsp; slope = ${data.s}</p>
           <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else {
-        output.innerHTML = '<p style="color: red;">Error: Missing results</p>';
+        output.innerHTML = '<p style="color: red;">Error: Invalid inputs</p>';
         return;
       }
 
