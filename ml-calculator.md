@@ -107,23 +107,8 @@ function attachLuminosityListener() {
 
     const output = document.getElementById('luminosity-output');
 
-    if (M < 0 || X < 0 || Z < 0) {
+    if (M <= 0 || X < 0 || Z < 0) {
       output.innerHTML = '<p style="color: red;">Yea, nice try :)</p>';
-      return;
-    }
-
-    if (!M) {
-      alert('Please enter Mass (M).');
-      return;
-    }
-
-    if (X === undefined || X === null || X === '') {
-      alert('Please enter Hydrogen Mass Fraction (X).');
-      return;
-    }
-
-    if (!Z) {
-      alert('Please enter Metallicity (Z).');
       return;
     }
 
@@ -144,23 +129,24 @@ function attachLuminosityListener() {
 
       if (Z !== 0.008 && Z !== 0.004) {
         warnings += (Z > 0.004 && Z < 0.008)
-          ? '<p style="color: orange;">Warning: The luminosities are interpolated</p>'
-          : '<p style="color: orange;">Warning: The luminosities are extrapolated</p>';
+          ? '<p style="color: orange;">Warning: Luminosity values are interpolated between Z = 0.008 and Z = 0.004</p>'
+          : '<p style="color: orange;">Warning: Luminosity values are extrapolated beyond Z = 0.008 and Z = 0.004</p>';
       }
 
       if (M < 1 || M > 18) {
-        warnings += '<p style="color: orange;">Warning: Input mass is outside the tested model range</p>';
+        warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
+      }
+      
+      if (M < 1 || M > 40) {
+        warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M ≤ 40)</p>';
       }
 
       if (X > 0.7 && X <= 1) {
-        warnings += '<p style="color: orange;">Warning: Input hydrogen mass fraction exceeds tested model limit</p>';
+        warnings += '<p style="color: orange;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
       }
 
       if (X === 0 && data.Pure_He_Luminosity) {
-        result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}</p>`;
-        if (data.s !== undefined) {
-          result += `<p style="font-size: 1.1em;">Slope = ${data.s}</p>`;
-        }
+        result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}</p>, &nbsp; slope = inf`;
       } else if (data.Pure_He_Luminosity) {
         result = `
           <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}, &nbsp; slope = 0</p>
