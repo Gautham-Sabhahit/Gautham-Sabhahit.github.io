@@ -143,9 +143,9 @@ function attachLuminosityListener() {
         }
       } else if (data.Pure_He_Luminosity) {
         result = `
-          <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}</p>
-          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max} &nbsp; (slope = ${data.s})</p>
-          <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}</p>`;
+          <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}, &nbsp; slope = 0</p>
+          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max}, &nbsp; slope = ${data.s}</p>
+          <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else {
         output.innerHTML = '<p style="color: red;">Error: Missing results</p>';
         return;
