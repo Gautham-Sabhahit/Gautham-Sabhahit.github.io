@@ -159,7 +159,7 @@ function attachLuminosityListener() {
           <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max}, &nbsp; slope = 0</p>
           <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else {
-        output.innerHTML = '<p style="color: red;">Error: Invalid inputs. Congrats, you have broken the calculator</p>';
+        output.innerHTML = '<p style="color: red;">Error: Invalid inputs. Congrats, you have broken the calculator!</p>';
         return;
       }
 
@@ -248,7 +248,7 @@ function attachMassListener() {
 
         output.innerHTML = result + warnings;
       } else {
-        output.innerHTML = '<p style="color: red;">Error: Invalid inputs. Congrats, you have broken the calculator</p>';
+        output.innerHTML = '<p style="color: red;">Error: Invalid inputs. Congrats, you have broken the calculator!</p>';
       }
     })
     .catch(error => {
