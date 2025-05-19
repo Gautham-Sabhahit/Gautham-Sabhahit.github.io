@@ -104,7 +104,28 @@ function attachLuminosityListener() {
     const M = parseFloat(document.getElementById('m').value);
     const X = parseFloat(document.getElementById('x').value);
     const Z = parseFloat(document.getElementById('z').value);
-    if (!M || !Z) return alert('Please enter Mass (M) and Metallicity (Z).');
+
+    const output = document.getElementById('luminosity-output');
+
+    if (M < 0 || X < 0 || Z < 0) {
+      output.innerHTML = '<p style="color: red;">Yea, nice try :)</p>';
+      return;
+    }
+
+    if (!M) {
+      alert('Please enter Mass (M).');
+      return;
+    }
+
+    if (X === undefined || X === null || X === '') {
+      alert('Please enter Hydrogen Mass Fraction (X).');
+      return;
+    }
+
+    if (!Z) {
+      alert('Please enter Metallicity (Z).');
+      return;
+    }
 
     fetch('https://nnv5wacde8.execute-api.eu-north-1.amazonaws.com/ML-calc', {
       method: 'POST',
@@ -113,7 +134,6 @@ function attachLuminosityListener() {
     })
     .then(res => res.json())
     .then(data => {
-      const output = document.getElementById('luminosity-output');
       let warnings = '';
       let result = '';
 
@@ -154,10 +174,12 @@ function attachLuminosityListener() {
       output.innerHTML = result + warnings;
     })
     .catch(error => {
-      document.getElementById('luminosity-output').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+      output.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
     });
   });
 }
+
+
 
 function attachMassListener() {
   document.getElementById('calculate-mass').addEventListener('click', () => {
@@ -217,8 +239,8 @@ function attachMassListener() {
           }
         } else {
           result = `
-            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = 0</p>
-            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = ${data.s}</p>
+            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = ${data.s}</p>
+            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = 0</p>
             <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}, &nbsp; slope = inf</p>`;
         }
 
