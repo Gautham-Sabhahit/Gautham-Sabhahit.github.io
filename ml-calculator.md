@@ -146,7 +146,7 @@ function attachLuminosityListener() {
       }
 
       if (X === 0 && data.Pure_He_Luminosity) {
-        result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf`</p>;
+        result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else if (data.Pure_He_Luminosity) {
         result = `
           <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}, &nbsp; slope = 0</p>
