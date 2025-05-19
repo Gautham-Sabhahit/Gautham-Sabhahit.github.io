@@ -202,6 +202,7 @@ function attachMassListener() {
         const mHe = parseFloat(data.Pure_He_Mass);
         const mMin = parseFloat(data.M_min);
         const mMax = parseFloat(data.M_max);
+        const slope = data.s_min !== undefined ? ` (Slope = ${data.s_min})` : '';
 
         if (
           mHe < 1 || mHe > 18 ||
@@ -213,17 +214,11 @@ function attachMassListener() {
 
         if (X === 0) {
           result = `<p style="font-size: 1.1em;">log(M<sub>He</sub>/M<sub>⊙</sub>) = ${data.Pure_He_Mass}</p>`;
-          if (data.s_min !== undefined) {
-            result += `<p style="font-size: 1.1em;">Slope = ${data.s_min}</p>`;
-          }
         } else {
           result = `
-            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}</p>
+            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}${slope}</p>
             <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}</p>
             <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}</p>`;
-          if (data.s_min !== undefined) {
-            result += `<p style="font-size: 1em;">Slope = ${data.s_min}</p>`;
-          }
         }
 
         output.innerHTML = result + warnings;
@@ -236,6 +231,7 @@ function attachMassListener() {
     });
   });
 }
+
 
 
 
