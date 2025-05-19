@@ -155,9 +155,9 @@ function attachLuminosityListener() {
         result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else if (data.Pure_He_Luminosity) {
         result = `
-          <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = ${data.s}</p>
-          <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = 0</p>
-          <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}, &nbsp; slope = inf</p>`;
+          <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}, &nbsp; slope = ${data.s}</p>
+          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max}, &nbsp; slope = 0</p>
+          <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else {
         output.innerHTML = '<p style="color: red;">Error: Invalid inputs</p>';
         return;
@@ -170,6 +170,7 @@ function attachLuminosityListener() {
     });
   });
 }
+
 
 
 
