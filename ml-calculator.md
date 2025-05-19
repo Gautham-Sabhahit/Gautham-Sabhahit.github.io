@@ -101,14 +101,28 @@ title: Mass-Luminosity Calculator
 
 function attachLuminosityListener() {
   document.getElementById('calculate-luminosity').addEventListener('click', () => {
-    const M = parseFloat(document.getElementById('m').value);
-    const X = parseFloat(document.getElementById('x').value);
-    const Z = parseFloat(document.getElementById('z').value);
+    const mVal = document.getElementById('m').value;
+    const xVal = document.getElementById('x').value;
+    const zVal = document.getElementById('z').value;
+
+    const M = parseFloat(mVal);
+    const X = parseFloat(xVal);
+    const Z = parseFloat(zVal);
 
     const output = document.getElementById('luminosity-output');
 
+    if (isNaN(M) || isNaN(X) || isNaN(Z)) {
+      output.innerHTML = '<p style="color: red;">Error: All inputs must be valid numbers</p>';
+      return;
+    }
+
     if (M <= 0 || X < 0 || Z < 0) {
-      output.innerHTML = '<p style="color: red;">Yea, nice try :) Zero or negative input(s) </p>';
+      output.innerHTML = '<p style="color: red;">Yea, nice try :) Zero or negative input(s)</p>';
+      return;
+    }
+
+    if (X + Z > 1) {
+      output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
       return;
     }
 
@@ -122,23 +136,17 @@ function attachLuminosityListener() {
       let warnings = '';
       let result = '';
 
-      if (X + Z > 1) {
-        output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
-        return;
-      }
-
       if (Z !== 0.008 && Z !== 0.004) {
         warnings += (Z > 0.004 && Z < 0.008)
           ? '<p style="color: orange;">Warning: Luminosity and slope values are interpolated between Z = 0.008 and Z = 0.004</p>'
           : '<p style="color: orange;">Warning: Luminosity and slope values are extrapolated beyond Z = 0.008 and Z = 0.004</p>';
       }
-      
-      if (M < 1 || M > 18) {
-        warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
-      }
       if (X > 0.7 && X <= 1) {
         warnings += '<p style="color: orange;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
-      }      
+      } 
+      if (M < 1 || M > 18) {
+        warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
+      }     
       if (M < 1 || M > 40) {
         warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M ≤ 40)</p>';
       }
@@ -146,11 +154,11 @@ function attachLuminosityListener() {
       if (X === 0 && data.Pure_He_Luminosity) {
         result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
       } else if (data.Pure_He_Luminosity) {
-          result = 
-            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = ${data.s}</p>
-            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = 0</p>
-            <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}, &nbsp; slope = inf</p>;
-        } else {
+        result = `
+          <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = ${data.s}</p>
+          <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = 0</p>
+          <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}, &nbsp; slope = inf</p>`;
+      } else {
         output.innerHTML = '<p style="color: red;">Error: Invalid inputs</p>';
         return;
       }
@@ -165,12 +173,33 @@ function attachLuminosityListener() {
 
 
 
+
 function attachMassListener() {
   document.getElementById('calculate-mass').addEventListener('click', () => {
-    const L = parseFloat(document.getElementById('l').value);
-    const X = parseFloat(document.getElementById('x_mass').value);
-    const Z = parseFloat(document.getElementById('z_mass').value);
-    if (!L || !Z) return alert('Please enter Luminosity (L) and Metallicity (Z).');
+    const lVal = document.getElementById('l').value;
+    const xVal = document.getElementById('x_mass').value;
+    const zVal = document.getElementById('z_mass').value;
+
+    const L = parseFloat(lVal);
+    const X = parseFloat(xVal);
+    const Z = parseFloat(zVal);
+
+    const output = document.getElementById('mass-output');
+
+    if (isNaN(L) || isNaN(X) || isNaN(Z)) {
+      output.innerHTML = '<p style="color: red;">Error: All inputs must be valid numbers</p>';
+      return;
+    }
+
+    if (!L || !Z) {
+      output.innerHTML = '<p style="color: red;">Please enter Luminosity (L) and Metallicity (Z).</p>';
+      return;
+    }
+
+    if (X + Z > 1) {
+      output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
+      return;
+    }
 
     fetch('https://nnv5wacde8.execute-api.eu-north-1.amazonaws.com/ML-calc', {
       method: 'POST',
@@ -179,15 +208,9 @@ function attachMassListener() {
     })
     .then(res => res.json())
     .then(data => {
-      const output = document.getElementById('mass-output');
       let warnings = '';
       let result = '';
 
-      if (X + Z > 1) {
-        output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
-        return;
-      }
-      
       if (Z !== 0.008 && Z !== 0.004) {
         warnings += (Z > 0.004 && Z < 0.008)
           ? '<p style="color: orange;">Warning: Mass and slope values are interpolated between Z = 0.008 and Z = 0.004</p>'
@@ -203,24 +226,24 @@ function attachMassListener() {
         const mMin = parseFloat(data.M_min);
         const mMax = parseFloat(data.M_max);
         
-        if (mMin < 1 || mMin > 18 ){
+        if (mMin < 1 || mMin > 18) {
           warnings += '<p style="color: orange;">Warning: Output M_min is outside grid range (1 ≤ M ≤ 18)</p>';
         }
-        if (mHe < 1 || mHe > 40 ){
+        if (mHe < 1 || mHe > 40) {
           warnings += '<p style="color: orange;">Warning: Output M_He is outside grid range (1 ≤ M ≤ 40)</p>';
         }
-        if (mMax < 1 || mMax > 40 ){
+        if (mMax < 1 || mMax > 40) {
           warnings += '<p style="color: orange;">Warning: Output M_max is outside grid range (1 ≤ M ≤ 40)</p>';
         }
-        if (x === 0) {
-         result = `<p style="font-size: 1.1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>`;
-        } else {
-         result = `
-          <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>
-          <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}</p>
-          <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.He_slope !== undefined ? `, &nbsp; slope = ${data.He_slope}` : ''}</p>`;
-         }
 
+        if (X === 0) {
+          result = `<p style="font-size: 1.1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>`;
+        } else {
+          result = `
+            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>
+            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}</p>
+            <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.He_slope !== undefined ? `, &nbsp; slope = ${data.He_slope}` : ''}</p>`;
+        }
 
         output.innerHTML = result + warnings;
       } else {
@@ -228,7 +251,7 @@ function attachMassListener() {
       }
     })
     .catch(error => {
-      document.getElementById('mass-output').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+      output.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
     });
   });
 }
