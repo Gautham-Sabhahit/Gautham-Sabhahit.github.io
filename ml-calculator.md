@@ -241,9 +241,9 @@ function attachMassListener() {
           result = `<p style="font-size: 1.1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>`;
         } else {
           result = `
-            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>
-            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}</p>
-            <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.He_slope !== undefined ? `, &nbsp; slope = ${data.He_slope}` : ''}</p>`;
+            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = ${data.s}</p>
+            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = 0</p>
+            <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}, &nbsp; slope = inf</p>`;
         }
 
         output.innerHTML = result + warnings;
