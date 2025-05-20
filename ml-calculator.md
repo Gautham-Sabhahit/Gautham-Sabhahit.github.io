@@ -160,7 +160,7 @@ function attachLuminosityListener() {
       }
 
       if (unreliable) {
-        warnings += '<p style="color: red; font-size: 16px;">Warning(s):<br>Error: Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+        warnings += '<p style="color: red; font-size: 16px;">Warning(s): Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
         return;
       }
 
