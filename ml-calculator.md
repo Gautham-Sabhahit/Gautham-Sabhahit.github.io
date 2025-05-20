@@ -133,40 +133,51 @@ function attachLuminosityListener() {
     .then(data => {
       let warnings = '';
       let result = '';
-      
+      const Z1 = 0.004;
+      const Z2 = 0.008;
+
+      const L_min = parseFloat(data.L_min);
+      const L_max = parseFloat(data.L_max);
+      const L_he  = parseFloat(data.Pure_He_Luminosity);
+      const s     = parseFloat(data.s);
+
+      const unreliable = (
+        (X > 0 && (isNaN(L_min) || isNaN(L_max) || isNaN(L_he))) ||
+        (X === 0 && isNaN(L_he)) ||
+        (L_min > L_max || L_min > L_he || L_max < L_he)
+      );
+
+      if (X === 0 && !isNaN(L_he)) {
+        result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${L_he.toFixed(5)}, &nbsp; slope = inf</p>`;
+      } else if (!isNaN(L_min) && !isNaN(L_max) && !isNaN(L_he)) {
+        result = `
+          <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${L_min.toFixed(5)}, &nbsp; slope = 0</p>
+          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${L_max.toFixed(5)}, &nbsp; slope = ${s.toFixed(2)}</p>
+          <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${L_he.toFixed(5)}, &nbsp; slope = inf</p>`;
+      } else {
+        output.innerHTML = '<p style="color: red;">Error: Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+        return;
+      }
+
+      if (unreliable) {
+        warnings += '<p style="color: red; font-size: 16px;">Warning(s):<br>Error: Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+      }
+
       if (M < 1 || M > 18) {
         warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
       }     
       if (M < 1 || M > 40) {
         warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M ≤ 40)</p>';
       }
-      if (parseFloat(data.L_min) > parseFloat(data.L_max) || parseFloat(data.L_min) > parseFloat(data.Pure_He_Luminosity)) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output L_min might be unreliable — inputs are far outside the grid range</p>';
-      } 
-      if (parseFloat(data.L_max) < parseFloat(data.L_min) || parseFloat(data.L_max) < parseFloat(data.Pure_He_Luminosity)) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output L_max might be unreliable — inputs are far outside the grid range</p>';
-      } 
       if (X > 0.7) {
         warnings += '<p style="color: orange; font-size: 16px;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
       } 
-      if (Z !== 0.008 && Z !== 0.004) {
-        warnings += (Z > 0.004 && Z < 0.008)
-          ? '<p style="color: orange; font-size: 16px;">Warning: Luminosity and slope values are interpolated between Z = 0.008 and Z = 0.004</p>'
-          : '<p style="color: orange; font-size: 16px;">Warning: Luminosity and slope values are extrapolated beyond Z = 0.008 and Z = 0.004</p>';
-      }
-
-
-
-      if (X === 0 && data.Pure_He_Luminosity) {
-        result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
-      } else if (data.Pure_He_Luminosity) {
-        result = `
-          <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${data.L_min}, &nbsp; slope = ${data.s}</p>
-          <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${data.L_max}, &nbsp; slope = 0</p>
-          <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
-      } else {
-        output.innerHTML = '<p style="color: red;">Error: Invalid inputs. Congrats, you have broken the calculator!</p>';
-        return;
+      if (Z !== Z1 && Z !== Z2) {
+        if (Z > Math.min(Z1, Z2) && Z < Math.max(Z1, Z2)) {
+          warnings += '<p style="color: orange; font-size: 16px;">Warning: Luminosity and slope values are interpolated between Z = 0.008 and 0.004</p>';
+        } else {
+          warnings += '<p style="color: orange; font-size: 16px;">Warning: Luminosity and slope values are extrapolated beyond Z = 0.008 and 0.004</p>';
+        }
       }
 
       output.innerHTML = result + warnings;
@@ -176,6 +187,8 @@ function attachLuminosityListener() {
     });
   });
 }
+
+
 
 
 
