@@ -50,14 +50,27 @@ title: Mass-Luminosity Calculator
   <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
     <p style="font-size: 0.8em; text-align: justify;">
-      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. See below for stellar code and model details.
+      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
     </p>
-    <p style="font-size: 0.8em;"><strong>Disclaimer:</strong></p>
+    <p style="font-size: 0.8em;"><strong>Grid parameter range:</strong></p>
     <p style="font-size: 0.8em; text-align: justify;">
-      1. The model grid covers the range: \(1 \leq M_{\text{tot}} \leq 18\) and \(0 \leq X_\mathrm{H} \leq 0.7\). Using values outside this range will throw out a caution
+      1. For M, the chemically homogeneous structure models (H profile slope of 0) and pure-He models (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structure models with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
     </p>
     <p style="font-size: 0.8em; text-align: justify;">
-      2. The structure models underlying the calculator use two metallicity values, Z = 0.008 and 0.004, corresponding roughly to LMC and SMC-like metallicity. Using other Z values will throw out a caution and the results will be interpolated or extrapolated.
+      2. For surface H, the range is 0 ≤ X ≤ 0.7
+    </p>
+    <p style="font-size: 0.8em; text-align: justify;">
+      3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
+    </p>
+    <p style="font-size: 0.8em;"><strong>Warnings and Errors:</strong></p>
+    <p style="font-size: 0.8em; text-align: justify;">
+      1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
+    </p>
+    <p style="font-size: 0.8em; text-align: justify;">
+      2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, espcially in the mass calculator, an error is issued.
+    </p>
+    <p style="font-size: 0.8em; text-align: justify;">
+      3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
     </p>
   </div>
 
@@ -173,10 +186,10 @@ function attachLuminosityListener() {
       }
 
       if (M < 1 || M > 18) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_max (1 ≤ M/Msun ≤ 18)</p>';
       }     
       if (M < 1 || M > 40) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M ≤ 40)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M/Msun ≤ 40)</p>';
       }
       if (X > 0.7) {
         warnings += '<p style="color: orange; font-size: 16px;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
@@ -272,13 +285,13 @@ function attachMassListener() {
       }
 
       if (m_min < 1 || m_min > 18) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_min is outside grid range (1 ≤ M ≤ 18)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_min is outside grid range (1 ≤ M/Msun ≤ 18)</p>';
       }
       if (m_max < 1 || m_max > 40) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_max is outside grid range (1 ≤ M ≤ 40)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_max is outside grid range (1 ≤ M/Msun ≤ 40)</p>';
       }
       if (m_he < 1 || m_he > 40) {
-        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_He is outside grid range (1 ≤ M ≤ 40)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_He is outside grid range (1 ≤ M/Msun ≤ 40)</p>';
       }
       if (X > 0.7) {
         warnings += '<p style="color: orange; font-size: 16px;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
