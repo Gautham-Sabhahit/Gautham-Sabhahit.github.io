@@ -112,7 +112,7 @@ function attachLuminosityListener() {
     const output = document.getElementById('luminosity-output');
 
     if (isNaN(M) || isNaN(X) || isNaN(Z)) {
-      output.innerHTML = '<p style="color: red;">Error: All inputs must be valid numbers</p>';
+      output.innerHTML = '<p style="color: red; font-size: 14px;">Error: All inputs must be valid numbers</p>';
       return;
     }
 
