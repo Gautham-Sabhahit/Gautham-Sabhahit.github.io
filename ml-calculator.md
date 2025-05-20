@@ -141,19 +141,19 @@ function attachLuminosityListener() {
       const L_he  = parseFloat(data.Pure_He_Luminosity);
       const s     = parseFloat(data.s);
 
-      const hasValidLums = (
+      const ValidLums = (
         (X === 0 && !isNaN(L_he)) ||
         (X > 0 && !isNaN(L_min) && !isNaN(L_max) && !isNaN(L_he))
       );
 
       const unreliable = (
-        (X > 0 && (isNaN(L_min) || isNaN(L_max) || isNaN(L_he))) ||
         (X === 0 && isNaN(L_he)) ||
+        (X > 0 && (isNaN(L_min) || isNaN(L_max) || isNaN(L_he))) ||
         (L_min > L_max || L_min > L_he || L_max < L_he)
       );
 
-      if (!hasValidLums) {
-        output.innerHTML = '<p style="color: orange; font-size: 16px;">Warning(s): Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+      if (!ValidLums) {
+        output.innerHTML = '<p style="color: orange; font-size: 16px;">Warning(s): One or more inputs are well beyond the grid range. The fit calculations failed or may not be reliable.</p>';
         return;
       }
 
@@ -167,7 +167,7 @@ function attachLuminosityListener() {
       }
 
       if (unreliable) {
-        warnings = '<p style="color: orange; font-size: 16px;">Warning(s): Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+        warnings = '<p style="color: orange; font-size: 16px;">Warning(s): One or more inputs are well beyond the grid range. The fit calculations failed or may not be reliable.</p>';
         output.innerHTML = result + warnings;
         return;
       }
