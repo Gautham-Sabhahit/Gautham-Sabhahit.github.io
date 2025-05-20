@@ -57,7 +57,7 @@ title: Mass-Luminosity Calculator
       1. For M, the chemically homogeneous structure models (H profile slope of 0) and pure-He models (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structure models with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
     </p>
     <p style="font-size: 0.8em; text-align: justify;">
-      2. For surface H, the range is 0 ≤ X ≤ 0.7
+      2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7
     </p>
     <p style="font-size: 0.8em; text-align: justify;">
       3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
