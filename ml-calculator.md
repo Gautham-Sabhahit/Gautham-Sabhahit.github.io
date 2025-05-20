@@ -112,17 +112,15 @@ function attachLuminosityListener() {
     const output = document.getElementById('luminosity-output');
 
     if (isNaN(M) || isNaN(X) || isNaN(Z)) {
-      output.innerHTML = '<p style="color: red; font-size: 20px;">Error: All inputs must be valid numbers</p>';
+      output.innerHTML = '<p style="color: red; font-size: 16px;">Error: All inputs must be valid numbers</p>';
       return;
     }
-
     if (M <= 0 || X < 0 || Z < 0) {
-      output.innerHTML = '<p style="color: red;">Yea, nice try :) Zero or negative input(s)</p>';
+      output.innerHTML = '<p style="color: red; font-size: 16px;">Error: Yea, nice try :) Zero or negative input(s)</p>';
       return;
     }
-
     if (X + Z > 1) {
-      output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
+      output.innerHTML = '<p style="color: red; font-size: 16px;">Error: Yea, nice try :) X + Z > 1</p>';
       return;
     }
 
@@ -135,21 +133,29 @@ function attachLuminosityListener() {
     .then(data => {
       let warnings = '';
       let result = '';
-
-      if (Z !== 0.008 && Z !== 0.004) {
-        warnings += (Z > 0.004 && Z < 0.008)
-          ? '<p style="color: orange;">Warning: Luminosity and slope values are interpolated between Z = 0.008 and Z = 0.004</p>'
-          : '<p style="color: orange;">Warning: Luminosity and slope values are extrapolated beyond Z = 0.008 and Z = 0.004</p>';
-      }
-      if (X > 0.7 && X <= 1) {
-        warnings += '<p style="color: orange;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
-      } 
+      
       if (M < 1 || M > 18) {
-        warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_max (1 ≤ M ≤ 18)</p>';
       }     
       if (M < 1 || M > 40) {
-        warnings += '<p style="color: orange;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M ≤ 40)</p>';
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input mass is outside the grid range for L_min and L_He (1 ≤ M ≤ 40)</p>';
       }
+      if (parseFloat(data.L_min) > parseFloat(data.L_max) || parseFloat(data.L_min) > parseFloat(data.Pure_He_Luminosity)) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output L_min might be unreliable — inputs are far outside the grid range</p>';
+      } 
+      if (parseFloat(data.L_max) < parseFloat(data.L_min) || parseFloat(data.L_max) < parseFloat(data.Pure_He_Luminosity)) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output L_max might be unreliable — inputs are far outside the grid range</p>';
+      } 
+      if (X > 0.7) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
+      } 
+      if (Z !== 0.008 && Z !== 0.004) {
+        warnings += (Z > 0.004 && Z < 0.008)
+          ? '<p style="color: orange; font-size: 16px;">Warning: Luminosity and slope values are interpolated between Z = 0.008 and Z = 0.004</p>'
+          : '<p style="color: orange; font-size: 16px;">Warning: Luminosity and slope values are extrapolated beyond Z = 0.008 and Z = 0.004</p>';
+      }
+
+
 
       if (X === 0 && data.Pure_He_Luminosity) {
         result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${data.Pure_He_Luminosity}, &nbsp; slope = inf</p>`;
