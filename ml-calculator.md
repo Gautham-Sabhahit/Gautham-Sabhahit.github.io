@@ -141,26 +141,34 @@ function attachLuminosityListener() {
       const L_he  = parseFloat(data.Pure_He_Luminosity);
       const s     = parseFloat(data.s);
 
+      const hasValidLums = (
+        (X === 0 && !isNaN(L_he)) ||
+        (X > 0 && !isNaN(L_min) && !isNaN(L_max) && !isNaN(L_he))
+      );
+
       const unreliable = (
         (X > 0 && (isNaN(L_min) || isNaN(L_max) || isNaN(L_he))) ||
         (X === 0 && isNaN(L_he)) ||
         (L_min > L_max || L_min > L_he || L_max < L_he)
       );
 
-      if (X === 0 && !isNaN(L_he)) {
+      if (!hasValidLums) {
+        output.innerHTML = '<p style="color: red; font-size: 16px;">Warning(s): Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+        return;
+      }
+
+      if (X === 0) {
         result = `<p style="font-size: 1.1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${L_he.toFixed(5)}, &nbsp; slope = inf</p>`;
-      } else if (!isNaN(L_min) && !isNaN(L_max) && !isNaN(L_he)) {
+      } else {
         result = `
           <p style="font-size: 1em;">log(L<sub>min</sub>/L<sub>⊙</sub>) = ${L_min.toFixed(5)}, &nbsp; slope = 0</p>
           <p style="font-size: 1em;">log(L<sub>max</sub>/L<sub>⊙</sub>) = ${L_max.toFixed(5)}, &nbsp; slope = ${s.toFixed(2)}</p>
           <p style="font-size: 1em;">log(L<sub>He</sub>/L<sub>⊙</sub>) = ${L_he.toFixed(5)}, &nbsp; slope = inf</p>`;
-      } else {
-        output.innerHTML = '<p style="color: red;">Error: Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
-        return;
       }
 
       if (unreliable) {
-        warnings += '<p style="color: red; font-size: 16px;">Warning(s): Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+        warnings = '<p style="color: red; font-size: 16px;">Warning(s): Congrats! you broke it. One or more inputs are far outside the grid range. The outputs cannot be calculated or are unreliable.</p>';
+        output.innerHTML = result + warnings;
         return;
       }
 
@@ -188,6 +196,7 @@ function attachLuminosityListener() {
     });
   });
 }
+
 
 
 
