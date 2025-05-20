@@ -153,7 +153,7 @@ function attachLuminosityListener() {
       );
 
       if (!ValidLums) {
-        output.innerHTML = '<p style="color: orange; font-size: 16px;">Warning(s): One or more inputs are well beyond the grid range. The fit calculations failed or may not be reliable.</p>';
+        output.innerHTML = '<p style="color: red; font-size: 16px;">Error: One or more inputs are well beyond the grid range. The fit calculations failed.</p>';
         return;
       }
 
@@ -167,7 +167,7 @@ function attachLuminosityListener() {
       }
 
       if (unreliable) {
-        warnings = '<p style="color: orange; font-size: 16px;">Warning(s): One or more inputs are well beyond the grid range. The fit calculations failed or may not be reliable.</p>';
+        warnings = '<p style="color: orange; font-size: 16px;">Warning(s): One or more inputs are well beyond the grid range. The fit calculations may not be reliable.</p>';
         output.innerHTML = result + warnings;
         return;
       }
@@ -198,12 +198,6 @@ function attachLuminosityListener() {
 }
 
 
-
-
-
-
-
-
 function attachMassListener() {
   document.getElementById('calculate-mass').addEventListener('click', () => {
     const lVal = document.getElementById('l').value;
@@ -217,17 +211,15 @@ function attachMassListener() {
     const output = document.getElementById('mass-output');
 
     if (isNaN(L) || isNaN(X) || isNaN(Z)) {
-      output.innerHTML = '<p style="color: red;">Error: All inputs must be valid numbers</p>';
+      output.innerHTML = '<p style="color: red; font-size: 16px;">Error: All inputs must be valid numbers</p>';
       return;
     }
-
-    if (!L || !Z) {
-      output.innerHTML = '<p style="color: red;">Please enter Luminosity (L) and Metallicity (Z).</p>';
+    if (L <= 0 || X < 0 || Z < 0) {
+      output.innerHTML = '<p style="color: red; font-size: 16px;">Error: Yea, nice try :) Zero or negative input(s)</p>';
       return;
     }
-
     if (X + Z > 1) {
-      output.innerHTML = '<p style="color: red;">Yea, nice try :) X + Z > 1</p>';
+      output.innerHTML = '<p style="color: red; font-size: 16px;">Error: Yea, nice try :) X + Z > 1</p>';
       return;
     }
 
@@ -240,45 +232,66 @@ function attachMassListener() {
     .then(data => {
       let warnings = '';
       let result = '';
+      const Z1 = 0.004;
+      const Z2 = 0.008;
 
-      if (Z !== 0.008 && Z !== 0.004) {
-        warnings += (Z > 0.004 && Z < 0.008)
-          ? '<p style="color: orange;">Warning: Mass and slope values are interpolated between Z = 0.008 and Z = 0.004</p>'
-          : '<p style="color: orange;">Warning: Mass and slope values are extrapolated beyond Z = 0.008 and Z = 0.004</p>';
+      const m_min = parseFloat(data.M_min);
+      const m_max = parseFloat(data.M_max);
+      const m_he  = parseFloat(data.Pure_He_Mass);
+      const s     = parseFloat(data.s);
+
+      const ValidMasses = (
+        (X === 0 && !isNaN(m_he)) ||
+        (X > 0 && !isNaN(m_min) && !isNaN(m_max) && !isNaN(m_he))
+      );
+
+      const unreliable = (
+        (X === 0 && isNaN(m_he)) ||
+        (X > 0 && (isNaN(m_min) || isNaN(m_max) || isNaN(m_he))) ||
+        (m_min > m_max || m_min > m_he || m_max < m_he)
+      );
+
+      if (!ValidMasses) {
+        output.innerHTML = '<p style="color: red; font-size: 16px;">Error: One or more inputs are well beyond the grid range. The fit calculations failed.</p>';
+        return;
       }
 
-      if (X > 0.7 && X <= 1) {
-        warnings += '<p style="color: orange;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
-      }
-
-      if (data.Pure_He_Mass) {
-        const mHe = parseFloat(data.Pure_He_Mass);
-        const mMin = parseFloat(data.M_min);
-        const mMax = parseFloat(data.M_max);
-        
-        if (mMin < 1 || mMin > 18) {
-          warnings += '<p style="color: orange;">Warning: Output M_min is outside grid range (1 ≤ M ≤ 18)</p>';
-        }
-        if (mHe < 1 || mHe > 40) {
-          warnings += '<p style="color: orange;">Warning: Output M_He is outside grid range (1 ≤ M ≤ 40)</p>';
-        }
-        if (mMax < 1 || mMax > 40) {
-          warnings += '<p style="color: orange;">Warning: Output M_max is outside grid range (1 ≤ M ≤ 40)</p>';
-        }
-
-        if (X === 0) {
-          result = `<p style="font-size: 1.1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}${data.s !== undefined ? `, &nbsp; slope = ${data.s}` : ''}</p>`;
-        } else {
-          result = `
-            <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${data.M_min}, &nbsp; slope = ${data.s}</p>
-            <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${data.M_max}, &nbsp; slope = 0</p>
-            <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${data.Pure_He_Mass}, &nbsp; slope = inf</p>`;
-        }
-
-        output.innerHTML = result + warnings;
+      if (X === 0) {
+        result = `<p style="font-size: 1.1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${m_he.toFixed(5)}, &nbsp; slope = inf</p>`;
       } else {
-        output.innerHTML = '<p style="color: red;">Error: Invalid inputs. Congrats, you have broken the calculator!</p>';
+        result = `
+          <p style="font-size: 1em;">M<sub>min</sub>/M<sub>⊙</sub> = ${m_min.toFixed(5)}, &nbsp; slope = ${s.toFixed(2)}</p>
+          <p style="font-size: 1em;">M<sub>max</sub>/M<sub>⊙</sub> = ${m_max.toFixed(5)}, &nbsp; slope = 0</p>
+          <p style="font-size: 1em;">M<sub>He</sub>/M<sub>⊙</sub> = ${m_he.toFixed(5)}, &nbsp; slope = inf</p>`;
       }
+
+      if (unreliable) {
+        warnings = '<p style="color: orange; font-size: 16px;">Warning(s): One or more inputs are well beyond the grid range. The fit calculations may not be reliable.</p>';
+        output.innerHTML = result + warnings;
+        return;
+      }
+
+      if (m_min < 1 || m_min > 18) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_min is outside grid range (1 ≤ M ≤ 18)</p>';
+      }
+      if (m_max < 1 || m_max > 40) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_max is outside grid range (1 ≤ M ≤ 40)</p>';
+      }
+      if (m_he < 1 || m_he > 40) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Output M_He is outside grid range (1 ≤ M ≤ 40)</p>';
+      }
+      if (X > 0.7) {
+        warnings += '<p style="color: orange; font-size: 16px;">Warning: Input X is outside grid range (0 ≤ X ≤ 0.7)</p>';
+      }
+      if (Z !== Z1 && Z !== Z2) {
+        if (Z > Math.min(Z1, Z2) && Z < Math.max(Z1, Z2)) {
+          warnings += '<p style="color: orange; font-size: 16px;">Warning: Mass and slope values are interpolated between Z = 0.008 and 0.004</p>';
+        } else {
+          warnings += '<p style="color: orange; font-size: 16px;">Warning: Mass and slope values are extrapolated beyond Z = 0.008 and 0.004</p>';
+        }
+      }
+
+      output.innerHTML = result + warnings;
     })
     .catch(error => {
       output.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
