@@ -44,41 +44,47 @@ title: Mass-Luminosity Calculator
   }
 
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #e0e0e0;
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: rgb(71, 71, 71);
+      color: rgb(255, 255, 255);
+    }
+
+    #calculator-container,
+    #luminosity-output,
+    #mass-output,
+    select,
+    input,
+    button,
+    #luminosity-form,
+    #mass-form,
+    div[style*="background-color: #f5f5f5"] {
+      background-color: rgb(71, 71, 71) !important;
+      color: rgb(255, 255, 255) !important;
+      border-color: #999 !important;
+    }
+
+    input,
+    select,
+    button {
+      background-color: #505050;
+      color: white;
+    }
+
+    input::placeholder {
+      color: #bbbbbb;
+    }
+
+    p,
+    h1,
+    h2,
+    label {
+      color: white;
+    }
   }
 
-  #calculator-container,
-  #luminosity-output,
-  #mass-output,
-  select,
-  input,
-  button,
-  #luminosity-form,
-  #mass-form,
-  div[style*="background-color: #f5f5f5"] {
-    background-color: #1e1e1e !important;
-    color: #e0e0e0 !important;
-    border-color: #444 !important;
-  }
 
-  input::placeholder,
-  input,
-  select,
-  button {
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-  }
-
-  p,
-  h1,
-  h2,
-  label {
-    color: #e0e0e0;
-  }
-}
   
 </style>
 
