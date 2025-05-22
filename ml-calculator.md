@@ -44,6 +44,42 @@ title: Mass-Luminosity Calculator
   }
 </style>
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  #calculator-container,
+  #luminosity-output,
+  #mass-output,
+  select,
+  input,
+  button,
+  #luminosity-form,
+  #mass-form,
+  div[style*="background-color: #f5f5f5"] {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+  }
+
+  input::placeholder,
+  input,
+  select,
+  button {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  p,
+  h1,
+  h2,
+  label {
+    color: #e0e0e0;
+  }
+}
+
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
