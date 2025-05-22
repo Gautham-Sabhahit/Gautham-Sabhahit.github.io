@@ -42,7 +42,7 @@ title: Mass-Luminosity Calculator
     margin: 0 auto 30px auto;
     text-align: justify;
   }
-</style>
+
 
 @media (prefers-color-scheme: dark) {
   body {
@@ -79,6 +79,9 @@ title: Mass-Luminosity Calculator
     color: #e0e0e0;
   }
 }
+  
+</style>
+
 
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
