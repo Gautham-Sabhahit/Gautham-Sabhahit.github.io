@@ -358,23 +358,23 @@ nav {
     display: block;
   }
 
-  .dropdown-toggle {
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    padding-right: 35px;  // increase right padding to make space for arrow
+.dropdown-toggle {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  display: inline-block;  // ensure it respects padding width
+  padding-right: 35px;
 
-    &::after {
-      content: "";
-      position: absolute;
-      right: 10px;  // shift arrow a bit more right
-      top: 50%;
-      transform: translateY(-50%);
-      border-style: solid;
-      border-width: 6px 5px 0 5px;
-      border-color: var(--triangle-color, black) transparent transparent transparent;
-      pointer-events: none;
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: var(--triangle-color, black) transparent transparent transparent;
+    pointer-events: none;
   }
 }
 
