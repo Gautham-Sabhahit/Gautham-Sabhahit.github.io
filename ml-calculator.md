@@ -1,3 +1,8 @@
+---
+layout: default
+title: Mass-Luminosity Calculator
+---
+
 <style>
   body {
     padding: 20px;
