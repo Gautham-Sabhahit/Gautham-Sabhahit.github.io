@@ -43,30 +43,38 @@ title: Mass-Luminosity Calculator
     text-align: justify;
   }
 
-  [data-theme="dark"] .box {
-    background-color: #2b2b2b !important;
-    color: #eee !important;
-    box-shadow: 0 0 10px rgba(255,255,255,0.15) !important;
-    border-color: #444 !important;
-  }
+[data-theme="dark"] .box {
+  background-color: #3a3a3a !important;
+  color: #eee !important;
+  box-shadow: 0 0 10px rgba(255,255,255,0.15) !important;
+  border-color: #444 !important;
+}
 
-  [data-theme="dark"] .box input,
-  [data-theme="dark"] .box select,
-  [data-theme="dark"] .box button {
-    background-color: #444 !important;
-    color: #eee !important;
-    border: 1px solid #666 !important;
-  }
+[data-theme="dark"] .box input,
+[data-theme="dark"] .box select,
+[data-theme="dark"] .box button {
+  background-color: #444 !important;
+  color: #eee !important;
+  border: 1px solid #666 !important;
+}
 
-  [data-theme="dark"] .box input::placeholder {
-    color: #bbb !important;
-  }
+[data-theme="dark"] .box input::placeholder {
+  color: #bbb !important;
+}
 
-  [data-theme="dark"] #calculator-type {
-    background-color: #2b2b2b !important;
-    color: #eee !important;
-    border: 1px solid #444 !important;
-  }
+[data-theme="dark"] #calculator-type {
+  background-color: #2b2b2b !important;
+  color: #eee !important;
+  border: 1px solid #444 !important;
+}
+
+[data-theme="dark"] #luminosity-output,
+[data-theme="dark"] #mass-output {
+  background-color: #2e2e2e !important;
+  color: #eee !important;
+  border: 1px solid #555 !important;
+}
+
 </style>
 
 
