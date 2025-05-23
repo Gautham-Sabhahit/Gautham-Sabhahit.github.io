@@ -45,12 +45,7 @@ title: Mass-Luminosity Calculator
   color: #000;
 }
 
-body.dark #how-to-use-box,
-body.dark #calculator-container > div {
-  background-color: #222 !important;
-  color: #fff !important;
-  box-shadow: 0 0 10px rgba(0,0,0,0.7) !important;
-}
+
 
   #luminosity-output,
   #mass-output {
@@ -65,10 +60,12 @@ body.dark #calculator-container > div {
   }
 
   /* Dark mode styles */
-  body.dark {
-    background-color: #474747 !important;
-    color: #fff !important;
-  }
+body.dark #how-to-use-box,
+body.dark #calculator-container > div {
+  background-color: #222 !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7) !important;
+}
 
   body.dark #how-to-use-box,
   body.dark #calculator-container > div {
