@@ -361,12 +361,12 @@ nav {
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding-right: 10px;  // increase right padding to make space for arrow
+    padding-right: 18px;  // increase right padding to make space for arrow
 
     &::after {
       content: "";
       position: absolute;
-      right: 2px;  // shift arrow a bit more right
+      right: 5px;  // shift arrow a bit more right
       top: 50%;
       transform: translateY(-50%);
       border-style: solid;
