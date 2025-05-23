@@ -1,8 +1,3 @@
----
-layout: default
-title: Mass-Luminosity Calculator
----
-
 <style>
   body {
     padding: 20px;
@@ -28,11 +23,21 @@ title: Mass-Luminosity Calculator
 
   button {
     text-align: center !important;
-    background-color: #e0e0e0;
+    background: linear-gradient(to bottom, #f5f5f5 0%, #dcdcdc 100%);
     border: 1px solid #aaa;
+    border-radius: 6px;
     box-shadow:
-      inset 0 0 3px rgba(255, 255, 255, 0.6),
-      0 2px 4px rgba(0, 0, 0, 0.1);
+      inset 0 1px 1px rgba(255,255,255,0.8),
+      0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #d0d0d0 100%);
+    box-shadow:
+      inset 0 1px 1px rgba(255,255,255,0.9),
+      0 3px 6px rgba(0, 0, 0, 0.3);
   }
 
   #luminosity-output {
@@ -62,12 +67,25 @@ title: Mass-Luminosity Calculator
   [data-theme="dark"] .box input,
   [data-theme="dark"] .box select,
   [data-theme="dark"] .box button {
-    background-color: #2c2c2c !important;
+    background-color: #444 !important;
     color: #eee !important;
     border: 1px solid #666 !important;
+  }
+
+  [data-theme="dark"] .box button {
+    background: linear-gradient(to bottom, #3a3a3a 0%, #1f1f1f 100%) !important;
+    border: 1px solid #666 !important;
     box-shadow:
-      inset 0 0 4px rgba(255, 255, 255, 0.1),
+      inset 0 1px 1px rgba(255,255,255,0.05),
       0 2px 5px rgba(0, 0, 0, 0.6) !important;
+    font-weight: 600;
+  }
+
+  [data-theme="dark"] .box button:hover {
+    background: linear-gradient(to bottom, #4a4a4a 0%, #2a2a2a 100%) !important;
+    box-shadow:
+      inset 0 1px 1px rgba(255,255,255,0.1),
+      0 3px 6px rgba(0, 0, 0, 0.8) !important;
   }
 
   [data-theme="dark"] .box input::placeholder {
@@ -87,7 +105,7 @@ title: Mass-Luminosity Calculator
     border: 1px solid #555 !important;
   }
 
-  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -97,6 +115,7 @@ title: Mass-Luminosity Calculator
     -moz-appearance: textfield;
   }
 </style>
+
 
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
