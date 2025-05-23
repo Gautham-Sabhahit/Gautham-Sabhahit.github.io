@@ -7,8 +7,6 @@ title: Mass-Luminosity Calculator
   body {
     padding: 20px;
     text-align: center;
-    background-color: white;
-    color: black;
   }
 
   h1, h2, p, label {
@@ -35,118 +33,195 @@ title: Mass-Luminosity Calculator
     text-align: justify;
   }
 
-  .box {
+  /* Light mode styles for boxes */
+  #how-to-use-box,
+  #calculator-container > div {
     width: 800px;
+    background-color: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: #f5f5f5;
-    color: #000;
-    border: 1px solid #ddd;
+    margin: 20px auto 0 auto;
+    color: #333;
   }
 
-  .output-box {
+  #luminosity-output,
+  #mass-output {
     margin-top: 20px;
     text-align: center;
     width: 100%;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    color: #333;
   }
 
+  /* Dark mode styles */
   body.dark {
-    background-color: rgb(31, 31, 31);
-    color: rgb(230, 230, 230);
+    background-color: #474747 !important;
+    color: #fff !important;
   }
 
-  body.dark .box {
-    background-color: rgb(45, 45, 45) !important;
-    color: rgb(230, 230, 230) !important;
-    border-color: rgb(80, 80, 80) !important;
-    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  body.dark #how-to-use-box,
+  body.dark #calculator-container > div {
+    background-color: #2d2d2d !important;
+    color: #eee !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7) !important;
+  }
+
+  body.dark #luminosity-output,
+  body.dark #mass-output {
+    background-color: #414141 !important;
+    color: #eee !important;
+    border-color: #666 !important;
   }
 
   body.dark input,
   body.dark select,
   body.dark button {
-    background-color: rgb(65, 65, 65) !important;
-    color: rgb(230, 230, 230) !important;
-    border: 1px solid rgb(100, 100, 100) !important;
+    background-color: #505050 !important;
+    color: #eee !important;
+    border: 1px solid #666 !important;
   }
 
   body.dark input::placeholder {
-    color: #bbbbbb;
+    color: #bbbbbb !important;
   }
 
   body.dark p,
   body.dark h1,
   body.dark h2,
   body.dark label {
-    color: rgb(230, 230, 230);
+    color: #eee !important;
   }
 </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add('dark')
-  })
-</script>
-
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
-
-  <div class="box">
-    <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
-    <p style="font-size: 0.8em; text-align: justify;">
-      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below.
-    </p>
-    <p style="font-size: 0.8em;"><strong>Grid parameter range:</strong></p>
-    <p style="font-size: 0.8em; text-align: justify;">1. For M, the chemically homogeneous structure models (H profile slope of 0) and pure-He models (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structure models with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18.</p>
-    <p style="font-size: 0.8em; text-align: justify;">2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7</p>
-    <p style="font-size: 0.8em; text-align: justify;">3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.</p>
-    <p style="font-size: 0.8em;"><strong>Warnings and Errors:</strong></p>
-    <p style="font-size: 0.8em; text-align: justify;">1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.</p>
-    <p style="font-size: 0.8em; text-align: justify;">2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, especially in the mass calculator, an error is issued.</p>
-    <p style="font-size: 0.8em; text-align: justify;">3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.</p>
-  </div>
-
-  <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
-    <option value="" disabled selected>Select Calculator</option>
-    <option value="luminosity">Luminosity Calculator</option>
-    <option value="mass">Mass Calculator</option>
-  </select>
-
-  <div id="calculator-container"></div>
-
+<div id="how-to-use-box">
+  <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
+  <p style="font-size: 0.8em; text-align: justify;">
+    Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
+  </p>
+  <p style="font-size: 0.8em;"><strong>Grid parameter range:</strong></p>
+  <p style="font-size: 0.8em; text-align: justify;">
+    1. For M, the chemically homogeneous structure models (H profile slope of 0) and pure-He models (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structure models with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
+  </p>
+  <p style="font-size: 0.8em; text-align: justify;">
+    2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7
+  </p>
+  <p style="font-size: 0.8em; text-align: justify;">
+    3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
+  </p>
+  <p style="font-size: 0.8em;"><strong>Warnings and Errors:</strong></p>
+  <p style="font-size: 0.8em; text-align: justify;">
+    1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
+  </p>
+  <p style="font-size: 0.8em; text-align: justify;">
+    2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, especially in the mass calculator, an error is issued.
+  </p>
+  <p style="font-size: 0.8em; text-align: justify;">
+    3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
+  </p>
 </div>
+
+<select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em; margin: 20px auto; display: block;">
+  <option value="" disabled selected>Select Calculator</option>
+  <option value="luminosity">Luminosity Calculator</option>
+  <option value="mass">Mass Calculator</option>
+</select>
+
+<div id="calculator-container"></div>
 
 <script>
   const calculatorContainer = document.getElementById('calculator-container');
+  const calculatorType = document.getElementById('calculator-type');
 
   const luminosityHTML = `
-    <div class="box" style="margin-top: 20px;">
+    <div>
       <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
       </form>
-      <div id="luminosity-output" class="box output-box"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+      <div id="luminosity-output"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
   `;
 
   const massHTML = `
-    <div class="box" style="margin-top: 20px;">
+    <div>
       <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z_mass" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
       </form>
-      <div id="mass-output" class="box output-box"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+      <div id="mass-output"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
   `;
 
-  document.getElementById('calculator-type').addEventListener('change', function () {
-    calculatorContainer.innerHTML = this.value === 'luminosity' ? luminosityHTML : massHTML;
+  calculatorType.addEventListener('change', () => {
+    if (calculatorType.value === 'luminosity') {
+      calculatorContainer.innerHTML = luminosityHTML;
+    } else if (calculatorType.value === 'mass') {
+      calculatorContainer.innerHTML = massHTML;
+    } else {
+      calculatorContainer.innerHTML = '';
+    }
   });
+
+  // DARK MODE TOGGLE HANDLING FOR MASTHEAD BUTTON
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (!localStorage.getItem('darkMode')) {
+      document.body.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
+      if (themeIcon) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        themeIcon.title = 'Toggle light mode';
+      }
+    } else if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+      if (themeIcon) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        themeIcon.title = 'Toggle light mode';
+      }
+    } else {
+      document.body.classList.remove('dark');
+      if (themeIcon) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        themeIcon.title = 'Toggle dark mode';
+      }
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isDark = document.body.classList.toggle('dark');
+
+        if (isDark) {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          themeIcon.title = 'Toggle light mode';
+        } else {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          themeIcon.title = 'Toggle dark mode';
+        }
+        localStorage.setItem('darkMode', isDark.toString());
+      });
+    }
+  });
+
+  // Placeholder: add your calculator logic below or link your scripts here
+  // Example: add event listeners to the buttons for calculation as needed
+
+
 
 
 
