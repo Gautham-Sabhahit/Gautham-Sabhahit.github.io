@@ -361,7 +361,7 @@ nav {
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding-right: 20px;
+    padding-right: 18px;
 
     &::after {
       content: "";
@@ -377,11 +377,11 @@ nav {
 }
 
 body.dark .masthead__menu-item.dropdown .dropdown-toggle::after {
-  border-color: white transparent transparent transparent;
+  border-top-color: white;
 }
 
 body:not(.dark) .masthead__menu-item.dropdown .dropdown-toggle::after {
-  border-color: black transparent transparent transparent;
+  border-top-color: black;
 }
 
 
