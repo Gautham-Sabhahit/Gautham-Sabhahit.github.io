@@ -17,7 +17,7 @@ main:
   - title: "Calculators"
     url: "#"   # or /calculators/ if you want a page
     dropdown:
-      - title: "ML Calculator"
+      - title: "Mass Luminosity Calculator"
         url: /ml-calculator/
 
   
