@@ -45,44 +45,42 @@ title: Mass-Luminosity Calculator
 
 
 
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: rgb(71, 71, 71);
-      color: rgb(255, 255, 255);
-    }
+body.dark {
+  background-color: rgb(71, 71, 71);
+  color: rgb(255, 255, 255);
+}
 
-    #calculator-container,
-    #luminosity-output,
-    #mass-output,
-    select,
-    input,
-    button,
-    #luminosity-form,
-    #mass-form,
-    div[style*="background-color: #f5f5f5"] {
-      background-color: rgb(71, 71, 71) !important;
-      color: rgb(255, 255, 255) !important;
-      border-color: #999 !important;
-    }
+body.dark #calculator-container,
+body.dark #luminosity-output,
+body.dark #mass-output,
+body.dark select,
+body.dark input,
+body.dark button,
+body.dark #luminosity-form,
+body.dark #mass-form,
+body.dark div[style*="background-color: #f5f5f5"] {
+  background-color: rgb(71, 71, 71) !important;
+  color: rgb(255, 255, 255) !important;
+  border-color: #999 !important;
+}
 
-    input,
-    select,
-    button {
-      background-color: #505050;
-      color: white;
-    }
+body.dark input,
+body.dark select,
+body.dark button {
+  background-color: #505050;
+  color: white;
+}
 
-    input::placeholder {
-      color: #bbbbbb;
-    }
+body.dark input::placeholder {
+  color: #bbbbbb;
+}
 
-    p,
-    h1,
-    h2,
-    label {
-      color: white;
-    }
-  }
+body.dark p,
+body.dark h1,
+body.dark h2,
+body.dark label {
+  color: white;
+}
 
 
   
