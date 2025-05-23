@@ -156,8 +156,7 @@ title: Mass-Luminosity Calculator
 <p style="font-size: 0.85em; text-align: justify;">
   The python script used for this calculator is available at
   <a href="https://github.com/Apophis-1/Python-scripts/blob/main/ML-calculator.py" target="_blank" rel="noopener noreferrer">
-    here
-  </a>.
+    here</a>.
 </p>
 
   </div>
