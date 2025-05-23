@@ -15,7 +15,7 @@ main:
     url: /models/
 
   - title: "Calculators"
-    url: "/calculators/"   # or /calculators/ if you want a page
+    url: "/#/"   # or /calculators/ if you want a page
     dropdown:
       - title: "ML Calculator"
         url: /ml-calculator/
