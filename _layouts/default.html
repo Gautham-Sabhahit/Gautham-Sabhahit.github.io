@@ -27,5 +27,37 @@ layout: compress
 
     {% include scripts.html %}
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdown = document.querySelector(".masthead__menu-item.dropdown");
+
+        let timeout;
+
+        dropdown.addEventListener("mouseenter", () => {
+          clearTimeout(timeout);
+          dropdown.classList.add("open");
+        });
+
+        dropdown.addEventListener("mouseleave", () => {
+          timeout = setTimeout(() => {
+            dropdown.classList.remove("open");
+          }, 300);
+        });
+
+        const menu = dropdown.querySelector(".dropdown-menu");
+        if (menu) {
+          menu.addEventListener("mouseenter", () => {
+            clearTimeout(timeout);
+          });
+
+          menu.addEventListener("mouseleave", () => {
+            timeout = setTimeout(() => {
+              dropdown.classList.remove("open");
+            }, 300);
+          });
+        }
+      });
+    </script>
+
   </body>
 </html>
