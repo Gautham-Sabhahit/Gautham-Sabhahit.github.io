@@ -321,12 +321,9 @@ nav {
    NAVIGATION DROPDOWN
    ========================================================================== */
 
-.masthead__menu-item > a {
-  font-size: 1.1em; /* 10% bigger font size */
-}
-
 .masthead__menu-item.dropdown {
   position: relative;
+  font-size: 110%; /* 10% bigger font size */
 }
 
 .masthead__menu-item.dropdown .dropdown-menu {
@@ -364,19 +361,36 @@ nav {
 .dropdown-toggle {
   cursor: pointer;
   user-select: none;
+  position: relative;
+  padding-right: 15px; /* space for triangle */
 }
 
+/* Replace the blue triangle with a black/white one */
 .dropdown-toggle::after {
-  content: " ▼";
-  font-size: 0.7em;
-  margin-left: 5px;
-  vertical-align: middle;
-  color: black; /* black in light mode */
-  transition: color 0.3s ease;
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 6px 5px 0 5px;
+  border-color: var(--triangle-color, black) transparent transparent transparent;
+  pointer-events: none; /* so click passes through */
 }
 
-body.dark-mode .dropdown-toggle::after {
-  color: white; /* white in dark mode */
+/* Light mode: black triangle */
+body:not(.dark) {
+  --triangle-color: black;
+}
+
+/* Dark mode: white triangle */
+body.dark {
+  --triangle-color: white;
+}
+
+/* Also bump font size of all masthead items by 10% */
+.masthead__menu-item > a {
+  font-size: 110%;
 }
 
 
