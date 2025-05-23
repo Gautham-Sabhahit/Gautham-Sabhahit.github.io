@@ -88,6 +88,37 @@ title: Mass-Luminosity Calculator
   input[type=number] {
     -moz-appearance: textfield;
   }
+
+  /* New button styles */
+  button {
+    width: 220px;
+    padding: 8px;
+    font-size: 0.8em;
+    background: linear-gradient(145deg, #e0e0e0, #bababa);
+    border: 1px solid #999;
+    border-radius: 6px;
+    box-shadow:
+      inset 1px 1px 2px #ffffff,
+      2px 2px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center !important;
+    user-select: none;
+  }
+
+  button:hover {
+    background: linear-gradient(145deg, #d4d4d4, #a8a8a8);
+    box-shadow:
+      inset 1px 1px 2px #cccccc,
+      2px 2px 7px rgba(0, 0, 0, 0.25);
+  }
+
+  button:active {
+    background: linear-gradient(145deg, #bababa, #e0e0e0);
+    box-shadow:
+      inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(1px);
+  }
 </style>
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
@@ -137,7 +168,7 @@ title: Mass-Luminosity Calculator
         <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
-        <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
+        <button type="button" id="calculate-luminosity">Calculate Luminosity</button>
       </form>
       <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
@@ -149,7 +180,7 @@ title: Mass-Luminosity Calculator
         <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z_mass" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
-        <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
+        <button type="button" id="calculate-mass">Calculate Mass</button>
       </form>
       <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
@@ -164,6 +195,7 @@ title: Mass-Luminosity Calculator
       calculatorContainer.innerHTML = '';
     }
   });
+
 
 
 
