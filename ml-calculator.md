@@ -7,6 +7,8 @@ title: Mass-Luminosity Calculator
   body {
     padding: 20px;
     text-align: center;
+    background-color: white;
+    color: black;
   }
 
   h1, h2, p, label {
@@ -51,22 +53,23 @@ title: Mass-Luminosity Calculator
   }
 
   body.dark {
-    background-color: rgb(71, 71, 71);
-    color: rgb(255, 255, 255);
+    background-color: rgb(31, 31, 31);
+    color: rgb(230, 230, 230);
   }
 
   body.dark .box {
-    background-color: rgb(71, 71, 71) !important;
-    color: rgb(255, 255, 255) !important;
-    border-color: #999 !important;
+    background-color: rgb(45, 45, 45) !important;
+    color: rgb(230, 230, 230) !important;
+    border-color: rgb(80, 80, 80) !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
   }
 
   body.dark input,
   body.dark select,
   body.dark button {
-    background-color: #505050 !important;
-    color: white !important;
-    border-color: #999 !important;
+    background-color: rgb(65, 65, 65) !important;
+    color: rgb(230, 230, 230) !important;
+    border: 1px solid rgb(100, 100, 100) !important;
   }
 
   body.dark input::placeholder {
@@ -77,13 +80,18 @@ title: Mass-Luminosity Calculator
   body.dark h1,
   body.dark h2,
   body.dark label {
-    color: white;
+    color: rgb(230, 230, 230);
   }
 </style>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add('dark')
+  })
+</script>
+
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
-  <!-- HOW TO USE BOX -->
   <div class="box">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
     <p style="font-size: 0.8em; text-align: justify;">
@@ -99,14 +107,12 @@ title: Mass-Luminosity Calculator
     <p style="font-size: 0.8em; text-align: justify;">3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.</p>
   </div>
 
-  <!-- Calculator Type Dropdown -->
   <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
     <option value="" disabled selected>Select Calculator</option>
     <option value="luminosity">Luminosity Calculator</option>
     <option value="mass">Mass Calculator</option>
   </select>
 
-  <!-- Dynamic Calculator Container -->
   <div id="calculator-container"></div>
 
 </div>
@@ -139,9 +145,9 @@ title: Mass-Luminosity Calculator
   `;
 
   document.getElementById('calculator-type').addEventListener('change', function () {
-    const value = this.value;
-    calculatorContainer.innerHTML = value === 'luminosity' ? luminosityHTML : massHTML;
+    calculatorContainer.innerHTML = this.value === 'luminosity' ? luminosityHTML : massHTML;
   });
+
 
 
 
