@@ -43,50 +43,55 @@ title: Mass-Luminosity Calculator
     text-align: justify;
   }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #ffffff;
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    input, button, select {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border: 1px solid #444;
+    }
+
+    #luminosity-output,
+    #mass-output,
+    #calculator-container > div,
+    #intro-text,
+    .dark-box {
+      background-color: #1e1e1e !important;
+      color: #ffffff !important;
+      border-color: #444 !important;
+    }
+
+    h1, h2, p, label {
+      color: #ffffff;
+    }
+
+    option {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    #calculator-type {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    /* How to Use box dark mode background */
+    div[style*="background-color: #f5f5f5"] {
+      background-color: #555555 !important;
+      color: #ffffff !important;
+    }
   }
 
-  input, button, select {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border: 1px solid #444;
-  }
-
-  #luminosity-output,
-  #mass-output,
-  #calculator-container > div,
-  #intro-text,
-  .dark-box {
-    background-color: #1e1e1e !important;
-    color: #ffffff !important;
-    border-color: #444 !important;
-  }
-
-  h1, h2, p, label {
-    color: #ffffff;
-  }
-
-  option {
-    background-color: #1e1e1e;
-    color: #ffffff;
-  }
-
-  #calculator-type {
-    background-color: #1e1e1e;
-    color: #ffffff;
-  }
-
-  div[style*="background-color: #f5f5f5"] {
+  /* Support for manual toggle (html[data-theme='dark']) */
+  html[data-theme='dark'] div[style*="background-color: #f5f5f5"] {
     background-color: #555555 !important;
     color: #ffffff !important;
   }
-}
-
 </style>
-
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
@@ -117,14 +122,12 @@ title: Mass-Luminosity Calculator
     </p>
   </div>
 
-  <!-- Calculator Type Dropdown -->
   <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
     <option value="" disabled selected>Select Calculator</option>
     <option value="luminosity">Luminosity Calculator</option>
     <option value="mass">Mass Calculator</option>
   </select>
 
-  <!-- Dynamic Calculator Container -->
   <div id="calculator-container"></div>
 </div>
 
@@ -132,7 +135,7 @@ title: Mass-Luminosity Calculator
   let calculatorContainer = document.getElementById('calculator-container');
 
   const luminosityHTML = 
-    <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+    `<div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
       <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
@@ -140,11 +143,11 @@ title: Mass-Luminosity Calculator
         <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
       </form>
       <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
-    </div>
+    </div>`
   ;
 
   const massHTML = 
-    <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+    `<div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
       <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
@@ -152,11 +155,44 @@ title: Mass-Luminosity Calculator
         <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
       </form>
       <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
-    </div>
+    </div>`
   ;
 
+  document.getElementById('calculator-type').addEventListener('change', function() {
+    if (this.value === 'luminosity') {
+      calculatorContainer.innerHTML = luminosityHTML;
+    } else if (this.value === 'mass') {
+      calculatorContainer.innerHTML = massHTML;
+    } else {
+      calculatorContainer.innerHTML = '';
+    }
+  });
 
+  var toggleTheme = function () {
+    const current_theme = document.documentElement.getAttribute("data-theme") || "light";
+    const new_theme = current_theme === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", new_theme);
+    setTheme(new_theme);
+  }
 
+  var setTheme = function(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+  }
+
+  $('#theme-toggle').on('click', function () {
+    toggleTheme();
+  });
+
+  // Initialize theme from localStorage or system preference
+  (function() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+  })();
 
 
 
