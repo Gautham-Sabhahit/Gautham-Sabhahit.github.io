@@ -4,152 +4,91 @@ title: Mass-Luminosity Calculator
 ---
 
 <style>
+  /* General styling */
   body {
     padding: 20px;
     text-align: center;
-    background-color: white;
-    color: black;
   }
 
   h1, h2, p, label {
     margin-bottom: 15px;
   }
 
-  #luminosity-form {
-    margin-bottom: 20px;
-    display: inline-block;
-    text-align: left;
-  }
-
-  input, button, select {
-    margin-top: 5px;
-    width: 200px;
-    padding: 5px;
-    text-align: left;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-  }
-
-  #luminosity-output, #mass-output {
+  /* Ensure containers adapt to dark mode */
+  .container, #luminosity-output, #calculator-container {
     padding: 20px;
     border: 1px solid #ccc;
     margin-top: 20px;
-    background-color: #f9f9f9;
-    color: black;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
-  #intro-text {
-    font-size: 1.2em;
-    max-width: 1200px;
-    margin: 0 auto 30px auto;
-    text-align: justify;
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
   }
 
-  .themed-box {
-    background-color: #f5f5f5;
-    color: black;
-    border: 1px solid #ccc;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: black;
-      color: white;
-    }
-
-    input, button, select {
-      background-color: #1e1e1e;
-      color: white;
-      border: 1px solid #555;
-    }
-
-    #luminosity-output, #mass-output {
-      background-color: #2b2b2b;
-      border-color: #444;
-      color: white;
-    }
-
-    .themed-box {
-      background-color: #1e1e1e;
-      color: white;
-      border-color: #444;
-    }
+  .dark-mode .container,
+  .dark-mode #luminosity-output,
+  .dark-mode #calculator-container {
+    background-color: #2a2a2a;
+    border-color: #444;
   }
 </style>
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
-  <div class="themed-box" style="width: 800px; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <div class="container">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
     <p style="font-size: 0.8em; text-align: justify;">
-      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions...
-    </p>
-    <p style="font-size: 0.8em;"><strong>Grid parameter range:</strong></p>
-    <p style="font-size: 0.8em; text-align: justify;">
-      1. For M, the chemically homogeneous structure models (H profile slope of 0) and pure-He models (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structure models with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
-    </p>
-    <p style="font-size: 0.8em; text-align: justify;">
-      2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7
-    </p>
-    <p style="font-size: 0.8em; text-align: justify;">
-      3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
-    </p>
-    <p style="font-size: 0.8em;"><strong>Warnings and Errors:</strong></p>
-    <p style="font-size: 0.8em; text-align: justify;">
-      1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
-    </p>
-    <p style="font-size: 0.8em; text-align: justify;">
-      2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, espcially in the mass calculator, an error is issued.
-    </p>
-    <p style="font-size: 0.8em; text-align: justify;">
-      3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
+      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters.
     </p>
   </div>
 
+  <!-- Calculator Type Dropdown -->
   <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
     <option value="" disabled selected>Select Calculator</option>
     <option value="luminosity">Luminosity Calculator</option>
     <option value="mass">Mass Calculator</option>
   </select>
 
-  <div id="calculator-container"></div>
+  <!-- Dynamic Calculator Container -->
+  <div id="calculator-container" class="container"></div>
 </div>
 
 <script>
+  document.getElementById("theme-toggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+  });
+
   let calculatorContainer = document.getElementById('calculator-container');
 
-  const luminosityHTML = 
-    `<div class="themed-box" style="width: 800px; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+  const luminosityHTML = `
+    <div class="container">
       <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
       </form>
-      <div id="luminosity-output"><p style="font-size: 0.85em;">Results will appear here.</p></div>
-    </div>`;
+      <div id="luminosity-output" class="container"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+    </div>
+  `;
 
-  const massHTML = 
-    `<div class="themed-box" style="width: 800px; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+  const massHTML = `
+    <div class="container">
       <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z_mass" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
       </form>
-      <div id="mass-output"><p style="font-size: 0.85em;">Results will appear here.</p></div>
-    </div>`;
+      <div id="mass-output" class="container"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+    </div>
+  `;
 
-  document.getElementById('calculator-type').addEventListener('change', function() {
-    if (this.value === 'luminosity') calculatorContainer.innerHTML = luminosityHTML;
-    else if (this.value === 'mass') calculatorContainer.innerHTML = massHTML;
-    else calculatorContainer.innerHTML = '';
-  });
+
 
 
 
