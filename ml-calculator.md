@@ -44,9 +44,9 @@ title: Mass-Luminosity Calculator
   }
 
   [data-theme="dark"] .box {
-    background-color: #222 !important;
+    background-color: #2b2b2b !important;
     color: #eee !important;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2) !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.15) !important;
     border-color: #444 !important;
   }
 
@@ -61,7 +61,14 @@ title: Mass-Luminosity Calculator
   [data-theme="dark"] .box input::placeholder {
     color: #bbb !important;
   }
+
+  [data-theme="dark"] #calculator-type {
+    background-color: #2b2b2b !important;
+    color: #eee !important;
+    border: 1px solid #444 !important;
+  }
 </style>
+
 
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
