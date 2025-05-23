@@ -12,7 +12,7 @@
           {% for link in site.data.navigation.main %}
             {% if link.dropdown %}
               <li class="masthead__menu-item dropdown">
-                <a href="#" class="dropdown-toggle" onclick="event.preventDefault()">{{ link.title }}</a>
+                <a href="#" class="dropdown-toggle">{{ link.title }}</a>
                 <ul class="dropdown-menu">
                   {% for item in link.dropdown %}
                     <li><a href="{{ base_path }}{{ item.url }}">{{ item.title }}</a></li>
