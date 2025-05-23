@@ -127,7 +127,7 @@ title: Mass-Luminosity Calculator
       <div id="mass-output" class="container"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
   `;
-</script>
+
 
 
 
