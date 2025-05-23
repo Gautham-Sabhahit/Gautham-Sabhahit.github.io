@@ -1,3 +1,8 @@
+---
+layout: default
+title: Mass-Luminosity Calculator
+---
+
 <style>
   body {
     padding: 20px;
@@ -122,32 +127,32 @@
 
   <div class="box" style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em; text-align: justify;">
       Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
     </p>
-    <p style="font-size: 0.8em;"><strong>Grid parameter range:</strong></p>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em;"><strong>Grid parameter range:</strong></p>
+    <p style="font-size: 0.9em; text-align: justify;">
       1. For M, the chemically homogeneous structure models (H profile slope of 0) and pure-He models (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structure models with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
     </p>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em; text-align: justify;">
       2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7
     </p>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em; text-align: justify;">
       3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
     </p>
-    <p style="font-size: 0.8em;"><strong>Warnings and Errors:</strong></p>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em;"><strong>Warnings and Errors:</strong></p>
+    <p style="font-size: 0.9em; text-align: justify;">
       1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
     </p>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em; text-align: justify;">
       2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, especially in the mass calculator, an error is issued.
     </p>
-    <p style="font-size: 0.8em; text-align: justify;">
+    <p style="font-size: 0.9em; text-align: justify;">
       3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
     </p>
   </div>
 
-  <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
+  <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 1.0em;">
     <option value="" disabled selected>Select Calculator</option>
     <option value="luminosity">Luminosity Calculator</option>
     <option value="mass">Mass Calculator</option>
@@ -432,7 +437,7 @@ function attachMassListener() {
 
 
 
-<div id="intro-text">
+<div id="intro-text" style="font-size: 1.1em;">
   <p>
    Welcome to the Mass-Luminosity Relation (MLR) Calculator page. This web interface enables users to compute minimum, maximum, and pure-helium mass-luminosity relations (MLR), based on the stellar structure models presented in Sabhahit et al. (2025b). This work builds upon existing MLRs in the literature by incorporating structure models featuring a helium (He) core and hydrogen (H) shell - configurations that can result from partial envelope stripping and appear to break simple homology relations.
   </p>
@@ -461,3 +466,5 @@ function attachMassListener() {
   <p>In <strong>Figure 2</strong>, we plot the variation of surface luminosity with slope \( s \) for different values of surface \( X_\mathrm{H} \), while fixing \( M_\mathrm{tot} \) to \( 5 \, M_\odot \). We observe that for a given \( M_\mathrm{tot} \) and \( X_\mathrm{H} \), the minimum luminosity still corresponds to the \( s = 0 \) chemically homogeneous model. However, the <strong>maximum luminosity</strong> does <strong>not</strong> occur for the \( s = \infty \) pure-He model, but rather at an intermediate slope with a He-core + H-shell structure corresponding to partial stripping. Similarly, the <strong>minimum mass</strong> does not correspond to the pure-He model either, but again to a He-core + H-shell configuration.</p>
 
   <p>This webpage provides an interactive calculator to predict the minimum, maximum, and pure-He masses and luminosities, including models with such He-core + H-shell structures. Please read the how to use and disclaimers before using the tool. Thank you for reading - enjoy!</p>
+
+  </div>
