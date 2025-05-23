@@ -43,42 +43,48 @@ title: Mass-Luminosity Calculator
     text-align: justify;
   }
 
-    @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #121212;
-      color: #ffffff;
-    }
-
-    input, button, select {
-      background-color: #1e1e1e;
-      color: #ffffff;
-      border: 1px solid #444;
-    }
-
-    #luminosity-output,
-    #mass-output,
-    #calculator-container > div,
-    #intro-text,
-    .dark-box {
-      background-color: #1e1e1e !important;
-      color: #ffffff !important;
-      border-color: #444 !important;
-    }
-
-    h1, h2, p, label {
-      color: #ffffff;
-    }
-
-    option {
-      background-color: #1e1e1e;
-      color: #ffffff;
-    }
-
-    #calculator-type {
-      background-color: #1e1e1e;
-      color: #ffffff;
-    }
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #ffffff;
   }
+
+  input, button, select {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+
+  #luminosity-output,
+  #mass-output,
+  #calculator-container > div,
+  #intro-text,
+  .dark-box {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #444 !important;
+  }
+
+  h1, h2, p, label {
+    color: #ffffff;
+  }
+
+  option {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+
+  #calculator-type {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+
+  div[style*="background-color: #f5f5f5"] {
+    background-color: #555555 !important;
+    color: #ffffff !important;
+  }
+}
+
 </style>
 
 
