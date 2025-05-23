@@ -321,6 +321,10 @@ nav {
    NAVIGATION DROPDOWN
    ========================================================================== */
 
+.masthead__menu-item > a {
+  font-size: 1.1em; /* 10% bigger font size */
+}
+
 .masthead__menu-item.dropdown {
   position: relative;
 }
@@ -367,8 +371,14 @@ nav {
   font-size: 0.7em;
   margin-left: 5px;
   vertical-align: middle;
-  color: var(--primary-color, #007bff);
+  color: black; /* black in light mode */
+  transition: color 0.3s ease;
 }
+
+body.dark-mode .dropdown-toggle::after {
+  color: white; /* white in dark mode */
+}
+
 
 
 
