@@ -361,12 +361,12 @@ nav {
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding-right: 40px;
+    padding-right: 25px;  // increase right padding to make space for arrow
 
     &::after {
       content: "";
       position: absolute;
-      right: 10px;
+      right: 10px;  // shift arrow a bit more right
       top: 50%;
       transform: translateY(-50%);
       border-style: solid;
@@ -376,7 +376,6 @@ nav {
     }
   }
 }
-
 
 body:not(.dark) {
   --triangle-color: black;
