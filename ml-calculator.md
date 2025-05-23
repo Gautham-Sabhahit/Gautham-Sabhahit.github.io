@@ -43,57 +43,62 @@ title: Mass-Luminosity Calculator
     text-align: justify;
   }
 
+  .box {
+    width: 800px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #f5f5f5;
+  }
 
+  body.dark {
+    background-color: rgb(71, 71, 71);
+    color: rgb(255, 255, 255);
+  }
 
-body.dark {
-  background-color: rgb(71, 71, 71);
-  color: rgb(255, 255, 255);
-}
+  body.dark .box {
+    background-color: rgb(71, 71, 71) !important;
+    color: white !important;
+  }
 
-body.dark #calculator-container,
-body.dark #luminosity-output,
-body.dark #mass-output,
-body.dark select,
-body.dark input,
-body.dark button,
-body.dark #luminosity-form,
-body.dark #mass-form,
-body.dark div[style*="background-color: #f5f5f5"] {
-  background-color: rgb(71, 71, 71) !important;
-  color: rgb(255, 255, 255) !important;
-  border-color: #999 !important;
-}
+  body.dark #calculator-container,
+  body.dark #luminosity-output,
+  body.dark #mass-output,
+  body.dark select,
+  body.dark input,
+  body.dark button,
+  body.dark #luminosity-form,
+  body.dark #mass-form {
+    background-color: rgb(71, 71, 71) !important;
+    color: rgb(255, 255, 255) !important;
+    border-color: #999 !important;
+  }
 
-body.dark input,
-body.dark select,
-body.dark button {
-  background-color: #505050;
-  color: white;
-}
+  body.dark input,
+  body.dark select,
+  body.dark button {
+    background-color: #505050;
+    color: white;
+  }
 
-body.dark input::placeholder {
-  color: #bbbbbb;
-}
+  body.dark input::placeholder {
+    color: #bbbbbb;
+  }
 
-body.dark p,
-body.dark h1,
-body.dark h2,
-body.dark label {
-  color: white;
-}
-
-
-  
+  body.dark p,
+  body.dark h1,
+  body.dark h2,
+  body.dark label {
+    color: white;
+  }
 </style>
-
-
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
-  <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <div class="box">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
     <p style="font-size: 0.8em; text-align: justify;">
-      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
+      Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below.
     </p>
     <p style="font-size: 0.8em;"><strong>Grid parameter range:</strong></p>
     <p style="font-size: 0.8em; text-align: justify;">
@@ -110,21 +115,19 @@ body.dark label {
       1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
     </p>
     <p style="font-size: 0.8em; text-align: justify;">
-      2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, espcially in the mass calculator, an error is issued.
+      2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, especially in the mass calculator, an error is issued.
     </p>
     <p style="font-size: 0.8em; text-align: justify;">
       3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
     </p>
   </div>
 
-  <!-- Calculator Type Dropdown -->
   <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
     <option value="" disabled selected>Select Calculator</option>
     <option value="luminosity">Luminosity Calculator</option>
     <option value="mass">Mass Calculator</option>
   </select>
 
-  <!-- Dynamic Calculator Container -->
   <div id="calculator-container"></div>
 </div>
 
@@ -132,28 +135,33 @@ body.dark label {
   let calculatorContainer = document.getElementById('calculator-container');
 
   const luminosityHTML = `
-    <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+    <div class="box" style="margin-top: 20px;">
       <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
       </form>
-      <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+      <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: inherit;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
   `;
 
   const massHTML = `
-    <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+    <div class="box" style="margin-top: 20px;">
       <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z_mass" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
       </form>
-      <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+      <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: inherit;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
     </div>
   `;
+
+  document.getElementById('calculator-type').addEventListener('change', function () {
+    calculatorContainer.innerHTML = this.value === 'luminosity' ? luminosityHTML : massHTML;
+  });
+
 
 function attachLuminosityListener() {
   document.getElementById('calculate-luminosity').addEventListener('click', () => {
