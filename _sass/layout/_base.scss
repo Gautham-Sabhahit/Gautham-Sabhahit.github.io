@@ -366,7 +366,7 @@ nav {
     &::after {
       content: "";
       position: absolute;
-      right: 10px;  // shift arrow a bit more right
+      right: 5px;  // shift arrow a bit more right
       top: 50%;
       transform: translateY(-50%);
       border-style: solid;
