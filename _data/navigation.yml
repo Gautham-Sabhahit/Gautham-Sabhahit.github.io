@@ -12,10 +12,14 @@ main:
     url: /publications/
 
   - title: "Models"
-    url: /models/   
+    url: /models/
 
-  - title: ML Calculator
-    url: /ml-calculator
+  - title: "Calculators"
+    url: "#"   # or /calculators/ if you want a page
+    dropdown:
+      - title: "ML Calculator"
+        url: /ml-calculator/
+
   
 
  # - title: "Teaching"
