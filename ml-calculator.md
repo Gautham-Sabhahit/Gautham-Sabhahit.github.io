@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mass Luminosity Calculator
+title: Mass-Luminosity Calculator
 ---
 
 <style>
