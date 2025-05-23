@@ -338,8 +338,9 @@ nav {
       top: 50%;
       transform: translateY(-50%);
       border-style: solid;
-      border-width: 6px 5px 0 5px;
+      border-width: 8px 7px 0 7px;
       pointer-events: none;
+      transition: border-color 0.3s ease;
     }
   }
 
@@ -376,11 +377,11 @@ nav {
 }
 
 body.dark .masthead__menu-item.dropdown .dropdown-toggle::after {
-  border-color: white transparent transparent transparent;
+  border-color: white transparent transparent transparent !important;
 }
 
 body:not(.dark) .masthead__menu-item.dropdown .dropdown-toggle::after {
-  border-color: black transparent transparent transparent;
+  border-color: black transparent transparent transparent !important;
 }
 
 
