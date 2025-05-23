@@ -42,12 +42,30 @@ title: Mass-Luminosity Calculator
     margin: 0 auto 30px auto;
     text-align: justify;
   }
-</style>
 
+  .themed-box {
+    background-color: #f5f5f5;
+    color: #000000;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .themed-box {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    #luminosity-output,
+    #mass-output {
+      background-color: #2b2b2b;
+      border-color: #444;
+      color: #ffffff;
+    }
+  }
+</style>
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
-  <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <div class="themed-box" style="width: 800px; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
     <p style="font-size: 0.8em; text-align: justify;">
       Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
@@ -74,14 +92,12 @@ title: Mass-Luminosity Calculator
     </p>
   </div>
 
-  <!-- Calculator Type Dropdown -->
   <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 0.9em;">
     <option value="" disabled selected>Select Calculator</option>
     <option value="luminosity">Luminosity Calculator</option>
     <option value="mass">Mass Calculator</option>
   </select>
 
-  <!-- Dynamic Calculator Container -->
   <div id="calculator-container"></div>
 </div>
 
@@ -89,28 +105,33 @@ title: Mass-Luminosity Calculator
   let calculatorContainer = document.getElementById('calculator-container');
 
   const luminosityHTML = 
-    <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+    `<div class="themed-box" style="width: 800px; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
       <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
       </form>
-      <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
-    </div>
-  ;
+      <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+    </div>`;
 
   const massHTML = 
-    <div style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+    `<div class="themed-box" style="width: 800px; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
       <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
         <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <input type="number" id="z_mass" step="any" required placeholder="Metal mass fraction, Z" style="width: 250px; padding: 8px; font-size: 0.8em;">
         <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
       </form>
-      <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
-    </div>
-  ;
+      <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;"><p style="font-size: 0.85em;">Results will appear here.</p></div>
+    </div>`;
+
+  document.getElementById('calculator-type').addEventListener('change', function() {
+    if (this.value === 'luminosity') calculatorContainer.innerHTML = luminosityHTML;
+    else if (this.value === 'mass') calculatorContainer.innerHTML = massHTML;
+    else calculatorContainer.innerHTML = '';
+  });
+
 
 
 
