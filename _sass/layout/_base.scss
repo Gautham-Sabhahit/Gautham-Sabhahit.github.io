@@ -361,12 +361,12 @@ nav {
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding-right: 20px;  // increase right padding to make space for arrow
+    padding-right: 18px;  // increase right padding to make space for arrow
 
     &::after {
       content: "";
       position: absolute;
-      right: 5px;  // shift arrow a bit more right
+      right: 2px;  // shift arrow a bit more right
       top: 50%;
       transform: translateY(-50%);
       border-style: solid;
@@ -376,14 +376,12 @@ nav {
     }
   }
 }
-body:not(.dark) {
-  --triangle-color: black;
-  background-color: #fff; /* for testing */
+body.dark .masthead__menu-item.dropdown .dropdown-toggle::after {
+  border-color: white transparent transparent transparent;
 }
 
-body.dark {
-  --triangle-color: white;
-  background-color: #000; /* for testing */
+body:not(.dark) .masthead__menu-item.dropdown .dropdown-toggle::after {
+  border-color: black transparent transparent transparent;
 }
 
 
