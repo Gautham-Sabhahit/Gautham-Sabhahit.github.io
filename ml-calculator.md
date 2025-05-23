@@ -30,8 +30,9 @@ title: Mass-Luminosity Calculator
     text-align: center !important;
     background-color: #e0e0e0;
     border: 1px solid #aaa;
-    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    box-shadow:
+      inset 0 0 3px rgba(255, 255, 255, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   #luminosity-output {
@@ -64,7 +65,9 @@ title: Mass-Luminosity Calculator
     background-color: #2c2c2c !important;
     color: #eee !important;
     border: 1px solid #666 !important;
-    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1), 0 2px 5px rgba(0, 0, 0, 0.6) !important;
+    box-shadow:
+      inset 0 0 4px rgba(255, 255, 255, 0.1),
+      0 2px 5px rgba(0, 0, 0, 0.6) !important;
   }
 
   [data-theme="dark"] .box input::placeholder {
@@ -94,6 +97,7 @@ title: Mass-Luminosity Calculator
     -moz-appearance: textfield;
   }
 </style>
+
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
