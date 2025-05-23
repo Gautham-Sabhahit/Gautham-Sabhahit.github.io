@@ -95,5 +95,29 @@ $(document).ready(function () {
     closeOnContentClick: true,
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   });
+// Dropdown toggle for masthead Calc menu
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(event) {
+    event.preventDefault();
+    const parentLi = this.parentElement;
+    const dropdownMenu = parentLi.querySelector('.dropdown-menu');
+    if (dropdownMenu.style.display === 'block') {
+      dropdownMenu.style.display = 'none';
+    } else {
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.style.display = 'none';
+      });
+      dropdownMenu.style.display = 'block';
+    }
+  });
+});
+
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.masthead__menu-item.dropdown')) {
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+      menu.style.display = 'none';
+    });
+  }
+});
 
 });
