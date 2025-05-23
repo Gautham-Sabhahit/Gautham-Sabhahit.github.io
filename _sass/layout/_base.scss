@@ -362,6 +362,15 @@ nav {
   user-select: none;
 }
 
+.dropdown-toggle::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 5px;
+  vertical-align: middle;
+  color: var(--primary-color, #007bff);
+}
+
+
 
 /* ==========================================================================
    ANIMATIONS
