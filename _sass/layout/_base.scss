@@ -321,7 +321,6 @@ nav {
     font-size: 110%;
   }
 }
-
 .masthead__menu-item.dropdown {
   position: relative;
   font-size: 110%;
@@ -362,12 +361,12 @@ nav {
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding-right: 25px;
+    padding-right: 40px;
 
     &::after {
       content: "";
       position: absolute;
-      right: 5px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%);
       border-style: solid;
@@ -377,6 +376,7 @@ nav {
     }
   }
 }
+
 
 body:not(.dark) {
   --triangle-color: black;
