@@ -150,6 +150,14 @@ title: Mass-Luminosity Calculator
     <p style="font-size: 0.9em; text-align: justify;">
       3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
     </p>
+<p style="font-size: 0.9em;"><strong>Python script:</strong></p>
+<p style="font-size: 0.9em; text-align: justify;">
+  The python script used for this calculator is available at
+  <a href="https://github.com/Apophis-1/Python-scripts/blob/main/ML-calculator.py" target="_blank" rel="noopener noreferrer">
+    this GitHub link
+  </a>.
+</p>
+
   </div>
 
   <select id="calculator-type" style="width: 250px; padding: 8px; font-size: 1.0em;">
