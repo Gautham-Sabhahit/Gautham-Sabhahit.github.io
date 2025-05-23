@@ -126,7 +126,9 @@ title: Mass-Luminosity Calculator
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
   <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-    <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
+<h2 style="text-align: center; font-size: 1em;">How to Use</h2>
+<hr style="border: none; border-top: 1px solid #ccc; width: 100%; margin: 10px 0 20px 0;">
+
     <p style="font-size: 0.85em; text-align: justify;">
       Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
     </p>
