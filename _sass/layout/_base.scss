@@ -305,7 +305,6 @@ nav {
     text-decoration: none;
   }
 
-  /* override white-space for nested lists */
   ul li,
   ol li {
     margin-bottom: 0;
@@ -317,81 +316,76 @@ nav {
   }
 }
 
-/* ==========================================================================
-   NAVIGATION DROPDOWN
-   ========================================================================== */
+.masthead__menu-item {
+  > a {
+    font-size: 110%;
+  }
+}
 
 .masthead__menu-item.dropdown {
   position: relative;
-  font-size: 110%; /* 10% bigger font size */
+  font-size: 110%;
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: var(--background-color, #fff);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    padding: 0;
+    list-style: none;
+    min-width: 160px;
+    z-index: 1000;
+    border-radius: 4px;
+
+    li a {
+      display: block;
+      padding: 8px 15px;
+      color: var(--text-color, #000);
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: var(--hover-bg, #eee);
+        color: var(--primary-color, #007bff);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:hover .dropdown-menu,
+  &:focus-within .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 15px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-style: solid;
+      border-width: 6px 5px 0 5px;
+      border-color: var(--triangle-color, black) transparent transparent transparent;
+      pointer-events: none;
+    }
+  }
 }
 
-.masthead__menu-item.dropdown .dropdown-menu {
-  display: none;
-  position: absolute;
-  background: var(--background-color, #fff);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  margin-top: 5px;
-  padding: 0;
-  list-style: none;
-  min-width: 160px;
-  z-index: 1000;
-  border-radius: 4px;
-}
-
-.masthead__menu-item.dropdown:hover .dropdown-menu,
-.masthead__menu-item.dropdown:focus-within .dropdown-menu {
-  display: block;
-}
-
-.masthead__menu-item.dropdown .dropdown-menu li a {
-  display: block;
-  padding: 8px 15px;
-  color: var(--text-color, #000);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.masthead__menu-item.dropdown .dropdown-menu li a:hover {
-  background-color: var(--hover-bg, #eee);
-  color: var(--primary-color, #007bff);
-  cursor: pointer;
-}
-
-.dropdown-toggle {
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  padding-right: 15px; /* space for triangle */
-}
-
-/* Replace the blue triangle with a black/white one */
-.dropdown-toggle::after {
-  content: "";
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-style: solid;
-  border-width: 6px 5px 0 5px;
-  border-color: var(--triangle-color, black) transparent transparent transparent;
-  pointer-events: none; /* so click passes through */
-}
-
-/* Light mode: black triangle */
 body:not(.dark) {
   --triangle-color: black;
 }
 
-/* Dark mode: white triangle */
 body.dark {
   --triangle-color: white;
 }
 
-/* Also bump font size of all masthead items by 10% */
-.masthead__menu-item > a {
-  font-size: 110%;
-}
 
 
 
