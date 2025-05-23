@@ -376,14 +376,16 @@ nav {
     }
   }
 }
-
 body:not(.dark) {
   --triangle-color: black;
+  background-color: #fff; /* for testing */
 }
 
 body.dark {
   --triangle-color: white;
+  background-color: #000; /* for testing */
 }
+
 
 
 
