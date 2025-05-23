@@ -363,7 +363,7 @@ nav {
   user-select: none;
   position: relative;
   display: inline-block;  // ensure it respects padding width
-  padding-right: 35px;
+  padding-right: 30px;
 
   &::after {
     content: "";
