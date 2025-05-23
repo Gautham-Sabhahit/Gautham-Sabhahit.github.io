@@ -125,7 +125,7 @@ title: Mass-Luminosity Calculator
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
-  <div class="box" style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
     <h2 style="text-align: center; font-size: 1em;">How to Use</h2>
     <p style="font-size: 0.9em; text-align: justify;">
       Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
@@ -172,7 +172,7 @@ title: Mass-Luminosity Calculator
 <script>
   let calculatorContainer = document.getElementById('calculator-container');
 const luminosityHTML = `
-  <div class="box" style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+  <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
     <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
       <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 275px; padding: 8px; font-size: 0.88em;">
       <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 275px; padding: 8px; font-size: 0.88em;">
@@ -186,7 +186,7 @@ const luminosityHTML = `
 `;
 
 const massHTML = `
-  <div class="box" style="width: 800px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+  <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
     <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
       <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 275px; padding: 8px; font-size: 0.88em;">
       <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 275px; padding: 8px; font-size: 0.88em;">
