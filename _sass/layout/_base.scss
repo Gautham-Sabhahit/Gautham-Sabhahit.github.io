@@ -342,10 +342,10 @@ body.dark {
       content: "";
       position: absolute;
       right: 9px;
-      top: 60%; // lowered from 50%
+      top: 55%; // lowered from 50%
       transform: translateY(-50%);
       border-style: solid;
-      border-width: 8px 8px 0 8px;
+      border-width: 6px 8px 0 8px;
       pointer-events: none;
       border-color: var(--dropdown-arrow-color) transparent transparent transparent;
       transition: border-color 0.3s ease;
