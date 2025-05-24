@@ -345,7 +345,7 @@ body.dark {
       top: 55%; // lowered from 50%
       transform: translateY(-50%);
       border-style: solid;
-      border-width: 6px 8px 0 8px;
+      border-width: 8px 6px 0 6px;
       pointer-events: none;
       border-color: var(--dropdown-arrow-color) transparent transparent transparent;
       transition: border-color 0.3s ease;
