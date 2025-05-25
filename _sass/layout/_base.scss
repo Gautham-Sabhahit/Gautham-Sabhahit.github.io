@@ -341,8 +341,8 @@ body.dark {
     &::after {
       content: "";
       position: absolute;
-      right: 9px;
-      top: 55%; // lowered from 50%
+      right: 11px;
+      top: 53%; // lowered from 50%
       transform: translateY(-50%);
       border-style: solid;
       border-width: 8px 6px 0 6px;
