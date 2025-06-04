@@ -333,7 +333,7 @@ function attachMassListener() {
       output.innerHTML = '<p style="color: red; font-size: 16px;">Error: All inputs must be valid numbers</p>';
       return;
     }
-    if (L <= 0 || X < 0 || Z < 0) {
+    if (X < 0 || Z < 0) {
       output.innerHTML = '<p style="color: red; font-size: 16px;">Error: Yea, nice try :) Zero or negative input(s)</p>';
       return;
     }
