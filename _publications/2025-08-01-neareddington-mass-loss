@@ -1,0 +1,23 @@
+---
+title: "Near-Eddington mass loss of hydrogen-rich Wolf-Rayet stars: Consequences of continuum acceleration, metallicity, and temperature"
+collection: publications
+category: collaborations
+permalink: /publication/2025-08-01-neareddington-mass-loss
+excerpt: ''
+date: 2025-08-01
+venue: 'Astronomy and Astrophysics'
+paperurl: 'https://ui.adsabs.harvard.edu/abs/2025A&A...700A...2L/abstract'
+bibtexurl: 'https://doi.org/10.1051/0004-6361/202554505'
+citation: 'Lefever et al. (2025), Near-Eddington mass loss of hydrogen-rich Wolf-Rayet stars: Consequences of continuum acceleration, metallicity, and temperature, Astronomy and Astrophysics'
+authors:
+  - "R. R. Lefever"
+  - "A. A. C. Sander"
+  - "M. Bernini-Peron"
+  - "G. González-Torà"
+  - "N. M. Moens"
+  - "F. Najarro"
+  - "E. C. Schösser"
+  - "G. N. Sabhahit"
+  - "J. S. Vink"
+---
+Context. Very massive clusters and regions of intense star formation such as the center of our Milky Way contain young hydrogenburning stars that are very close to the Eddington limit. The winds and spectra of these stars, which are formally classified as hydrogen-rich Wolf-Rayet stars (WNh), are distinctively different from the more evolved classical Wolf-Rayet (cWR) stars. Aims. We focus on the wind regime of late-type WNh stars, which have evolved away from the zero-age main sequence. This regime has not been examined in detail so far. Our aim is to uncover the wind physics in this regime and determine similarities and differences to other wind regimes. Methods. We created sequences of hydrodynamically consistent atmosphere models resembling massive slightly evolved WNh stars that are very close to the Eddington limit. Our models spanned temperatures between 21 and 45 kK and metallicities between 1.2 and 0.02 solar. We also used the opportunity to predict spectra in a wider metallicity range than was covered so far by resolved observations. Results. The mass-loss rate decreases overall with increasing temperature and decreasing metallicity. At metallicities of the Small Magellanic Cloud and higher, however, the wind efficiency is highest, and the mass loss eventually again decreases at lower temperatures. For intermediate metallicities, the discontinuities in the mass-loss trends are also strong. No discontinuities are observed at high or very low metallicities. For the lowest metallicities, a more homogeneous behavior is obtained without any maximum in the wind efficiency. The terminal velocities are generally higher for hotter temperatures. For cooler temperatures, the combined effect of metallicity and change in mass loss significantly reduces the changes in the terminal velocity with metallicity. Conclusions. In contrast to cWR stars, the spectral appearance of late-type WNh stars rules out supersonic winds launched at the hot iron bump. A more extended quasi-hydrostatic regime is instead necessary. The proximity to the Eddington limit and the complex interactions cause much substructure in the trends of the global wind parameters. While the strong discontinuities resemble the bi-stability jump that is predicted for the B-supergiant regime, our models reveal a more complex origin. At at metallicity lower than in the Small Magellanic Cloud, iron is no longer a major key for setting the mass-loss rate in this WNh regime. Other elements (e.g., nitrogen) and continuum contributions instead become important.
