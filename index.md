@@ -11,7 +11,7 @@ sidebar:
 ## Recent Publications
 
 <ul>
-  {% assign first_author_pubs = site.publications | where: "category", "manuscripts" | sort: "date" | reverse | slice: 0, 3 %}
+  {% assign first_author_pubs = site.publications | where: "category", "manuscripts" | sort: "date" | reverse | slice: 0, 4 %}
   {% for pub in first_author_pubs %}
     <li style="margin-bottom: 1.5em;">
       <strong><a href="{{ pub.url }}">{{ pub.title }}</a></strong><br>
