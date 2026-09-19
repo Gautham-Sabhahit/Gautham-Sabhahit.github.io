@@ -15,25 +15,25 @@ Publications: <a href="https://ui.adsabs.harvard.edu/">ADS author library</a> &m
 </p>
 
 Research Interests
-======
+------
 My main research interests lie in massive stars, their mass loss and wind-driving physics, and the impact of these wind outflows on the internal structure and evolution of massive stars across all phases. I have expertise in hydrodynamical modelling of the wind structure of massive stars using the PoWR atmosphere code, with recent work focused on the winds of the most massive stars, such as those in the Tarantula Nebula. Complementary to these investigations in the local Universe, I study how mass loss governs the lives and deaths of massive stars in the early Universe using the MESA structure and evolution code. This question has gained new urgency with the advent of high-redshift spectroscopy: JWST is now detecting UV wind-line features that may originate from massive stars, alongside the detection of heavy black-hole mergers such as GW190521.
 
 Current Position
-======
+------
 <div class="cv-entry">
   <div class="cv-entry__row"><strong>Postdoctoral Research Assistant</strong><span class="cv-entry__date">Nov 2023 &ndash; Present</span></div>
   <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium (AOP), Armagh, United Kingdom</div>
 </div>
 
 PhD Thesis
-======
+------
 <div class="cv-entry">
   <div class="cv-entry__row"><strong>&ldquo;Theoretical studies of massive stars near the Eddington limit&rdquo;</strong><span class="cv-entry__date">Nov 2019 &ndash; Oct 2023</span></div>
   <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium (AOP), Armagh, United Kingdom &middot; Supervisor: Prof. Jorick S. Vink</div>
 </div>
 
 Education
-======
+------
 <div class="cv-entry">
   <div class="cv-entry__row"><strong>PhD, Astrophysics</strong><span class="cv-entry__date">Nov 2019 &ndash; Oct 2023</span></div>
   <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium (AOP), Armagh, United Kingdom</div>
@@ -48,30 +48,30 @@ Education
 </div>
 
 Codes & Programming
-======
+------
 * **MESA (stellar evolution):** extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (in Fortran), enabling detailed studies of their evolution and endpoints. Implementation available at [github.com/Apophis-1/](https://github.com/Apophis-1/).
 * **PoWR (non-LTE stellar atmospheres):** hydrodynamical wind&ndash;atmosphere calculations yielding theoretical mass-loss prescriptions for massive stars.
 * **Programming:** Python (proficient), Fortran (proficient).
 
 Research Supervision
-======
+------
 * Guided a Queen's University Belfast Bachelor's student &mdash; 2025 & 2026
 * Guided a Trinity College Dublin Bachelor's student &mdash; 2023
 
 Collaborations & Memberships
-======
+------
 * XShooter + ULLYSES collaboration, Working Groups 4 and 5 &mdash; 2021&ndash;
 * International Astronomical Union (IAU) Junior member &mdash; 2024&ndash;
 
 Service
-======
+------
 * Peer reviewer for Astronomy & Astrophysics (A&A) and The Astrophysical Journal (ApJ), since 2023
 * LOC member, IAU Symposium 361, Ballyconnell, Ireland (2021&ndash;2022)
 * Seminar organiser at Armagh Observatory & Planetarium (2024&ndash;2025)
 * Journal Club organiser at Armagh Observatory & Planetarium (2021&ndash;2022)
 
 Contributed Talks
-======
+------
 <div class="cv-entry">
   <div class="cv-entry__row"><em>Hydrodynamically consistent mass-loss rates for very massive stars: wind physics, stellar evolution, and cosmic implications</em><span class="cv-entry__date">Sep 2026</span></div>
   <div class="cv-entry__sub">MIAPbP workshop on Bridging Gaps in High-Mass Star Research, Munich, Germany</div>
@@ -114,7 +114,7 @@ Contributed Talks
 </div>
 
 Publications
-======
+------
 {% for category in site.publication_category %}
   {% assign title_shown = false %}
   {% for post in site.publications reversed %}

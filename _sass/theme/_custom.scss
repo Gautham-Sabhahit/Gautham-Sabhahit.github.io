@@ -52,6 +52,36 @@ a {
 }
 
 /* --------------------------------------------------------------------------
+   Content heading hierarchy — the theme's base h1-h6 rules all resolve to
+   the same 1em size, so markdown section headings (CV, Research Interests,
+   etc.) rendered with no visual distinction from body text. Give them a
+   real scale within page content.
+   -------------------------------------------------------------------------- */
+.page__content {
+  h2 {
+    font-size: $type-size-3;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-top: 1.8em;
+  }
+
+  h3 {
+    font-size: $type-size-4;
+    font-weight: 700;
+  }
+
+  h4 {
+    font-size: $type-size-6;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--global-text-color-light);
+    margin-top: 1.8em;
+    margin-bottom: 0.75em;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Masthead
    -------------------------------------------------------------------------- */
 .masthead {
