@@ -139,6 +139,24 @@ html[data-theme="dark"] {
 }
 
 /* --------------------------------------------------------------------------
+   Mobile nav (greedy-nav "hidden-links" popup) — same bug as the dropdown
+   above: hardcoded #fff background/arrow with theme-colored (light-on-dark)
+   text, so on dark mode it rendered as unreadable light-gray-on-white.
+   -------------------------------------------------------------------------- */
+.greedy-nav .hidden-links {
+  background: var(--global-bg-color);
+  box-shadow: var(--global-card-shadow);
+
+  a {
+    color: var(--global-text-color);
+  }
+
+  &:after {
+    border-color: var(--global-bg-color) transparent;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Publication / archive cards
    -------------------------------------------------------------------------- */
 .list__item {
