@@ -11,7 +11,7 @@ redirect_from:
 <em>Postdoctoral Research Assistant &middot; Massive Stars &amp; Stellar Astrophysics</em><br>
 Armagh Observatory &amp; Planetarium, College Hill, Armagh BT61 9DG, United Kingdom<br>
 <a href="mailto:gautham.sabhahit@armagh.ac.uk">gautham.sabhahit@armagh.ac.uk</a> &middot; <a href="mailto:gauthamns96@gmail.com">gauthamns96@gmail.com</a><br>
-Publications: <a href="https://ui.adsabs.harvard.edu/">ADS author library</a> &middot; Code: <a href="https://github.com/Apophis-1/VMS_Paper2">github.com/Apophis-1/VMS_Paper2</a>
+Publications: <a href="https://ui.adsabs.harvard.edu/">ADS author library</a> &middot; Code: <a href="https://github.com/Apophis-1/">github.com/Apophis-1/</a>
 </p>
 
 Research Interests
@@ -49,7 +49,7 @@ Education
 
 Codes & Programming
 ======
-* **MESA (stellar evolution):** extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (in Fortran), enabling detailed studies of their evolution and endpoints. Implementation available at [github.com/Apophis-1/VMS_Paper2](https://github.com/Apophis-1/VMS_Paper2).
+* **MESA (stellar evolution):** extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (in Fortran), enabling detailed studies of their evolution and endpoints. Implementation available at [github.com/Apophis-1/](https://github.com/Apophis-1/).
 * **PoWR (non-LTE stellar atmospheres):** hydrodynamical wind&ndash;atmosphere calculations yielding theoretical mass-loss prescriptions for massive stars.
 * **Programming:** Python (proficient), Fortran (proficient).
 
@@ -128,14 +128,3 @@ Publications
 <ul>{% include archive-single-cv.html %}</ul>
   {% endfor %}
 {% endfor %}
-
-Referees
-======
-<div class="cv-entry">
-  <div class="cv-entry__row"><strong>Prof. Jorick S. Vink</strong></div>
-  <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium, Armagh, United Kingdom (PhD supervisor) &middot; <a href="mailto:jorick.vink@armagh.ac.uk">jorick.vink@armagh.ac.uk</a></div>
-</div>
-<div class="cv-entry">
-  <div class="cv-entry__row"><strong>Dr. Andreas A. C. Sander</strong></div>
-  <div class="cv-entry__sub">Zentrum f&uuml;r Astronomie der Universit&auml;t Heidelberg (ZAH), Heidelberg, Germany &middot; <a href="mailto:andreas.sander@uni-heidelberg.de">andreas.sander@uni-heidelberg.de</a></div>
-</div>

@@ -1,9 +1,14 @@
 ---
 layout: single
-title: "Education"
-permalink: /education/
+title: "Experience"
+permalink: /experience/
 author_profile: true
 ---
+
+<div class="cv-entry">
+  <div class="cv-entry__row"><strong>Postdoctoral Research Assistant</strong><span class="cv-entry__date">Nov 2023 &ndash; Present</span></div>
+  <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium (AOP), Armagh, United Kingdom</div>
+</div>
 
 <div class="cv-entry">
   <div class="cv-entry__row"><strong>PhD, Astrophysics</strong><span class="cv-entry__date">Nov 2019 &ndash; Oct 2023</span></div>
