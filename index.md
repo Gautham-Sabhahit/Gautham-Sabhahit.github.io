@@ -11,20 +11,16 @@ sidebar:
     <span class="home-hero__badge">Stellar Astrophysicist</span>
     <span class="home-hero__badge">Armagh Observatory</span>
   </div>
-  <p class="home-hero__intro">I study massive stars &mdash; from stellar evolution modelling that follows their life and death, to atmosphere modelling of the strong stellar winds and mass-loss physics that shape their fate.</p>
-</div>
 
-<h2 class="home-section-title">Recent Publications</h2>
+  <p class="home-hero__intro">I'm a postdoctoral research assistant at Armagh Observatory &amp; Planetarium, where I study massive stars &mdash; their mass loss, wind-driving physics, and how these outflows shape stellar structure and evolution across every phase of a massive star's life.</p>
 
-{% assign first_author_pubs = site.publications | where: "category", "manuscripts" | sort: "date" | reverse | slice: 0, 4 %}
-{% for pub in first_author_pubs %}
-  <div class="list__item">
-    <article class="archive__item">
-      <h2 class="archive__item-title"><a href="{{ pub.url }}">{{ pub.title }}</a></h2>
-      <p><strong>Authors:</strong> {{ pub.authors | join: ", " }}</p>
-      <p class="archive__item-excerpt">{{ pub.content | strip_html | truncatewords: 30 }}</p>
-    </article>
+  <p class="home-hero__intro">I'm interested in nearly everything about massive stars &mdash; their atmospheres, winds, and internal structure, and how each shapes the other. I use the <strong>PoWR</strong> atmosphere code for hydrodynamical modelling of stellar winds, most recently deriving a new mass-loss prediction from hydrodynamical PoWR models, and the <strong>MESA</strong> stellar evolution code to trace how mass loss governs the lives and deaths of massive stars in the early Universe, including a custom mass-loss framework I built into MESA for very massive stars. That second thread has taken on new relevance lately: JWST is now picking up UV wind-line features at high redshift that may trace back to massive stars, alongside the detection of heavy black-hole mergers like GW190521.</p>
+
+  <p class="home-hero__intro">I completed my PhD in Astrophysics at Armagh Observatory &amp; Planetarium (2019&ndash;2023), supervised by Prof. Jorick S. Vink, with a thesis on theoretical studies of massive stars near the Eddington limit. Before that, an MSc in Physics at the University of Leeds, and a BEng in Mechanical Engineering at NIT Karnataka, India.</p>
+
+  <div class="home-hero__links">
+    <a class="home-hero__link" href="/research-interests/">Research Interests &rarr;</a>
+    <a class="home-hero__link" href="/publications/">Publications &rarr;</a>
+    <a class="home-hero__link" href="/cv/">Full CV &rarr;</a>
   </div>
-{% endfor %}
-
-<a class="home-more-link" href="/publications/">More publications &rarr;</a>
+</div>

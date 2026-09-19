@@ -218,6 +218,17 @@ html[data-theme="dark"] {
     color: var(--global-text-color);
     max-width: 46em;
   }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin-top: 1.2em;
+  }
+
+  &__link {
+    font-weight: 600;
+  }
 }
 
 .home-section-title {
@@ -231,4 +242,42 @@ html[data-theme="dark"] {
   display: inline-block;
   margin-top: 0.5em;
   font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   CV-style entries (Education, CV, Contributed Talks)
+   -------------------------------------------------------------------------- */
+.cv-entry {
+  padding: 0.9em 0;
+  border-bottom: 1px solid var(--global-border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5em 1em;
+  }
+
+  &__date {
+    flex-shrink: 0;
+    color: var(--global-text-color-light);
+    font-size: $type-size-6;
+    white-space: nowrap;
+  }
+
+  &__sub {
+    font-style: italic;
+    color: var(--global-text-color-light);
+    margin-top: 0.15em;
+  }
+
+  p {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
 }

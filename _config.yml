@@ -73,9 +73,9 @@ publication_category:
   books:
     title: 'Books'
   manuscripts:
-    title: 'First author papers'    
+    title: 'First-author refereed publications'
   collab:
-    title: 'Other collaborative papers'
+    title: 'Co-authored refereed publications'
   conference:
     title: 'Conference proceedings'
 
