@@ -9,6 +9,7 @@ venue: 'arXiv e-prints'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025arXiv251213782S/abstract'
 bibtexurl: 'https://doi.org/10.48550/arXiv.2512.13782'
 citation: 'Sabhahit et al. (2025), Hydrodynamical mass-loss rates for Very Massive Stars. I. Investigating the wind kink, arXiv e-prints'
+keywords: ["Very massive stars", "Wind kink", "PoWR", "Hydrodynamic atmosphere models", "Black hole mass spectrum"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

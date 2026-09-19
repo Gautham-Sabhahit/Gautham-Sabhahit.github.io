@@ -9,6 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025A&A...693A..10S/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202451976'
 citation: 'Sabhahit & Vink (2025), Stellar expansion or inflation?, Astronomy and Astrophysics'
+keywords: ["Stellar structure", "Eddington limit", "Radial inflation", "Post-main-sequence evolution"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

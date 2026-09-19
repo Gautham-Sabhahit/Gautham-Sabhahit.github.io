@@ -9,6 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025A&A...700A...2L/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202554505'
 citation: 'Lefever et al. (2025), Near-Eddington mass loss of hydrogen-rich Wolf-Rayet stars: Consequences of continuum acceleration, metallicity, and temperature, Astronomy and Astrophysics'
+keywords: ["WNh stars", "Eddington limit", "Continuum driving", "Wind terminal velocity", "Metallicity dependence"]
 authors:
   - "R. R. Lefever"
   - "A. A. C. Sander"

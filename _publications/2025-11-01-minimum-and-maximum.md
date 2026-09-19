@@ -9,6 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025A&A...703A..40S/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202554852'
 citation: 'Sabhahit et al. (2025), Minimum and maximum mass-luminosity relations for stripped stars, Astronomy and Astrophysics'
+keywords: ["Stripped stars", "Mass-luminosity relation", "Wolf-Rayet stars", "Binary evolution", "MESA"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

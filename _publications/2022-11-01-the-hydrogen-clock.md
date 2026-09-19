@@ -9,6 +9,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2022MNRAS.516.4052H/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stac2485'
 citation: 'Higgins et al. (2022), The hydrogen clock to infer the upper stellar mass, MNRAS'
+keywords: ["Very massive stars", "Surface abundances", "Eddington limit", "Initial mass determination", "Tarantula Nebula"]
 authors:
   - "Erin R. Higgins"
   - "Jorick S. Vink"

@@ -9,6 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2024A&A...688L..10V/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202450655'
 citation: 'Vink et al. (2024), The maximum black hole mass at solar metallicity, Astronomy and Astrophysics'
+keywords: ["Black hole mass", "Solar metallicity", "Wind mass loss", "Stellar evolution"]
 authors:
   - "Jorick S. Vink"
   - "<strong>Gautham N. Sabhahit</strong>"

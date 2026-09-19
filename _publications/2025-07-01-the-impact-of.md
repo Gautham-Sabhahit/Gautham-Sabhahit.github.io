@@ -9,6 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025A&A...699A..71H/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202453472'
 citation: 'Higgins et al. (2025), The impact of wind mass loss on nucleosynthesis and yields of very massive stars at low metallicity, Astronomy and Astrophysics'
+keywords: ["Nucleosynthesis", "Wind yields", "Low metallicity", "Globular clusters", "Very massive stars"]
 authors:
   - "Erin R. Higgins"
   - "Jorick S. Vink"

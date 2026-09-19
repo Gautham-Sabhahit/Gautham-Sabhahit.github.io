@@ -59,7 +59,15 @@
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
     {% endif %}
-    
+
+    {% if post.keywords %}
+      <ul class="archive__item-keywords">
+        {% for keyword in post.keywords %}
+          <li>{{ keyword }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
 {% if post.paperurl and post.bibtexurl %}
   <p><a href="{{ post.paperurl }}">NASA ADS</a> | <a href="{{ post.bibtexurl }}">DOI</a></p>
 {% elsif post.paperurl %}

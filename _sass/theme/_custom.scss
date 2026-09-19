@@ -191,6 +191,28 @@ html[data-theme="dark"] {
   color: var(--global-text-color-light);
 }
 
+.archive__item-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0.75em 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-flex;
+    padding: 0.25em 0.75em;
+    font-size: $type-size-7;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--global-accent-color);
+    background: rgba(79, 209, 224, 0.1);
+    border: 1px solid rgba(79, 209, 224, 0.25);
+    border-radius: 999px;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Homepage hero
    -------------------------------------------------------------------------- */

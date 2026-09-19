@@ -9,6 +9,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.4473S/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stab1948'
 citation: 'Sabhahit et al. (2021), Superadiabaticity and the metallicity independence of the Humphreys-Davidson limit, MNRAS'
+keywords: ["Humphreys-Davidson limit", "Red supergiants", "Convective mixing", "Metallicity", "MESA"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"
