@@ -200,6 +200,15 @@ html[data-theme="dark"] {
   background: var(--global-surface-color);
   box-shadow: var(--global-card-shadow);
   transition: transform 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  /* Some pages wrap this card in .page__content (which bumps p/li to 1em)
+     and some don't (e.g. the Publications archive page uses .archive
+     instead), so the same card rendered different sizes depending on
+     which page it was on. Set it explicitly here instead of relying on
+     an ancestor to do it. */
+  p, li {
+    font-size: 1em;
+  }
 }
 
 .archive__item:hover {
@@ -212,6 +221,12 @@ html[data-theme="dark"] {
 }
 
 .archive__item-title {
+  /* Explicit size for the same reason as .archive__item above: this is a
+     card title, not a page section heading, so it shouldn't inherit
+     .page__content's larger h2 treatment on pages that happen to wrap it
+     (e.g. the CV) while staying default-sized on pages that don't
+     (e.g. the Publications archive). */
+  font-size: $type-size-4;
   margin-top: 0;
   font-weight: 700;
   letter-spacing: -0.01em;

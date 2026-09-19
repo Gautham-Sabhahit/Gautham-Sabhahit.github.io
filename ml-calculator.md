@@ -4,29 +4,34 @@ title: Mass-Luminosity Calculator
 ---
 
 <style>
-  body {
+  /* Scoped to .ml-calc so this page's rules can't leak onto the site
+     masthead/nav — a global `button { width: 200px }` here was previously
+     also resizing the masthead's hamburger toggle button to 200px wide,
+     which starved the nav of space and forced most nav items into the
+     dropdown on every screen size. */
+  .ml-calc {
     padding: 20px;
     text-align: center;
   }
 
-  h1, h2, p, label {
+  .ml-calc h1, .ml-calc h2, .ml-calc p, .ml-calc label {
     margin-bottom: 15px;
   }
 
-  #luminosity-form {
+  .ml-calc #luminosity-form {
     margin-bottom: 20px;
     display: inline-block;
     text-align: left;
   }
 
-  input, button {
+  .ml-calc input, .ml-calc button {
     margin-top: 5px;
     width: 200px;
     padding: 5px;
     text-align: left;
   }
 
-  button {
+  .ml-calc button {
     text-align: center !important;
     background: linear-gradient(to bottom, #f5f5f5 0%, #dcdcdc 100%);
     border: 1px solid #aaa;
@@ -38,14 +43,14 @@ title: Mass-Luminosity Calculator
     transition: all 0.2s ease-in-out;
   }
 
-  button:hover {
+  .ml-calc button:hover {
     background: linear-gradient(to bottom, #ffffff 0%, #d0d0d0 100%);
     box-shadow:
       inset 0 1px 1px rgba(255,255,255,0.9),
       0 3px 6px rgba(0, 0, 0, 0.3);
   }
 
-  #luminosity-output {
+  .ml-calc #luminosity-output {
     padding: 20px;
     border: 1px solid #ccc;
     margin-top: 20px;
@@ -55,29 +60,29 @@ title: Mass-Luminosity Calculator
     margin-right: auto;
   }
 
-  #intro-text {
-    font-size: 1.2em;
+  .ml-calc #intro-text {
+    font-size: 1em;
     max-width: 1200px;
     margin: 0 auto 30px auto;
     text-align: justify;
   }
 
-  [data-theme="dark"] .box {
+  [data-theme="dark"] .ml-calc .box {
     background-color: #3a3a3a !important;
     color: #eee !important;
     box-shadow: 0 0 10px rgba(255,255,255,0.15) !important;
     border-color: #444 !important;
   }
 
-  [data-theme="dark"] .box input,
-  [data-theme="dark"] .box select,
-  [data-theme="dark"] .box button {
+  [data-theme="dark"] .ml-calc .box input,
+  [data-theme="dark"] .ml-calc .box select,
+  [data-theme="dark"] .ml-calc .box button {
     background-color: #444 !important;
     color: #eee !important;
     border: 1px solid #666 !important;
   }
 
-  [data-theme="dark"] .box button {
+  [data-theme="dark"] .ml-calc .box button {
     background: linear-gradient(to bottom, #3a3a3a 0%, #1f1f1f 100%) !important;
     border: 1px solid #666 !important;
     box-shadow:
@@ -86,74 +91,80 @@ title: Mass-Luminosity Calculator
     font-weight: 600;
   }
 
-  [data-theme="dark"] .box button:hover {
+  [data-theme="dark"] .ml-calc .box button:hover {
     background: linear-gradient(to bottom, #4a4a4a 0%, #2a2a2a 100%) !important;
     box-shadow:
       inset 0 1px 1px rgba(255,255,255,0.1),
       0 3px 6px rgba(0, 0, 0, 0.8) !important;
   }
 
-  [data-theme="dark"] .box input::placeholder {
+  [data-theme="dark"] .ml-calc .box input::placeholder {
     color: #bbb !important;
   }
 
-  [data-theme="dark"] #calculator-type {
+  [data-theme="dark"] .ml-calc #calculator-type {
     background-color: #2b2b2b !important;
     color: #eee !important;
     border: 1px solid #444 !important;
   }
 
-  [data-theme="dark"] #luminosity-output,
-  [data-theme="dark"] #mass-output {
+  [data-theme="dark"] .ml-calc #luminosity-output,
+  [data-theme="dark"] .ml-calc #mass-output {
     background-color: #2e2e2e !important;
     color: #eee !important;
     border: 1px solid #555 !important;
   }
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  .ml-calc input[type=number]::-webkit-inner-spin-button,
+  .ml-calc input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  input[type=number] {
+  .ml-calc input[type=number] {
     -moz-appearance: textfield;
+  }
+
+  .ml-calc .box {
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
   }
 </style>
 
 
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
+<div class="ml-calc" style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
-  <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-<h2 style="text-align: center; font-size: 1em;">How to Use</h2>
+  <div class="box" style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+<h2 style="text-align: center; font-size: 1.563em;">How to Use</h2>
 <hr style="border: none; border-top: 1px solid #ccc; width: 100%; margin: 10px 0 20px 0;">
 
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em; text-align: justify;">
       Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
     </p>
-    <p style="font-size: 0.85em;"><strong>Grid parameter range:</strong></p>
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em;"><strong>Grid parameter range:</strong></p>
+    <p style="font-size: 1em; text-align: justify;">
       1. For mass M, the chemically homogeneous structures (H profile slope of 0) and pure-He structures (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structures with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
     </p>
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em; text-align: justify;">
       2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7
     </p>
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em; text-align: justify;">
       3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
     </p>
-    <p style="font-size: 0.85em;"><strong>Warnings and Errors:</strong></p>
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em;"><strong>Warnings and Errors:</strong></p>
+    <p style="font-size: 1em; text-align: justify;">
       1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
     </p>
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em; text-align: justify;">
       2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, especially in the mass calculator, an error is issued.
     </p>
-    <p style="font-size: 0.85em; text-align: justify;">
+    <p style="font-size: 1em; text-align: justify;">
       3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
     </p>
-<p style="font-size: 0.85em;"><strong>Python script:</strong></p>
-<p style="font-size: 0.85em; text-align: justify;">
+<p style="font-size: 1em;"><strong>Python script:</strong></p>
+<p style="font-size: 1em; text-align: justify;">
   The python script used for this calculator is available 
   <a href="https://github.com/Apophis-1/Python-scripts/blob/main/ML-calculator.py" target="_blank" rel="noopener noreferrer">
     here</a>.
@@ -173,7 +184,7 @@ title: Mass-Luminosity Calculator
 <script>
   let calculatorContainer = document.getElementById('calculator-container');
 const luminosityHTML = `
-  <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+  <div class="box" style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
     <form id="luminosity-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
       <input type="number" id="m" step="any" required placeholder="Mass, M/M☉" style="width: 275px; padding: 8px; font-size: 0.88em;">
       <input type="number" id="x" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 275px; padding: 8px; font-size: 0.88em;">
@@ -181,13 +192,13 @@ const luminosityHTML = `
       <button type="button" id="calculate-luminosity" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Luminosity</button>
     </form>
     <div id="luminosity-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;">
-      <p style="font-size: 0.85em;">Results will appear here.</p>
+      <p style="font-size: 1em;">Results will appear here.</p>
     </div>
   </div>
 `;
 
 const massHTML = `
-  <div class="box" style="width: 1000px; background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
+  <div class="box" style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px;">
     <form id="mass-form" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
       <input type="number" id="l" step="any" required placeholder="Luminosity, log(L/L☉)" style="width: 275px; padding: 8px; font-size: 0.88em;">
       <input type="number" id="x_mass" step="any" required placeholder="Hydrogen Mass Fraction, X" style="width: 275px; padding: 8px; font-size: 0.88em;">
@@ -195,7 +206,7 @@ const massHTML = `
       <button type="button" id="calculate-mass" style="width: 220px; padding: 8px; font-size: 0.8em;">Calculate Mass</button>
     </form>
     <div id="mass-output" style="margin-top: 20px; text-align: center; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f5f5f5;">
-      <p style="font-size: 0.85em;">Results will appear here.</p>
+      <p style="font-size: 1em;">Results will appear here.</p>
     </div>
   </div>
 `;
@@ -450,7 +461,7 @@ function attachMassListener() {
 
 
 
-<div id="intro-text" style="font-size: 1.2em;">
+<div id="intro-text" class="ml-calc" style="font-size: 1em;">
   <p>
    Welcome to the Mass-Luminosity Relation (MLR) Calculator page. This web interface enables users to compute minimum, maximum, and pure-helium mass-luminosity relations (MLR), based on the stellar structure models presented in Sabhahit et al. (2025b). This work builds upon existing MLRs in the literature by incorporating structure models featuring a helium (He) core and hydrogen (H) shell - configurations that can result from partial envelope stripping and appear to break simple homology relations.
   </p>
