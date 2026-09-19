@@ -5,20 +5,26 @@ author_profile: true
 sidebar:
 ---
 
-<!-- Content of the page -->
-<p style="font-size: 1.1em;">Hello and welcome to my personal webpage! I am a stellar astrophysicist with a broad interest in massive stars. I have experience in stellar evolution modelling following the life and death of massive stars, as well as atmosphere modelling studying their strong stellar wind structure and mass-loss physics.</p>
+<div class="home-hero">
+  <p class="home-hero__tagline">Hi, I'm Gautham<span class="home-hero__accent">.</span></p>
+  <div class="home-hero__badges">
+    <span class="home-hero__badge">Stellar Astrophysicist</span>
+    <span class="home-hero__badge">Armagh Observatory</span>
+  </div>
+  <p class="home-hero__intro">I study massive stars &mdash; from stellar evolution modelling that follows their life and death, to atmosphere modelling of the strong stellar winds and mass-loss physics that shape their fate.</p>
+</div>
 
-## Recent Publications
+<h2 class="home-section-title">Recent Publications</h2>
 
-<ul>
-  {% assign first_author_pubs = site.publications | where: "category", "manuscripts" | sort: "date" | reverse | slice: 0, 4 %}
-  {% for pub in first_author_pubs %}
-    <li style="margin-bottom: 1.5em;">
-      <strong><a href="{{ pub.url }}">{{ pub.title }}</a></strong><br>
-      <em>{{ pub.authors | join: ", " }}</em><br>
-      <span>{{ pub.content | strip_html | truncatewords: 30 }}</span>
-    </li>
-  {% endfor %}
-</ul>
+{% assign first_author_pubs = site.publications | where: "category", "manuscripts" | sort: "date" | reverse | slice: 0, 4 %}
+{% for pub in first_author_pubs %}
+  <div class="list__item">
+    <article class="archive__item">
+      <h2 class="archive__item-title"><a href="{{ pub.url }}">{{ pub.title }}</a></h2>
+      <p><strong>Authors:</strong> {{ pub.authors | join: ", " }}</p>
+      <p class="archive__item-excerpt">{{ pub.content | strip_html | truncatewords: 30 }}</p>
+    </article>
+  </div>
+{% endfor %}
 
-<p><a href="/publications/">More publications →</a></p>
+<a class="home-more-link" href="/publications/">More publications &rarr;</a>

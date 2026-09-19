@@ -5,7 +5,7 @@
 $(document).ready(function () {
   // Set the theme on page load
   var setTheme = function (theme) {
-    const use_theme = theme || localStorage.getItem("theme") || $("html").attr("data-theme");
+    const use_theme = theme || localStorage.getItem("theme") || $("html").attr("data-theme") || "dark";
     if (use_theme === "dark") {
       $("html").attr("data-theme", "dark");
       $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");

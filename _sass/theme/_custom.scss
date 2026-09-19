@@ -1,0 +1,234 @@
+/* ==========================================================================
+   CUSTOM OVERRIDES
+   Refined palette, typography and components layered on top of the
+   Minimal Mistakes default/dark themes. Loaded last so it wins the cascade.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Extra surface / accent tokens (both themes, used by components below)
+   -------------------------------------------------------------------------- */
+:root {
+  --global-surface-color   : #f7f8fa;
+  --global-accent-color    : #0e7490;
+  --global-accent-color-2  : #0ea5c4;
+  --global-card-shadow     : 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+html[data-theme="dark"] {
+  /* Deep, slightly blue-tinted near-black rather than flat gray */
+  --global-base-color                 : #e7eaee;
+  --global-bg-color                   : #0c0e12;
+  --global-footer-bg-color            : #0c0e12;
+  --global-border-color               : #22262e;
+  --global-dark-border-color          : #2c313b;
+  --global-code-background-color      : #14171d;
+  --global-code-text-color            : #d7dbe0;
+  --global-fig-caption-color          : #8b93a1;
+  --global-link-color                 : #4fd1e0;
+  --global-link-color-hover           : #7de3ee;
+  --global-link-color-visited         : #4fd1e0;
+  --global-masthead-link-color        : #e7eaee;
+  --global-masthead-link-color-hover  : #4fd1e0;
+  --global-text-color                 : #e7eaee;
+  --global-text-color-light           : #9aa4b2;
+  --global-thead-color                : #14171d;
+
+  --global-surface-color              : #14171d;
+  --global-accent-color               : #4fd1e0;
+  --global-accent-color-2             : #22d3ee;
+  --global-card-shadow                : 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   Base typography polish
+   -------------------------------------------------------------------------- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  transition: color 0.15s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   Masthead
+   -------------------------------------------------------------------------- */
+.masthead {
+  background: rgba(12, 14, 18, 0);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+html[data-theme="dark"] .masthead {
+  background: rgba(12, 14, 18, 0.82);
+}
+
+html:not([data-theme="dark"]) .masthead {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.masthead__inner-wrap {
+  font-family: $sans-serif;
+
+  a {
+    letter-spacing: 0.01em;
+  }
+}
+
+.masthead__menu-item {
+  background-color: transparent;
+  font-weight: 500;
+
+  &--lg {
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar / author profile
+   -------------------------------------------------------------------------- */
+.author__avatar {
+  img {
+    max-width: 190px;
+
+    @include breakpoint($large) {
+      padding: 4px;
+      border: 2px solid var(--global-accent-color);
+      box-shadow: var(--global-card-shadow);
+    }
+  }
+}
+
+.author__name {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.author__bio {
+  color: var(--global-text-color-light);
+}
+
+.author__urls-wrapper .btn--inverse {
+  border-color: var(--global-border-color);
+
+  &:hover {
+    border-color: var(--global-accent-color);
+    color: var(--global-accent-color);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Nav dropdown (theme's own rules used --background-color/--text-color,
+   which are never set and gated on body.dark, which nothing toggles — so
+   the menu stayed hardcoded white-on-black regardless of theme)
+   -------------------------------------------------------------------------- */
+.masthead__menu-item.dropdown .dropdown-menu {
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-border-color);
+  box-shadow: var(--global-card-shadow);
+
+  li a {
+    color: var(--global-text-color);
+  }
+}
+
+html[data-theme="dark"] {
+  --dropdown-arrow-color: #e7eaee;
+}
+
+/* --------------------------------------------------------------------------
+   Publication / archive cards
+   -------------------------------------------------------------------------- */
+.list__item {
+  margin-bottom: 1.25em;
+}
+
+.archive__item {
+  padding: 1.25em 1.5em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 10px;
+  background: var(--global-surface-color);
+  box-shadow: var(--global-card-shadow);
+  transition: transform 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.archive__item:hover {
+  transform: translateY(-2px);
+  border-color: var(--global-accent-color);
+
+  .archive__item-title a {
+    text-decoration: none;
+  }
+}
+
+.archive__item-title {
+  margin-top: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.archive__item-excerpt {
+  color: var(--global-text-color-light);
+}
+
+/* --------------------------------------------------------------------------
+   Homepage hero
+   -------------------------------------------------------------------------- */
+.home-hero {
+  padding-bottom: 0.5em;
+
+  &__tagline {
+    font-size: $type-size-3;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+  }
+
+  &__accent {
+    color: var(--global-accent-color);
+  }
+
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 1.1em;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3em 0.85em;
+    font-size: $type-size-6;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--global-accent-color);
+    background: rgba(79, 209, 224, 0.1);
+    border: 1px solid rgba(79, 209, 224, 0.25);
+    border-radius: 999px;
+  }
+
+  &__intro {
+    font-size: 1.15em;
+    line-height: 1.65;
+    color: var(--global-text-color);
+    max-width: 46em;
+  }
+}
+
+.home-section-title {
+  margin-top: 1.6em;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid var(--global-accent-color);
+  display: inline-block;
+}
+
+.home-more-link {
+  display: inline-block;
+  margin-top: 0.5em;
+  font-weight: 600;
+}
