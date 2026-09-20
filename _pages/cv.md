@@ -112,19 +112,3 @@ Contributed Talks
   <div class="cv-entry__row"><em>Super-adiabaticity and the Z-independence of the Humphreys&ndash;Davidson limit</em><span class="cv-entry__date">Nov 2021</span></div>
   <div class="cv-entry__sub">Massive Stars and Black Holes, Maynooth University, Ireland</div>
 </div>
-
-Publications
-------
-{% for category in site.publication_category %}
-  {% assign title_shown = false %}
-  {% for post in site.publications reversed %}
-    {% if post.category != category[0] %}
-      {% continue %}
-    {% endif %}
-    {% unless title_shown %}
-#### {{ category[1].title }}
-      {% assign title_shown = true %}
-    {% endunless %}
-<ul>{% include archive-single-cv.html %}</ul>
-  {% endfor %}
-{% endfor %}
