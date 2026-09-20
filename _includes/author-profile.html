@@ -18,7 +18,13 @@
     <h3 class="author__name">{{ author.name }}</h3>
 <div style="margin-bottom: 10px;"></div>
     {% if author.pronouns %}<p class="author__pronouns">{{ author.pronouns }}</p>{% endif %}
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    {% if author.interests %}
+      <div class="author__interests">
+        {% for interest in author.interests %}
+          <span class="author__interest-tag">{{ interest }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 
   <div class="author__urls-wrapper">
