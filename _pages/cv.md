@@ -14,6 +14,8 @@ Armagh Observatory &amp; Planetarium, College Hill, Armagh BT61 9DG, United King
 Publications: <a href="https://ui.adsabs.harvard.edu/">ADS author library</a> &middot; Code: <a href="https://github.com/Apophis-1/">github.com/Apophis-1/</a>
 </p>
 
+<p><a href="{{ base_path }}/files/CV_Sabhahit.pdf" class="cv-download-link" download>Download Full CV (PDF) &darr;</a></p>
+
 Research Interests
 ------
 My main research interests lie in massive stars, their mass loss and wind-driving physics, and the impact of these wind outflows on the internal structure and evolution of massive stars across all phases. I have expertise in hydrodynamical modelling of the wind structure of massive stars using the PoWR atmosphere code, with recent work focused on the winds of the most massive stars, such as those in the Tarantula Nebula. Complementary to these investigations in the local Universe, I study how mass loss governs the lives and deaths of massive stars in the early Universe using the MESA structure and evolution code. This question has gained new urgency with the advent of high-redshift spectroscopy: JWST is now detecting UV wind-line features that may originate from massive stars, alongside the detection of heavy black-hole mergers such as GW190521.

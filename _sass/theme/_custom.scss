@@ -397,3 +397,23 @@ html[data-theme="dark"] {
     margin-bottom: 0;
   }
 }
+
+.cv-download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0.6em 0 1.2em;
+  padding: 0.5em 1em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--global-text-color);
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    border-color: var(--global-accent-color-2);
+    color: var(--global-accent-color-2);
+  }
+}
