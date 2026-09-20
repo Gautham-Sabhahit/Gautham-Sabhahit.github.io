@@ -9,7 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2026A%26A...708A.206B/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202558762'
 citation: 'Bernini-Peron et al. (2026), The winds of OBA hypergiants and luminous blue variables: dynamically consistent atmosphere models reveal multiple wind regimes, Astronomy and Astrophysics'
-keywords: ["stars: early-type", "stars: massive", "stars: mass-loss", "supergiants", "stars: variables: S Doradus", "stars: winds", "outflows"]
+keywords: ["stars: early-type", "stars: massive", "stars: mass-loss", "supergiants", "stars: variables: S Doradus", "stars: winds, outflows"]
 authors:
   - "M. Bernini-Peron"
   - "A. A. C. Sander"

@@ -9,7 +9,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2021MNRAS.504..146V/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stab842'
 citation: 'Vink et al. (2021), Maximum black hole mass across cosmic time, MNRAS'
-keywords: ["gravitational waves", "stars: black holes", "stars: evolution", "stars: massive", "stars: mass-loss", "stars: winds", "outflows"]
+keywords: ["gravitational waves", "stars: black holes", "stars: evolution", "stars: massive", "stars: mass-loss", "stars: winds, outflows"]
 authors:
   - "Jorick S. Vink"
   - "Erin R. Higgins"

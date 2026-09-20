@@ -130,9 +130,26 @@ title: Mass-Luminosity Calculator
     max-width: 1000px;
     box-sizing: border-box;
   }
+
+  .ml-calc-welcome {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px 0;
+    text-align: left;
+  }
+
+  .ml-calc-welcome p {
+    font-size: 1.3em;
+    text-align: left;
+    line-height: 1.5;
+  }
 </style>
 
-
+<div class="ml-calc-welcome">
+  <p>
+   Welcome to the Mass-Luminosity Relation (MLR) Calculator page. This web interface enables users to compute minimum, maximum, and pure-helium mass-luminosity relations (MLR), based on the stellar structure models presented in Sabhahit et al. (2025b). This work builds upon existing MLRs in the literature by incorporating structure models featuring a helium (He) core and hydrogen (H) shell - configurations that can result from partial envelope stripping and appear to break simple homology relations.
+  </p>
+</div>
 
 <div class="ml-calc" style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
 
@@ -462,9 +479,8 @@ function attachMassListener() {
 
 
 <div id="intro-text" class="ml-calc" style="font-size: 1em;">
-  <p>
-   Welcome to the Mass-Luminosity Relation (MLR) Calculator page. This web interface enables users to compute minimum, maximum, and pure-helium mass-luminosity relations (MLR), based on the stellar structure models presented in Sabhahit et al. (2025b). This work builds upon existing MLRs in the literature by incorporating structure models featuring a helium (He) core and hydrogen (H) shell - configurations that can result from partial envelope stripping and appear to break simple homology relations.
-  </p>
+  <h2 style="text-align: center; font-size: 1.563em;">Further details</h2>
+  <hr style="border: none; border-top: 1px solid #ccc; width: 100%; margin: 10px 0 20px 0;">
 
   <p><strong>MLRs in the literature</strong></p>
   <p>

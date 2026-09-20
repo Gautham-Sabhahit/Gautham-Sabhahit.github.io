@@ -9,7 +9,7 @@ venue: 'arXiv e-prints'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025arXiv250403537B/abstract'
 bibtexurl: 'https://doi.org/10.48550/arXiv.2504.03537'
 citation: 'Bernini-Peron et al. (2025), Coupling hydrodynamics with comoving frame radiative transfer. III. The wind regime of early-type B hypergiants, arXiv e-prints'
-keywords: ["stars: atmospheres", "stars: early-type", "stars: mass-loss", "supergiants", "stars: winds", "outflows"]
+keywords: ["stars: atmospheres", "stars: early-type", "stars: mass-loss", "supergiants", "stars: winds, outflows"]
 authors:
   - "M. Bernini-Peron"
   - "A. A. C. Sander"

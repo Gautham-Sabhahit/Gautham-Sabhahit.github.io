@@ -9,7 +9,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2022MNRAS.516.4052H/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stac2485'
 citation: 'Higgins et al. (2022), The hydrogen clock to infer the upper stellar mass, MNRAS'
-keywords: ["stars: evolution", "stars: massive", "stars: mass-loss", "stars: winds", "outflows"]
+keywords: ["stars: evolution", "stars: massive", "stars: mass-loss", "stars: winds, outflows"]
 authors:
   - "Erin R. Higgins"
   - "Jorick S. Vink"
