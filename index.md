@@ -6,7 +6,7 @@ sidebar:
 ---
 
 <div class="home-hero">
-  <p class="home-hero__tagline">Hi, I'm Gautham<span class="home-hero__accent">.</span> Welcome to my personal page.</p>
+  <p class="home-hero__tagline">Hi, I'm Gautham. Welcome to my personal page.</p>
 
   <p class="home-hero__intro">I'm a postdoctoral researcher at Armagh Observatory &amp; Planetarium, where I study massive stars &mdash; their mass loss, wind-driving physics, and how these outflows shape stellar structure and evolution across every phase of a massive star's life.</p>
 
