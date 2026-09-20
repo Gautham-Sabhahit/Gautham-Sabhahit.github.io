@@ -124,6 +124,14 @@ html:not([data-theme="dark"]) .masthead {
   }
 }
 
+/* Now that the brand/site-title link is gone, center the remaining nav
+   items across the full masthead width instead of hugging the left
+   edge (.visible-links is display:table, so margin auto centers it
+   like a table). */
+.greedy-nav .visible-links {
+  margin: 0 auto;
+}
+
 .masthead__menu-item {
   background-color: transparent;
   font-weight: 500;
