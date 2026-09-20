@@ -11,7 +11,7 @@ redirect_from:
 <em>Postdoctoral Research Assistant &middot; Massive Stars &amp; Stellar Astrophysics</em><br>
 Armagh Observatory &amp; Planetarium, College Hill, Armagh BT61 9DG, United Kingdom<br>
 <a href="mailto:gautham.sabhahit@armagh.ac.uk">gautham.sabhahit@armagh.ac.uk</a> &middot; <a href="mailto:gauthamns96@gmail.com">gauthamns96@gmail.com</a><br>
-Publications: <a href="https://ui.adsabs.harvard.edu/">ADS author library</a> &middot; Code: <a href="https://github.com/Apophis-1/">github.com/Apophis-1/</a>
+Publications: <a href="https://ui.adsabs.harvard.edu/search/p_=0&q=author%3A%22Sabhahit%2C%20Gautham%20N.%22&sort=date%20desc%2C%20bibcode%20desc">ADS author library</a> &middot; Code: <a href="https://github.com/Apophis-1/">github.com/Apophis-1/</a>
 </p>
 
 <p><a href="{{ base_path }}/files/CV_Sabhahit.pdf" class="cv-download-link" download>Download Full CV (PDF) &darr;</a></p>
