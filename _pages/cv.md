@@ -43,7 +43,7 @@ Education
   <div class="cv-entry__sub">University of Leeds, Leeds, United Kingdom</div>
 </div>
 <div class="cv-entry">
-  <div class="cv-entry__row"><strong>BEng, Mechanical Engineering</strong><span class="cv-entry__date">Aug 2014 &ndash; Jul 2018</span></div>
+  <div class="cv-entry__row"><strong>BTech, Mechanical Engineering</strong><span class="cv-entry__date">Aug 2014 &ndash; Jul 2018</span></div>
   <div class="cv-entry__sub">National Institute of Technology Karnataka (NITK), Surathkal, India &middot; GPA 9.2</div>
 </div>
 

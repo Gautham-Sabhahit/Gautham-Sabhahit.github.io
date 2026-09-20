@@ -1,3 +1,59 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<script>
+  /* Force every non-persistent nav link (About/Research/Publications/CV/Tools)
+     into the hamburger menu below a mobile breakpoint, rather than the
+     greedy-nav plugin's default of showing whatever happens to fit. Runs
+     independently of the plugin's own width-based collapsing/restoring so
+     it can't get the two into a fight over the same items - it just moves
+     items in on the way down and hands them back on the way up, then lets
+     the plugin's own logic (already bound to resize) take over from there.
+     Uses block comments only - compress_html joins this whole tag onto one
+     line, and // comments would otherwise swallow everything after them. */
+  (function () {
+    var BREAKPOINT = 768;
+    var vlinks = document.querySelector('#site-nav .visible-links');
+    var hlinks = document.querySelector('#site-nav .hidden-links');
+    var btn = document.querySelector('#site-nav button');
+    if (!vlinks || !hlinks || !btn) return;
+
+    /* Capture the full canonical order once, up front - combining whatever
+       is still in .visible-links with whatever the greedy-nav plugin has
+       already width-collapsed into .hidden-links by this point, so a later
+       restore doesn't depend on the plugin's own (differently-ordered)
+       bookkeeping for the items it moved on its own. */
+    var canonicalOrder = Array.prototype.slice.call(vlinks.children).filter(function (li) {
+      return !li.classList.contains('persist');
+    }).concat(Array.prototype.slice.call(hlinks.children));
+
+    var isForcedMobile = false;
+
+    function forceMobileCollapse() {
+      var isMobile = window.innerWidth <= BREAKPOINT;
+
+      if (isMobile && !isForcedMobile) {
+        canonicalOrder.forEach(function (li) {
+          hlinks.appendChild(li);
+        });
+        btn.classList.remove('hidden');
+        isForcedMobile = true;
+      } else if (!isMobile && isForcedMobile) {
+        var persistTail = vlinks.querySelector('.persist.tail');
+        canonicalOrder.forEach(function (li) {
+          if (persistTail) {
+            vlinks.insertBefore(li, persistTail);
+          } else {
+            vlinks.appendChild(li);
+          }
+        });
+        isForcedMobile = false;
+        window.dispatchEvent(new Event('resize'));
+      }
+    }
+
+    forceMobileCollapse();
+    window.addEventListener('resize', forceMobileCollapse);
+  })();
+</script>
+
 {% include analytics.html %}
