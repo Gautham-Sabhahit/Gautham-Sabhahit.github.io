@@ -29,7 +29,7 @@ PhD Thesis
 ------
 <div class="cv-entry">
   <div class="cv-entry__row"><strong>&ldquo;Theoretical studies of massive stars near the Eddington limit&rdquo;</strong><span class="cv-entry__date">Nov 2019 &ndash; Oct 2023</span></div>
-  <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium (AOP), Armagh, United Kingdom &middot; Supervisor: Prof. Jorick S. Vink</div>
+  <div class="cv-entry__sub">Armagh Observatory &amp; Planetarium (AOP), Armagh, United Kingdom<br>Supervisor: Prof. Jorick S. Vink</div>
 </div>
 
 Education
