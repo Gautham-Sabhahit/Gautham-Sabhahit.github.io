@@ -9,7 +9,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2023MNRAS.526..534H/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stad2537'
 citation: 'Higgins et al. (2023), Stellar wind yields of very massive stars, MNRAS'
-keywords: ["Wind yields", "Very massive stars", "Nucleosynthesis", "Globular clusters", "Chemical enrichment"]
+keywords: ["stars: massive", "stars: evolution", "stars: abundances", "stars: mass-loss", "stars: interiors", "nuclear reactions", "nucleosynthesis", "abundances"]
 authors:
   - "Erin R. Higgins"
   - "Jorick S. Vink"

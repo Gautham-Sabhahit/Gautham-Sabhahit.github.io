@@ -9,7 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2023A&A...678L...3V/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202347801'
 citation: 'Vink & Sabhahit (2023), Exploring the Red Supergiant wind kink. A Universal mass-loss concept for massive stars, Astronomy and Astrophysics'
-keywords: ["Red supergiants", "Wind kink", "Mass-loss prescription", "Humphreys-Davidson limit", "MESA"]
+keywords: ["stars: mass-loss", "stars: massive", "supergiants", "stars: evolution"]
 authors:
   - "Jorick S. Vink"
   - "<strong>Gautham N. Sabhahit</strong>"

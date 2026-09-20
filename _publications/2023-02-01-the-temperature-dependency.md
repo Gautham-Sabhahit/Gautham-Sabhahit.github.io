@@ -9,7 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2023A&A...670A..83S/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202245110'
 citation: 'Sander et al. (2023), The temperature dependency of Wolf-Rayet-type mass loss. An exploratory study for winds launched by the hot iron bump, Astronomy and Astrophysics'
-keywords: ["Wolf-Rayet stars", "Mass-loss rate", "Hydrodynamic atmosphere models", "PoWR", "Wind clumping"]
+keywords: ["stars: atmospheres", "stars: early-type", "stars: evolution", "stars: mass-loss", "stars: winds", "outflows", "stars: Wolf-Rayet"]
 authors:
   - "A. A. C. Sander"
   - "R. R. Lefever"

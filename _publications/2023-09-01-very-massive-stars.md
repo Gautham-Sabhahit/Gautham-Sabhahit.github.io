@@ -12,7 +12,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.1529S/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stad1888'
 citation: 'Sabhahit et al. (2023), Very massive stars and pair-instability supernovae: mass-loss framework for low metallicity, MNRAS'
-keywords: ["Very massive stars", "Pair-instability supernovae", "Low metallicity", "PoWR", "MESA"]
+keywords: ["stars: evolution", "stars: massive", "stars: mass-loss", "stars: winds", "outflows"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

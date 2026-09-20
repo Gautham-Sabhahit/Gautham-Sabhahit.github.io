@@ -9,7 +9,7 @@ venue: 'The Astrophysical Journal'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2024ApJ...964..170J/abstract'
 bibtexurl: 'https://doi.org/10.3847/1538-4357/ad2343'
 citation: 'Johnston et al. (2024), Modelling Time-dependent Convective Penetration in 1D Stellar Evolution, The Astrophysical Journal'
-keywords: ["Convective penetration", "Stellar evolution modelling", "MESA", "Convective boundary mixing"]
+keywords: ["Stellar evolution", "Stellar convective zones", "Stellar structures", "Stellar interiors"]
 authors:
   - "Cole Johnston"
   - "Mathias Michielsen"

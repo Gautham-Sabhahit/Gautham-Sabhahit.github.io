@@ -9,7 +9,7 @@ venue: 'arXiv e-prints'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2026arXiv260728012S/abstract'
 bibtexurl: 'https://doi.org/10.48550/arXiv.2607.28012'
 citation: 'Sabhahit et al. (2026), Hydrodynamical mass-loss rates for Very Massive Stars. II. New theoretical mass-loss predictions at solar metallicity (Z = 0.02), arXiv e-prints'
-keywords: ["Very massive stars", "Wind kink", "PoWR", "Mass-loss prescription", "Bistability jump"]
+keywords: ["stars: atmospheres", "stars: massive", "stars: mass-loss", "stars: winds", "outflows", "stars: Wolf-Rayet"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

@@ -4,12 +4,12 @@ collection: publications
 category: manuscripts
 permalink: /publication/2025-12-01-hydrodynamical-massloss-rates
 excerpt: ''
-date: 2025-12-01
-venue: 'arXiv e-prints'
-paperurl: 'https://ui.adsabs.harvard.edu/abs/2025arXiv251213782S/abstract'
-bibtexurl: 'https://doi.org/10.48550/arXiv.2512.13782'
-citation: 'Sabhahit et al. (2025), Hydrodynamical mass-loss rates for Very Massive Stars. I. Investigating the wind kink, arXiv e-prints'
-keywords: ["Very massive stars", "Wind kink", "PoWR", "Hydrodynamic atmosphere models", "Black hole mass spectrum"]
+date: 2026-02-01
+venue: 'Astronomy and Astrophysics'
+paperurl: 'https://ui.adsabs.harvard.edu/abs/2026A%26A...706A..97S/abstract'
+bibtexurl: 'https://doi.org/10.1051/0004-6361/202557298'
+citation: 'Sabhahit et al. (2026), Hydrodynamical mass-loss rates for Very Massive Stars. I. Investigating the wind kink, Astronomy and Astrophysics'
+keywords: ["stars: atmospheres", "stars: massive", "stars: mass-loss", "stars: winds", "outflows", "stars: Wolf-Rayet"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

@@ -8,7 +8,7 @@ date: 2023-01-01
 venue: 'Winds of Stars and Exoplanets'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2023IAUS..370..263S/abstract'
 bibtexurl: 'https://doi.org/10.1017/S1743921322003623'
-keywords: ["Very massive stars", "Mass-loss recipe", "MESA", "Main-sequence evolution"]
+keywords: ["stars: mass loss", "stars: winds", "outflows", "stars: evolution"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"

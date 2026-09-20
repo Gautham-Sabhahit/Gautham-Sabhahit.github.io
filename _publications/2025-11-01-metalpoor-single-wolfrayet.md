@@ -9,7 +9,7 @@ venue: 'Astronomy and Astrophysics'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025A&A...703A.243B/abstract'
 bibtexurl: 'https://doi.org/10.1051/0004-6361/202556187'
 citation: 'Boco et al. (2025), Metal-poor single Wolf-Rayet stars: The interplay of optically thick winds and rotation, Astronomy and Astrophysics'
-keywords: ["Wolf-Rayet stars", "Low metallicity", "Stellar rotation", "Optically thick winds", "Small Magellanic Cloud"]
+keywords: ["methods: numerical", "stars: black holes", "stars: massive", "stars: mass-loss", "stars: rotation", "stars: Wolf-Rayet"]
 authors:
   - "Lumen Boco"
   - "Michela Mapelli"

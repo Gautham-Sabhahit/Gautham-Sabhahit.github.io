@@ -9,7 +9,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2025MNRAS.540...90W/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/staf676'
 citation: 'Winch et al. (2025), The black hole–pair instability boundary for high stellar rotation, MNRAS'
-keywords: ["Pair-instability supernovae", "Black hole mass", "Stellar rotation", "Chemically homogeneous evolution", "Gravitational waves"]
+keywords: ["stars: black holes", "stars: evolution", "stars: massive", "stars: Population II"]
 authors:
   - "Ethan R. J. Winch"
   - "<strong>Gautham N. Sabhahit</strong>"

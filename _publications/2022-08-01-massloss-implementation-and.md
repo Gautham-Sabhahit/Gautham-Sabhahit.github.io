@@ -12,7 +12,7 @@ venue: 'Monthly Notices of the Royal Astronomical Society'
 paperurl: 'https://ui.adsabs.harvard.edu/abs/2022MNRAS.514.3736S/abstract'
 bibtexurl: 'https://doi.org/10.1093/mnras/stac1410'
 citation: 'Sabhahit et al. (2022), Mass-loss implementation and temperature evolution of very massive stars, MNRAS'
-keywords: ["Very massive stars", "Mass-loss framework", "MESA", "Transition mass-loss rate", "Wind hydrodynamics"]
+keywords: ["stars: evolution", "stars: massive", "stars: mass-loss", "stars: winds", "outflows"]
 authors:
   - "<strong>Gautham N. Sabhahit</strong>"
   - "Jorick S. Vink"
