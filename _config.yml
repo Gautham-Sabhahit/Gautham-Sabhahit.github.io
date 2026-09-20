@@ -24,7 +24,7 @@ author:
   # Biographic information
   avatar           : "profile1.png"
   name             : "Dr. Gautham Sabhahit<br>"
-  interests        : ["Massive Stars", "Stellar Winds", "Mass Loss", "MESA", "PoWR"]
+  bio              : "Stellar Astrophysicist"
   location         : "Armagh, UK"
   employer         : "Armagh Observatory"
   uri              : # URL

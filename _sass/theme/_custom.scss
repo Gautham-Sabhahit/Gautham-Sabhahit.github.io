@@ -114,6 +114,17 @@ html:not([data-theme="dark"]) .masthead {
     font-weight: 800;
     letter-spacing: -0.01em;
   }
+
+  &--stacked {
+    display: flex;
+    align-items: center;
+
+    a {
+      line-height: 1.15;
+      text-align: center;
+      font-size: $type-size-7;
+    }
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -138,27 +149,6 @@ html:not([data-theme="dark"]) .masthead {
 
 .author__bio {
   color: var(--global-text-color-light);
-}
-
-.author__interests {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4em;
-  margin: 0.5em 0 0.9em;
-}
-
-.author__interest-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25em 0.7em;
-  font-size: $type-size-7;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--global-accent-color);
-  background: rgba(79, 209, 224, 0.1);
-  border: 1px solid rgba(79, 209, 224, 0.25);
-  border-radius: 999px;
 }
 
 .author__urls-wrapper .btn--inverse {
