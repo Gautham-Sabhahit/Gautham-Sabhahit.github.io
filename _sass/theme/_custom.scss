@@ -58,6 +58,10 @@ a {
    real scale within page content.
    -------------------------------------------------------------------------- */
 .page__content {
+  p, li, dl {
+    font-size: 0.95em;
+  }
+
   h2 {
     font-size: $type-size-3;
     font-weight: 800;
@@ -71,7 +75,7 @@ a {
   }
 
   h4 {
-    font-size: $type-size-6;
+    font-size: $type-size-5;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -79,6 +83,20 @@ a {
     margin-top: 1.8em;
     margin-bottom: 0.75em;
   }
+}
+
+/* Category headings on the Publications archive page ("First-author
+   refereed publications" / "Co-authored refereed publications") — this
+   page uses .archive, not .page__content, so it needs its own rule
+   rather than relying on the h4 treatment above. */
+.archive__category-title {
+  font-size: $type-size-4;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--global-text-color-light);
+  margin-top: 1.8em;
+  margin-bottom: 0.75em;
 }
 
 /* --------------------------------------------------------------------------
@@ -211,7 +229,7 @@ html[data-theme="dark"] {
      which page it was on. Set it explicitly here instead of relying on
      an ancestor to do it. */
   p, li {
-    font-size: 1em;
+    font-size: 0.95em;
   }
 }
 
@@ -302,7 +320,7 @@ html[data-theme="dark"] {
   }
 
   &__intro {
-    font-size: 1em;
+    font-size: 0.95em;
     line-height: 1.65;
     color: var(--global-text-color);
     max-width: 46em;
@@ -339,6 +357,7 @@ html[data-theme="dark"] {
 .cv-entry {
   padding: 0.9em 0;
   border-bottom: 1px solid var(--global-border-color);
+  font-size: 0.95em;
 
   &:last-child {
     border-bottom: none;

@@ -1,14 +1,37 @@
 {% include base_path %}
 
-{% if page.previous or page.next %}
+{% if page.collection == 'publications' and page.category %}
+  {% assign related_posts = site.publications | where: "category", page.category | sort: "date" %}
+  {% assign current_index = nil %}
+  {% for post in related_posts %}
+    {% if post.url == page.url %}
+      {% assign current_index = forloop.index0 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% assign prev_index = current_index | minus: 1 %}
+  {% if current_index and current_index > 0 %}
+    {% assign prev_post = related_posts[prev_index] %}
+  {% endif %}
+  {% assign related_size = related_posts | size %}
+  {% assign next_index = current_index | plus: 1 %}
+  {% if current_index != nil and next_index < related_size %}
+    {% assign next_post = related_posts[next_index] %}
+  {% endif %}
+{% else %}
+  {% assign prev_post = page.previous %}
+  {% assign next_post = page.next %}
+{% endif %}
+
+{% if prev_post or next_post %}
   <nav class="pagination">
-    {% if page.previous %}
-      <a href="{{ base_path }}{{ page.previous.url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+    {% if prev_post %}
+      <a href="{{ base_path }}{{ prev_post.url }}" class="pagination--pager" title="{{ prev_post.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
     {% else %}
       <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
     {% endif %}
-    {% if page.next %}
-      <a href="{{ base_path }}{{ page.next.url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+    {% if next_post %}
+      <a href="{{ base_path }}{{ next_post.url }}" class="pagination--pager" title="{{ next_post.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
     {% else %}
       <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
     {% endif %}

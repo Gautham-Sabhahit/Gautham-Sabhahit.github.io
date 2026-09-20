@@ -60,11 +60,14 @@ title: Mass-Luminosity Calculator
     margin-right: auto;
   }
 
-  .ml-calc #intro-text {
-    font-size: 1em;
+  #intro-text {
     max-width: 1200px;
     margin: 0 auto 30px auto;
-    text-align: justify;
+    text-align: left;
+  }
+
+  #intro-text p, #intro-text li {
+    font-size: 1.15em;
   }
 
   [data-theme="dark"] .ml-calc .box {
@@ -139,7 +142,7 @@ title: Mass-Luminosity Calculator
   }
 
   .ml-calc-welcome p {
-    font-size: 1.3em;
+    font-size: 1.15em;
     text-align: left;
     line-height: 1.5;
   }
@@ -478,7 +481,7 @@ function attachMassListener() {
 
 
 
-<div id="intro-text" class="ml-calc" style="font-size: 1em;">
+<div id="intro-text" class="ml-calc">
   <h2 style="text-align: center; font-size: 1.563em;">Further details</h2>
   <hr style="border: none; border-top: 1px solid #ccc; width: 100%; margin: 10px 0 20px 0;">
 
