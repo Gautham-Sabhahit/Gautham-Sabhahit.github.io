@@ -114,17 +114,6 @@ html:not([data-theme="dark"]) .masthead {
     font-weight: 800;
     letter-spacing: -0.01em;
   }
-
-  &--stacked {
-    display: flex;
-    align-items: center;
-
-    a {
-      line-height: 1.15;
-      text-align: center;
-      font-size: $type-size-7;
-    }
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -149,6 +138,10 @@ html:not([data-theme="dark"]) .masthead {
 
 .author__bio {
   color: var(--global-text-color-light);
+}
+
+.sidebar .author__bio {
+  font-size: $type-size-5;
 }
 
 .author__urls-wrapper .btn--inverse {
