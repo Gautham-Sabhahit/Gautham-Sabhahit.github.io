@@ -479,12 +479,12 @@ function attachMassListener() {
   <p>The inclusion of such He-core + low-mass H-shell structures leads to very interesting MLRs because the H shell can contribute disproportionately to the total luminosity budget. What do we mean by that? See <strong>Figure 1</strong>, where we show the internal luminosity stratification of a \( 5 \, M_\odot \) model consisting of a \( 4 \, M_\odot \) core and a \( 1 \, M_\odot \) hydrogen envelope. The surface \(X_\mathrm{H}\) is 0.3 and the H profile slope is \(s = 2\). The two spikes in the nuclear energy generation rate mark the two burning regions. The H shell, despite occupying only one-fifth of the total mass, contributes about three-fourths to the total luminosity. This example structure model outputs a total luminosity greater than that of a pure-He model of the same mass, thereby breaking the homology relations. </p>
 
   <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 30px 0;">
-    <div style="text-align: center;">
-      <img src="https://gautham-sabhahit.github.io/images/chemical_profile_structure_L.png" alt="Figure 1" style="max-width: 100%; width: 550px; border: 1px solid #ccc; padding: 5px;">
+    <div style="text-align: justify;">
+      <img src="https://gautham-sabhahit.github.io/images/chemical_profile_structure_L.png" alt="Figure 1" style="display: block; margin: 0 auto 10px; max-width: 100%; width: 550px; border: 1px solid #ccc; padding: 5px;">
       <p><em>Figure 1:</em> Luminosity stratification of a \( 5 \, M_\odot \) model with a \( 4 \, M_\odot \) He core and \( 1 \, M_\odot \) H shell. The two spikes in the specific nuclear energy generation rate at \(0\) and \( 4 \, M_\odot \) marks the He burning core and the H burning shell.</p>
     </div>
-    <div style="text-align: center;">
-      <img src="https://gautham-sabhahit.github.io/images/max_s_max_L_M5.0.png" alt="Figure 2" style="max-width: 100%; width: 550px; border: 1px solid #ccc; padding: 5px;">
+    <div style="text-align: justify;">
+      <img src="https://gautham-sabhahit.github.io/images/max_s_max_L_M5.0.png" alt="Figure 2" style="display: block; margin: 0 auto 10px; max-width: 100%; width: 550px; border: 1px solid #ccc; padding: 5px;">
       <p><em>Figure 2:</em> Variation of luminosity as a function of slope \( (0 \leq s \leq \infty) \) for different values of surface \( X_\mathrm{H} \). The total mass \( M_{\text{tot}} \) is fixed at \( 5\, M_{\odot} \). The figure shows the luminosity peak at an \( s \)-value between the extremes \( s = 0 \) and \( s = \infty \).</p>
     </div>
   </div>

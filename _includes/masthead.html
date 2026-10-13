@@ -45,15 +45,10 @@
 
 <nav class="side-nav" aria-label="Main">
   <ul>
-    <li><a href="{{ base_path }}/"{% if nav_active == 'about' %} class="is-active" aria-current="page"{% endif %}>About</a></li>
-    <li><a href="{{ base_path }}/research-interests/"{% if nav_active == 'research' %} class="is-active" aria-current="page"{% endif %}>Research</a></li>
-    <li><a href="{{ base_path }}/publications/"{% if nav_active == 'publications' %} class="is-active" aria-current="page"{% endif %}>Publications</a></li>
-    <li><a href="{{ base_path }}/cv/"{% if nav_active == 'cv' %} class="is-active" aria-current="page"{% endif %}>CV</a></li>
-    <li class="side-nav__group">
-      <span class="side-nav__label">Tools</span>
-      <ul>
-        <li><a href="{{ base_path }}/ml-calculator"{% if nav_active == 'ml' %} class="is-active" aria-current="page"{% endif %}>Mass Luminosity calculator</a></li>
-      </ul>
-    </li>
+    <li><a href="{{ base_path }}/"{% if nav_active == 'about' %} class="is-active" aria-current="page"{% endif %}><span class="side-nav__title">About</span></a></li>
+    <li><a href="{{ base_path }}/research-interests/"{% if nav_active == 'research' %} class="is-active" aria-current="page"{% endif %}><span class="side-nav__title">Research</span></a></li>
+    <li><a href="{{ base_path }}/publications/"{% if nav_active == 'publications' %} class="is-active" aria-current="page"{% endif %}><span class="side-nav__title">Publications</span></a></li>
+    <li><a href="{{ base_path }}/cv/"{% if nav_active == 'cv' %} class="is-active" aria-current="page"{% endif %}><span class="side-nav__title">CV</span></a></li>
+    <li><a href="{{ base_path }}/ml-calculator"{% if nav_active == 'ml' %} class="is-active" aria-current="page"{% endif %}><span class="side-nav__title">Tools</span><span class="side-nav__sub">Mass Luminosity Calculator</span></a></li>
   </ul>
 </nav>

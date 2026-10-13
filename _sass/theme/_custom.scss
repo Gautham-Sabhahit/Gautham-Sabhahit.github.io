@@ -424,18 +424,13 @@ html[data-theme="dark"] {
 
 /* --------------------------------------------------------------------------
    Left side navigation (desktop) + page shell
+   The left 25% of the screen is the nav: five equal, full-height cells with
+   centred headings. The other 75% holds the page, centred.
    Below $large the original top bar / hamburger menu is used instead.
    Page-to-page slide transitions: assets/js/page-slide.js (slide-out) and
    _includes/head.html (slide-in).
    -------------------------------------------------------------------------- */
-$side-nav-width: 220px;
-$shell-gutter: 0px;
-$shell-offset: 270px; /* nav + gap; content starts here */
-
-:root {
-  /* Centres the nav + content block on very wide screens. */
-  --shell-offset: max(0px, calc((100vw - 1240px) / 2));
-}
+$nav-share: 25vw;
 
 /* The theme fades #main/masthead/footer in on load; that would fight the
    slide-in animation (page invisible for the fade's delay), so switch it off. */
@@ -463,74 +458,82 @@ $shell-offset: 270px; /* nav + gap; content starts here */
     position: fixed;
     top: 0;
     bottom: 0;
-    left: calc(var(--shell-offset) + #{$shell-gutter});
-    width: $side-nav-width;
-    padding-top: 2.75em;
-    overflow-y: auto;
+    left: 0;
+    width: $nav-share;
     z-index: 20;
+    background: rgba(255, 255, 255, 0.02);
+    border-right: 1px solid var(--global-border-color);
 
     ul {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
+    li {
+      flex: 1 1 0;
+      min-height: 0;
+      border-bottom: 1px solid var(--global-border-color);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
     a {
-      display: block;
-      padding: 0.55em 0.8em;
-      border-radius: 8px;
-      font-size: 1.05em;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0 1em;
+      text-align: center;
       text-decoration: none;
       color: var(--global-text-color-light);
-      transition: color 0.15s ease, background-color 0.15s ease;
+      transition: color 0.2s ease, background-color 0.2s ease;
 
       &:hover {
         color: var(--global-text-color);
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.04);
       }
 
       &.is-active {
         color: var(--global-text-color);
-        font-weight: 600;
         background: rgba(79, 209, 224, 0.1);
-        box-shadow: inset 2px 0 0 var(--global-accent-color);
+        box-shadow: inset 3px 0 0 var(--global-accent-color);
       }
     }
   }
 
-  .side-nav__group {
-    margin-top: 1.5em;
-
-    ul a {
-      font-size: 0.9em;
-    }
-  }
-
-  .side-nav__label {
-    display: block;
-    padding: 0 0.8em 0.35em;
-    font-size: $type-size-7;
-    font-weight: 700;
+  .side-nav__title {
+    font-size: clamp(15px, 1.6vw, 24px);
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--global-text-color-light);
+  }
+
+  .side-nav__sub {
+    margin-top: 0.5em;
+    font-size: clamp(10px, 0.75vw, 13px);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     opacity: 0.7;
   }
 
   .page-shell {
-    margin-left: calc(var(--shell-offset) + #{$shell-offset});
+    margin-left: $nav-share;
   }
 
   #main {
     display: flex;
     align-items: flex-start;
     gap: 2.5em;
-    max-width: 960px;
-    margin: 2.75em 0 0;
-    padding: 0 2em 0 0;
+    max-width: 1000px;
+    margin: 2.75em auto 0;
+    padding: 0 2em;
   }
 
   /* Only the About page has a sidebar (photo + contact details): keep it
@@ -559,11 +562,41 @@ $shell-offset: 270px; /* nav + gap; content starts here */
 
   .page__footer {
     box-sizing: border-box;
-    padding-left: calc(var(--shell-offset) + #{$shell-offset});
+    padding-left: $nav-share;
 
     footer {
-      margin-left: 0;
-      padding-left: 0;
+      max-width: 1000px;
+      margin: 1em auto 0;
+      padding: 0 2em 1em;
     }
   }
+}
+
+/* --------------------------------------------------------------------------
+   Justified body text everywhere (headings, nav, dates and calculator
+   result boxes keep their own alignment).
+   -------------------------------------------------------------------------- */
+.page__content,
+.archive,
+.home-hero,
+.ml-calc-welcome {
+  p,
+  li,
+  dd,
+  .cv-entry__sub {
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .archive__item-keywords li {
+    text-align: center;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+  }
+}
+
+.ml-calc [id$="-output"] p {
+  text-align: center;
 }
