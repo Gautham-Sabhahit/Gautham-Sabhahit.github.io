@@ -145,9 +145,12 @@ html:not([data-theme="dark"]) .masthead {
 /* --------------------------------------------------------------------------
    Sidebar / author profile
    -------------------------------------------------------------------------- */
+/* Rounded rectangle, not the theme's 50% ellipse (also overrides the
+   border-radius in _sidebar.scss, which loads earlier). */
 .author__avatar {
   img {
     max-width: 190px;
+    border-radius: 12px;
 
     @include breakpoint($large) {
       padding: 4px;
@@ -415,5 +418,148 @@ html[data-theme="dark"] {
   &:hover {
     border-color: var(--global-accent-color-2);
     color: var(--global-accent-color-2);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Left side navigation (desktop) + page shell
+   Below $large the original top bar / hamburger menu is used instead.
+   Page-to-page slide transitions: assets/js/page-slide.js (slide-out) and
+   _includes/head.html (slide-in).
+   -------------------------------------------------------------------------- */
+$side-nav-width: 190px;
+$shell-gutter: 32px;
+$shell-offset: 250px; /* nav + gap; content starts here */
+
+:root {
+  /* Centres the nav + content block on very wide screens. */
+  --shell-offset: max(0px, calc((100vw - 1240px) / 2));
+}
+
+/* The theme fades #main/masthead/footer in on load; that would fight the
+   slide-in animation (page invisible for the fade's delay), so switch it off. */
+#main,
+.masthead,
+.page__footer {
+  animation: none;
+}
+
+.side-nav {
+  display: none;
+}
+
+@include breakpoint($large) {
+  body {
+    padding-top: 0;
+  }
+
+  .masthead {
+    display: none;
+  }
+
+  .side-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--shell-offset) + #{$shell-gutter});
+    width: $side-nav-width;
+    padding-top: 2.75em;
+    overflow-y: auto;
+    z-index: 20;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      display: block;
+      padding: 0.55em 0.9em;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--global-text-color-light);
+      transition: color 0.15s ease, background-color 0.15s ease;
+
+      &:hover {
+        color: var(--global-text-color);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      &.is-active {
+        color: var(--global-text-color);
+        font-weight: 600;
+        background: rgba(79, 209, 224, 0.1);
+        box-shadow: inset 2px 0 0 var(--global-accent-color);
+      }
+    }
+  }
+
+  .side-nav__group {
+    margin-top: 1.5em;
+
+    ul a {
+      font-size: 0.95em;
+    }
+  }
+
+  .side-nav__label {
+    display: block;
+    padding: 0 0.9em 0.35em;
+    font-size: $type-size-7;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    opacity: 0.7;
+  }
+
+  .page-shell {
+    margin-left: calc(var(--shell-offset) + #{$shell-offset});
+  }
+
+  #main {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5em;
+    max-width: 960px;
+    margin: 2.75em 0 0;
+    padding: 0 2em 0 0;
+  }
+
+  /* Only the About page has a sidebar (photo + contact details): keep it
+     in normal flow beside the text, inside the sliding content. */
+  #main > .sidebar {
+    position: static;
+    float: none;
+    flex: 0 0 210px;
+    width: 210px;
+    height: auto;
+    margin: 0;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  #main > .page,
+  #main > .archive {
+    float: none;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page__footer {
+    box-sizing: border-box;
+    padding-left: calc(var(--shell-offset) + #{$shell-offset});
+
+    footer {
+      margin-left: 0;
+      padding-left: 0;
+    }
   }
 }

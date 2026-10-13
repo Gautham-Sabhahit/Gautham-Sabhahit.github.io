@@ -15,6 +15,24 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
+<!-- Page slide-in (the slide-out and navigation are in assets/js/page-slide.js). Block comments only: compress_html flattens inline scripts onto one line. -->
+<style>
+  @keyframes ps-in-below { from { transform: translateY(14vh);  opacity: 0; } }
+  @keyframes ps-in-above { from { transform: translateY(-14vh); opacity: 0; } }
+  html.slide-in-forward  .page-shell { animation: ps-in-below 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  html.slide-in-backward .page-shell { animation: ps-in-above 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+</style>
+<script>
+  try {
+    var slideFlag = sessionStorage.getItem('pageSlide');
+    if (slideFlag) {
+      sessionStorage.removeItem('pageSlide');
+      var slideInfo = JSON.parse(slideFlag);
+      if (Date.now() - slideInfo.t < 5000) document.documentElement.classList.add('slide-in-' + slideInfo.d);
+    }
+  } catch (err) {}
+</script>
+
 <!-- Web fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
