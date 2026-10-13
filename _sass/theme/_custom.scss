@@ -15,27 +15,27 @@
 }
 
 html[data-theme="dark"] {
-  /* Deep, slightly blue-tinted near-black rather than flat gray */
-  --global-base-color                 : #e7eaee;
-  --global-bg-color                   : #0c0e12;
-  --global-footer-bg-color            : #0c0e12;
-  --global-border-color               : #22262e;
-  --global-dark-border-color          : #2c313b;
-  --global-code-background-color      : #14171d;
-  --global-code-text-color            : #d7dbe0;
-  --global-fig-caption-color          : #8b93a1;
-  --global-link-color                 : #4fd1e0;
-  --global-link-color-hover           : #7de3ee;
-  --global-link-color-visited         : #4fd1e0;
-  --global-masthead-link-color        : #e7eaee;
-  --global-masthead-link-color-hover  : #4fd1e0;
-  --global-text-color                 : #e7eaee;
-  --global-text-color-light           : #9aa4b2;
-  --global-thead-color                : #14171d;
+  /* Midnight navy with a warm gold accent */
+  --global-base-color                 : #e8ecf6;
+  --global-bg-color                   : #0b1020;
+  --global-footer-bg-color            : #0b1020;
+  --global-border-color               : #243049;
+  --global-dark-border-color          : #2f3d5c;
+  --global-code-background-color      : #131a2e;
+  --global-code-text-color            : #dde3f1;
+  --global-fig-caption-color          : #8e9ab5;
+  --global-link-color                 : #f2b84b;
+  --global-link-color-hover           : #f8cf7e;
+  --global-link-color-visited         : #f2b84b;
+  --global-masthead-link-color        : #e8ecf6;
+  --global-masthead-link-color-hover  : #f2b84b;
+  --global-text-color                 : #e8ecf6;
+  --global-text-color-light           : #9aa6c0;
+  --global-thead-color                : #131a2e;
 
-  --global-surface-color              : #14171d;
-  --global-accent-color               : #4fd1e0;
-  --global-accent-color-2             : #22d3ee;
+  --global-surface-color              : #131a2e;
+  --global-accent-color               : #f2b84b;
+  --global-accent-color-2             : #f7c862;
   --global-card-shadow                : 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
@@ -103,13 +103,13 @@ a {
    Masthead
    -------------------------------------------------------------------------- */
 .masthead {
-  background: rgba(12, 14, 18, 0);
+  background: rgba(11, 16, 32, 0);
   backdrop-filter: saturate(180%) blur(10px);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
 }
 
 html[data-theme="dark"] .masthead {
-  background: rgba(12, 14, 18, 0.82);
+  background: rgba(11, 16, 32, 0.82);
 }
 
 html:not([data-theme="dark"]) .masthead {
@@ -198,7 +198,7 @@ html:not([data-theme="dark"]) .masthead {
 }
 
 html[data-theme="dark"] {
-  --dropdown-arrow-color: #e7eaee;
+  --dropdown-arrow-color: #e8ecf6;
 }
 
 /* --------------------------------------------------------------------------
@@ -285,8 +285,8 @@ html[data-theme="dark"] {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--global-accent-color);
-    background: rgba(79, 209, 224, 0.1);
-    border: 1px solid rgba(79, 209, 224, 0.25);
+    background: rgba(242, 184, 75, 0.1);
+    border: 1px solid rgba(242, 184, 75, 0.25);
     border-radius: 999px;
   }
 }
@@ -325,8 +325,8 @@ html[data-theme="dark"] {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--global-accent-color);
-    background: rgba(79, 209, 224, 0.1);
-    border: 1px solid rgba(79, 209, 224, 0.25);
+    background: rgba(242, 184, 75, 0.1);
+    border: 1px solid rgba(242, 184, 75, 0.25);
     border-radius: 999px;
   }
 
@@ -376,9 +376,18 @@ html[data-theme="dark"] {
 
   &__row {
     display: flex;
-    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.5em 1em;
+    gap: 0 1em;
+
+    @media (max-width: 599px) {
+      flex-wrap: wrap;
+      gap: 0.15em 1em;
+    }
+
+    > :first-child {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
   }
 
   &__date {
@@ -502,8 +511,8 @@ $nav-share: 25vw;
 
       &.is-active {
         color: var(--global-text-color);
-        background: rgba(79, 209, 224, 0.1);
-        box-shadow: inset 3px 0 0 var(--global-accent-color);
+        background: rgba(242, 184, 75, 0.1);
+        box-shadow: inset 0 0 0 2px var(--global-accent-color);
       }
     }
   }

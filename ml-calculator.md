@@ -65,23 +65,23 @@ title: Mass-Luminosity Calculator
   }
 
   [data-theme="dark"] .ml-calc .box {
-    background-color: #3a3a3a !important;
-    color: #eee !important;
-    box-shadow: 0 0 10px rgba(255,255,255,0.15) !important;
-    border-color: #444 !important;
+    background-color: var(--global-surface-color) !important;
+    color: var(--global-text-color) !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.35) !important;
+    border-color: var(--global-border-color) !important;
   }
 
   [data-theme="dark"] .ml-calc .box input,
   [data-theme="dark"] .ml-calc .box select,
   [data-theme="dark"] .ml-calc .box button {
-    background-color: #444 !important;
-    color: #eee !important;
-    border: 1px solid #666 !important;
+    background-color: var(--global-bg-color) !important;
+    color: var(--global-text-color) !important;
+    border: 1px solid var(--global-dark-border-color) !important;
   }
 
   [data-theme="dark"] .ml-calc .box button {
-    background: linear-gradient(to bottom, #3a3a3a 0%, #1f1f1f 100%) !important;
-    border: 1px solid #666 !important;
+    background: linear-gradient(to bottom, var(--global-surface-color) 0%, var(--global-bg-color) 100%) !important;
+    border: 1px solid var(--global-dark-border-color) !important;
     box-shadow:
       inset 0 1px 1px rgba(255,255,255,0.05),
       0 2px 5px rgba(0, 0, 0, 0.6) !important;
@@ -89,27 +89,27 @@ title: Mass-Luminosity Calculator
   }
 
   [data-theme="dark"] .ml-calc .box button:hover {
-    background: linear-gradient(to bottom, #4a4a4a 0%, #2a2a2a 100%) !important;
+    background: linear-gradient(to bottom, var(--global-dark-border-color) 0%, var(--global-surface-color) 100%) !important;
     box-shadow:
       inset 0 1px 1px rgba(255,255,255,0.1),
       0 3px 6px rgba(0, 0, 0, 0.8) !important;
   }
 
   [data-theme="dark"] .ml-calc .box input::placeholder {
-    color: #bbb !important;
+    color: var(--global-text-color-light) !important;
   }
 
   [data-theme="dark"] .ml-calc #calculator-type {
-    background-color: #2b2b2b !important;
-    color: #eee !important;
-    border: 1px solid #444 !important;
+    background-color: var(--global-bg-color) !important;
+    color: var(--global-text-color) !important;
+    border: 1px solid var(--global-dark-border-color) !important;
   }
 
   [data-theme="dark"] .ml-calc #luminosity-output,
   [data-theme="dark"] .ml-calc #mass-output {
-    background-color: #2e2e2e !important;
-    color: #eee !important;
-    border: 1px solid #555 !important;
+    background-color: var(--global-bg-color) !important;
+    color: var(--global-text-color) !important;
+    border: 1px solid var(--global-dark-border-color) !important;
   }
 
   .ml-calc input[type=number]::-webkit-inner-spin-button,

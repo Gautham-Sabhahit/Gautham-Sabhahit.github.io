@@ -52,7 +52,7 @@ Codes & Programming
 ------
 * **MESA (stellar evolution):** extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (in Fortran), enabling detailed studies of their evolution and endpoints. Implementation available at [github.com/Apophis-1/VMS_Paper2](https://github.com/Apophis-1/VMS_Paper2).
 * **PoWR (non-LTE stellar atmospheres):** hydrodynamical wind&ndash;atmosphere calculations yielding theoretical mass-loss prescriptions for massive stars.
-* **Programming:** Python (proficient), Fortran (proficient).
+* **Programming:** Proficient in both Python and Fortran.
 
 Collaborations & Memberships
 ------
