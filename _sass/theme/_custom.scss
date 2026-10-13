@@ -515,14 +515,6 @@ $nav-share: 25vw;
     text-transform: uppercase;
   }
 
-  .side-nav__sub {
-    margin-top: 0.5em;
-    font-size: clamp(10px, 0.75vw, 13px);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-
   .page-shell {
     margin-left: $nav-share;
   }

@@ -7,9 +7,9 @@ redirect_from:
 ---
 
 <p class="cv-entry__sub">
-<em>Postdoctoral Research Assistant &middot; Massive Stars &amp; Stellar Astrophysics</em><br>
+<em>Postdoctoral Research Assistant</em><br>
 Armagh Observatory &amp; Planetarium, College Hill, Armagh BT61 9DG, United Kingdom<br>
-<a href="mailto:gautham.sabhahit@armagh.ac.uk">gautham.sabhahit@armagh.ac.uk</a> &middot; <a href="mailto:gauthamns96@gmail.com">gauthamns96@gmail.com</a><br>
+<a href="mailto:gauthamns96@gmail.com">gauthamns96@gmail.com</a> &middot; <a href="mailto:gautham.sabhahit@armagh.ac.uk">gautham.sabhahit@armagh.ac.uk</a><br>
 Publications: <a href="https://ui.adsabs.harvard.edu/search/p_=0&q=author%3A%22Sabhahit%2C%20Gautham%20N.%22&sort=date%20desc%2C%20bibcode%20desc">ADS author library</a> &middot; Code: <a href="https://github.com/Apophis-1/">github.com/Apophis-1/</a>
 </p>
 
@@ -50,19 +50,20 @@ Education
 
 Codes & Programming
 ------
-* **MESA (stellar evolution):** extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (in Fortran), enabling detailed studies of their evolution and endpoints. Implementation available at [github.com/Apophis-1/](https://github.com/Apophis-1/).
+* **MESA (stellar evolution):** extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (in Fortran), enabling detailed studies of their evolution and endpoints. Implementation available at [github.com/Apophis-1/VMS_Paper2](https://github.com/Apophis-1/VMS_Paper2).
 * **PoWR (non-LTE stellar atmospheres):** hydrodynamical wind&ndash;atmosphere calculations yielding theoretical mass-loss prescriptions for massive stars.
 * **Programming:** Python (proficient), Fortran (proficient).
 
-Research Supervision
-------
-* Guided a Queen's University Belfast Bachelor's student &mdash; 2025 & 2026
-* Guided a Trinity College Dublin Bachelor's student &mdash; 2023
-
 Collaborations & Memberships
 ------
-* XShooter + ULLYSES collaboration, Working Groups 4 and 5 &mdash; 2021&ndash;
-* International Astronomical Union (IAU) Junior member &mdash; 2024&ndash;
+* Member, XShooter + ULLYSES collaboration, Working Groups 4 and 5 &mdash; 2021&ndash;Present
+* Member, BRIDGCE UK network for nuclear astrophysics and galactic chemical evolution &mdash; 2023&ndash;Present
+* Junior member, International Astronomical Union (IAU) &mdash; 2024&ndash;Present
+
+Research Supervision
+------
+* Guided an undergraduate student from Queen's University Belfast &mdash; 2025 & 2026
+* Guided an undergraduate student from Trinity College Dublin &mdash; 2023
 
 Service
 ------
@@ -71,14 +72,28 @@ Service
 * Seminar organiser at Armagh Observatory & Planetarium (2024&ndash;2025)
 * Journal Club organiser at Armagh Observatory & Planetarium (2021&ndash;2022)
 
-Contributed Talks
+Outreach
 ------
+* **Planetarium PhD Days** at Armagh Observatory & Planetarium: engaged with school groups and members of the public at schools events and public sessions.
+* **Trinity Space Society visit:** AOP PhD students and postdocs hosted and spoke with around 25 students from Trinity College Dublin.
+* **Transit of Mercury public outreach event,** Armagh Observatory & Planetarium (Nov 2019).
+* **A-level tutor training:** delivered sessions on planetary orbits, the Doppler shift and high-redshift astronomy.
+
+Talks
+------
+### Keynote talk
+<div class="cv-entry">
+  <div class="cv-entry__row"><em>Hydrodynamically consistent mass-loss rates for very massive stars: wind physics and stellar evolution</em><span class="cv-entry__date">Sep 2026</span></div>
+  <div class="cv-entry__sub">Irish National Astronomy Meeting (INAM) 2026, Maynooth University, Ireland</div>
+</div>
+
+### Other talks
 <div class="cv-entry">
   <div class="cv-entry__row"><em>Hydrodynamically consistent mass-loss rates for very massive stars: wind physics, stellar evolution, and cosmic implications</em><span class="cv-entry__date">Sep 2026</span></div>
   <div class="cv-entry__sub">MIAPbP workshop on Bridging Gaps in High-Mass Star Research, Munich, Germany</div>
 </div>
 <div class="cv-entry">
-  <div class="cv-entry__row"><em>Winds and ionising fluxes from very massive stars in the early Universe</em><span class="cv-entry__date">Sep 2025</span></div>
+  <div class="cv-entry__row"><em>Winds and ionising fluxes from very massive stars</em><span class="cv-entry__date">Sep 2025</span></div>
   <div class="cv-entry__sub">Hera 2025 Workshop, Pisa, Italy</div>
 </div>
 <div class="cv-entry">
@@ -102,8 +117,8 @@ Contributed Talks
   <div class="cv-entry__sub">The Wolf&ndash;Rayet Phenomenon in the Universe, Morelia, Mexico</div>
 </div>
 <div class="cv-entry">
-  <div class="cv-entry__row"><em>Mass-loss implementation and temperature evolution of massive stars</em><span class="cv-entry__date">Aug 2022</span></div>
-  <div class="cv-entry__sub">STARS 2020, Cambridge, United Kingdom</div>
+  <div class="cv-entry__row"><em>Mass-loss implementation and temperature evolution of VMSs</em><span class="cv-entry__date">Aug 2022</span></div>
+  <div class="cv-entry__sub">STARS 2020, Cambridge, UK</div>
 </div>
 <div class="cv-entry">
   <div class="cv-entry__row"><em>Mixing and mass loss beyond the main sequence</em><span class="cv-entry__date">May 2022</span></div>

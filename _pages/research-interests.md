@@ -12,5 +12,5 @@ I use the **MESA** stellar evolution code to study massive and very massive star
 
 ### Codes
 
-- **MESA** (stellar evolution) &mdash; extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (Fortran). Implementation available at [github.com/Apophis-1/](https://github.com/Apophis-1/).
+- **MESA** (stellar evolution) &mdash; extensive experience with stellar-evolution calculations; developed and implemented a custom mass-loss framework tailored for very massive stars within the MESA codebase (Fortran). Implementation available at [github.com/Apophis-1/VMS_Paper2](https://github.com/Apophis-1/VMS_Paper2).
 - **PoWR** (non-LTE stellar atmospheres) &mdash; hydrodynamical wind&ndash;atmosphere calculations yielding theoretical mass-loss prescriptions for massive stars.
