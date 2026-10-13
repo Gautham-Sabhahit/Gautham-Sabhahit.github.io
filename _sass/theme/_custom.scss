@@ -428,9 +428,9 @@ html[data-theme="dark"] {
    Page-to-page slide transitions: assets/js/page-slide.js (slide-out) and
    _includes/head.html (slide-in).
    -------------------------------------------------------------------------- */
-$side-nav-width: 190px;
-$shell-gutter: 32px;
-$shell-offset: 250px; /* nav + gap; content starts here */
+$side-nav-width: 220px;
+$shell-gutter: 0px;
+$shell-offset: 270px; /* nav + gap; content starts here */
 
 :root {
   /* Centres the nav + content block on very wide screens. */
@@ -477,9 +477,12 @@ $shell-offset: 250px; /* nav + gap; content starts here */
 
     a {
       display: block;
-      padding: 0.55em 0.9em;
+      padding: 0.55em 0.8em;
       border-radius: 8px;
+      font-size: 1.05em;
       font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       text-decoration: none;
       color: var(--global-text-color-light);
       transition: color 0.15s ease, background-color 0.15s ease;
@@ -502,13 +505,13 @@ $shell-offset: 250px; /* nav + gap; content starts here */
     margin-top: 1.5em;
 
     ul a {
-      font-size: 0.95em;
+      font-size: 0.9em;
     }
   }
 
   .side-nav__label {
     display: block;
-    padding: 0 0.9em 0.35em;
+    padding: 0 0.8em 0.35em;
     font-size: $type-size-7;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -531,8 +534,9 @@ $shell-offset: 250px; /* nav + gap; content starts here */
   }
 
   /* Only the About page has a sidebar (photo + contact details): keep it
-     in normal flow beside the text, inside the sliding content. */
+     in normal flow, on the right of the text, inside the sliding content. */
   #main > .sidebar {
+    order: 2;
     position: static;
     float: none;
     flex: 0 0 210px;

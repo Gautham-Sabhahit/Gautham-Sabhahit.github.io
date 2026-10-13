@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: single
 title: Mass-Luminosity Calculator
 ---
 
@@ -10,8 +10,7 @@ title: Mass-Luminosity Calculator
      which starved the nav of space and forced most nav items into the
      dropdown on every screen size. */
   .ml-calc {
-    padding: 20px;
-    text-align: center;
+    text-align: left;
   }
 
   .ml-calc h1, .ml-calc h2, .ml-calc p, .ml-calc label {
@@ -61,13 +60,8 @@ title: Mass-Luminosity Calculator
   }
 
   #intro-text {
-    max-width: 1200px;
-    margin: 0 auto 30px auto;
+    margin: 30px 0;
     text-align: left;
-  }
-
-  #intro-text p, #intro-text li {
-    font-size: 1.15em;
   }
 
   [data-theme="dark"] .ml-calc .box {
@@ -135,16 +129,7 @@ title: Mass-Luminosity Calculator
   }
 
   .ml-calc-welcome {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 30px 20px 0;
-    text-align: left;
-  }
-
-  .ml-calc-welcome p {
-    font-size: 1.15em;
-    text-align: left;
-    line-height: 1.5;
+    margin: 0 0 1.5em;
   }
 </style>
 
@@ -154,37 +139,36 @@ title: Mass-Luminosity Calculator
   </p>
 </div>
 
-<div class="ml-calc" style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 30px;">
+<div class="ml-calc" style="display: flex; flex-direction: column; align-items: stretch; gap: 20px;">
 
   <div class="box" style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-<h2 style="text-align: center; font-size: 1.563em;">How to Use</h2>
-<hr style="border: none; border-top: 1px solid #ccc; width: 100%; margin: 10px 0 20px 0;">
+<h2>How to Use</h2>
 
-    <p style="font-size: 1em; text-align: justify;">
+    <p >
       Please select the required calculator and enter either stellar mass or luminosity, hydrogen and metal abundances as mass fractions. Selecting an option from the dropdown below will load the appropriate calculator. Pressing the calculate button will provide the minimum, maximum, and pure-He values for the user input parameters. For more details regarding the structure model grid, see the text description below
     </p>
-    <p style="font-size: 1em;"><strong>Grid parameter range:</strong></p>
-    <p style="font-size: 1em; text-align: justify;">
+    <p ><strong>Grid parameter range:</strong></p>
+    <p >
       1. For mass M, the chemically homogeneous structures (H profile slope of 0) and pure-He structures (H profile slope of inf) have the range 1 ≤ M/Msun ≤ 40, while the structures with H profile slope in between these two extremes have the range 1 ≤ M/Msun ≤ 18. 
     </p>
-    <p style="font-size: 1em; text-align: justify;">
+    <p >
       2. For surface H mass fraction, the range is 0 ≤ X ≤ 0.7
     </p>
-    <p style="font-size: 1em; text-align: justify;">
+    <p >
       3. For surface metal mass fraction, the values are Z = 0.008 (LMC-like, 0.4Zsun) and Z = 0.004 (SMC-like, 0.2Zsun) where Zsun = 0.02.
     </p>
-    <p style="font-size: 1em;"><strong>Warnings and Errors:</strong></p>
-    <p style="font-size: 1em; text-align: justify;">
+    <p ><strong>Warnings and Errors:</strong></p>
+    <p >
       1. Errors are displayed if the inputs are not valid numbers, or if the mass is zero or negative, or if X or Z is negative. X = 0 and Z = 0 are allowed.
     </p>
-    <p style="font-size: 1em; text-align: justify;">
+    <p >
       2. A set of warnings is printed based on the parameter range of the synthetic model grid. If the inputs fall outside the grid’s tested parameter range, a general warning is shown. If the inputs are significantly beyond the grid range such that the minimum or maximum value of M or L is not truly a minimum or maximum, then a warning is issued indicating that the ML fits may be unreliable. If a calculation fails, especially in the mass calculator, an error is issued.
     </p>
-    <p style="font-size: 1em; text-align: justify;">
+    <p >
       3. The model grid was computed for Z = 0.008 and Z = 0.004. For any Z value other than 0.008 or 0.004, interpolation or extrapolation is performed, and a corresponding warning is provided.
     </p>
-<p style="font-size: 1em;"><strong>Python script:</strong></p>
-<p style="font-size: 1em; text-align: justify;">
+<p ><strong>Python script:</strong></p>
+<p >
   The python script used for this calculator is available 
   <a href="https://github.com/Apophis-1/Python-scripts/blob/main/ML-calculator.py" target="_blank" rel="noopener noreferrer">
     here</a>.
@@ -482,8 +466,7 @@ function attachMassListener() {
 
 
 <div id="intro-text" class="ml-calc">
-  <h2 style="text-align: center; font-size: 1.563em;">Further details</h2>
-  <hr style="border: none; border-top: 1px solid #ccc; width: 100%; margin: 10px 0 20px 0;">
+  <h2>Further details</h2>
 
   <p><strong>MLRs in the literature</strong></p>
   <p>
@@ -495,7 +478,7 @@ function attachMassListener() {
 
   <p>The inclusion of such He-core + low-mass H-shell structures leads to very interesting MLRs because the H shell can contribute disproportionately to the total luminosity budget. What do we mean by that? See <strong>Figure 1</strong>, where we show the internal luminosity stratification of a \( 5 \, M_\odot \) model consisting of a \( 4 \, M_\odot \) core and a \( 1 \, M_\odot \) hydrogen envelope. The surface \(X_\mathrm{H}\) is 0.3 and the H profile slope is \(s = 2\). The two spikes in the nuclear energy generation rate mark the two burning regions. The H shell, despite occupying only one-fifth of the total mass, contributes about three-fourths to the total luminosity. This example structure model outputs a total luminosity greater than that of a pure-He model of the same mass, thereby breaking the homology relations. </p>
 
-  <div style="display: flex; justify-content: center; gap: 30px; margin: 30px 0;">
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 30px 0;">
     <div style="text-align: center;">
       <img src="https://gautham-sabhahit.github.io/images/chemical_profile_structure_L.png" alt="Figure 1" style="max-width: 100%; width: 550px; border: 1px solid #ccc; padding: 5px;">
       <p><em>Figure 1:</em> Luminosity stratification of a \( 5 \, M_\odot \) model with a \( 4 \, M_\odot \) He core and \( 1 \, M_\odot \) H shell. The two spikes in the specific nuclear energy generation rate at \(0\) and \( 4 \, M_\odot \) marks the He burning core and the H burning shell.</p>
